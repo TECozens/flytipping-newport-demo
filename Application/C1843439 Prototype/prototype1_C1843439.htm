@@ -1,0 +1,105 @@
+<html>
+  <head>
+    <meta name="viewport" content="initial-scale=1.0, user-scalable=no">
+    <meta charset="utf-8">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <link type="text/css" rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,400,500">
+    <link type="text/css" rel="stylesheet" href="mainForm.css">
+  </head>
+
+<!-- Making a prototype with bootstrap -->
+  <body>
+    <form class="container">
+      <div class="row form-group">
+        <div class="col-1 col-md-6">
+          <formInfo>
+            <label for="Information">Important information</label>
+          </formInfo>
+        </div>
+
+        <div class="col-4 col-md-4">
+          <div id="locationField">
+            <label for="locationField">Where it took place?</label>
+            <br>
+            <input id="autocomplete" placeholder="Enter your address" class="form-control" onFocus="geolocate()" type="text"></input>
+            <small id="addressDesc" class="form-text text-muted">Provide an address</small>
+          </div>
+          <br>
+          <formLocation>
+            <label for="locationDesc">Where it took place?</label>
+            <input type="text" class="form-control" id="locationDesc" aria-describedby="locationDesc" placeholder="Describe the Location">
+            <small id="locationInfo" class="form-text text-muted">Provide accurate points which can be used when investigating this case.</small>
+          </formLocation>
+          <br>
+          <formSubmit>
+            <button type="Next" class="btn btn-primary btn-lg">Next</button>
+          </formSubmit>
+        </div>
+      </div>
+    </form>
+
+    <script>
+      var placeSearch, autocomplete;
+      var componentForm = {
+        street_number: 'short_name',
+        route: 'long_name',
+        locality: 'long_name',
+        administrative_area_level_1: 'short_name',
+        country: 'long_name',
+        postal_code: 'short_name'
+      };
+
+      function initAutocomplete() {
+        // Create the autocomplete object, restricting the search to geographical
+        // location types.
+        autocomplete = new google.maps.places.Autocomplete(
+            /** @type {!HTMLInputElement} */(document.getElementById('autocomplete')),
+            {types: ['geocode']});
+
+        // When the user selects an address from the dropdown, populate the address
+        // fields in the form.
+        autocomplete.addListener('place_changed', fillInAddress);
+      }
+
+      function fillInAddress() {
+        // Get the place details from the autocomplete object.
+        var place = autocomplete.getPlace();
+
+        for (var component in componentForm) {
+          document.getElementById(component).value = '';
+          document.getElementById(component).disabled = false;
+        }
+
+        // Get each component of the address from the place details
+        // and fill the corresponding field on the form.
+        for (var i = 0; i < place.address_components.length; i++) {
+          var addressType = place.address_components[i].types[0];
+          if (componentForm[addressType]) {
+            var val = place.address_components[i][componentForm[addressType]];
+            document.getElementById(addressType).value = val;
+          }
+        }
+      }
+
+      // Bias the autocomplete object to the user's geographical location,
+      // as supplied by the browser's 'navigator.geolocation' object.
+      function geolocate() {
+        if (navigator.geolocation) {
+          navigator.geolocation.getCurrentPosition(function(position) {
+            var geolocation = {
+              lat: position.coords.latitude,
+              lng: position.coords.longitude
+            };
+            var circle = new google.maps.Circle({
+              center: geolocation,
+              radius: position.coords.accuracy
+            });
+            autocomplete.setBounds(circle.getBounds());
+          });
+        }
+      }
+    </script>
+        <script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAbz3hw9mrTSD_ogVStiYLh2tp-I0cKkJ8&libraries=places&callback=initAutocomplete"
+        type="text/javascript"></script>
+  </body>
+</html>
