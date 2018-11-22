@@ -1,0 +1,91 @@
+
+* {
+    box-sizing: border-box;
+}
+body{
+  margin: 0;
+  padding: 0;
+  font-family: sans-serif;
+}
+
+/* box styling ================================================= */
+.box{
+  /* transform: translate(-50%,-50%); */
+  background: rgba(0,128,128,.8);
+  /* padding: 40px; */
+  /* width: 400px; */
+  /* box-sizing: border-box; */
+  /* border-radius: 10px; */
+  padding: 20px;
+  margin: 10px;
+  height: 100%;
+  /* margin-left: 40px; */
+  /* margin-right: 40px; */
+}
+
+.box h2{
+  margin: 0 0 30px;
+  padding: 0;
+  text-align: center;
+}
+
+.box .form-group{
+  position: relative;
+}
+
+.box .form-group input{
+  width: 100%;
+  padding: 10px 0;
+  font-size: 18px;
+  margin-bottom: 12%;
+  border: none;
+  outline: none;
+  border-bottom: 1px solid #fff;
+  background: transparent;
+  display: block;
+  /* box-sizing: border-box; */
+}
+
+button{
+  padding:10px 10px 10px 5px;
+  display:block;
+  width:100%;
+  border:none;
+  border-bottom:1px solid #757575;
+}
+button.hover{
+  
+}
+
+/* LABEL ======================================= */
+.box form-group label {
+  font-size:18px;
+  font-weight:normal;
+  position:absolute;
+  pointer-events:none;
+  left:0px;
+  top:0px;
+  visibility: hidden  ;
+}
+
+.box label{
+  visibility: hidden;
+  /* position: absolute; */
+}
+::placeholder{
+  color: black;
+
+}
+/* Responsiveness phones and tablets ========================== */
+@media (min-width: 813px) {
+  .form-group {
+    background: #f1f1f1;
+  }
+  ::placeholder{
+    visibility: hidden;
+  }
+  .box label{
+  visibility: visible;
+  font-size: 18px
+  }
+}
