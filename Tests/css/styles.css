@@ -1,6 +1,6 @@
 
 * {
-    box-sizing: border-box;
+  box-sizing: border-box;
 }
 body{
   margin: 0;
@@ -15,10 +15,10 @@ body{
   /* padding: 40px; */
   /* width: 400px; */
   /* box-sizing: border-box; */
-  /* border-radius: 10px; */
+  /* border-radius: 20px; */
   padding: 20px;
   margin: 10px;
-  height: 100%;
+  /* height: 100%; */
   /* margin-left: 40px; */
   /* margin-right: 40px; */
 }
@@ -30,14 +30,14 @@ body{
 }
 
 .box .form-group{
-  position: relative;
+  /* position: relative; */
 }
 
 .box .form-group input{
   width: 100%;
   padding: 10px 0;
   font-size: 18px;
-  margin-bottom: 12%;
+  margin-bottom: 60px;
   border: none;
   outline: none;
   border-bottom: 1px solid #fff;
@@ -52,9 +52,14 @@ button{
   width:100%;
   border:none;
   border-bottom:1px solid #757575;
+  background-color: #4CAF50;
+  opacity: 0.6;
+  -webkit-transition-duration: 0.4s; /* Safari */
+  transition-duration: 0.4s;
 }
-button.hover{
-
+button:hover{
+  opacity: 1 ;
+  cursor: pointer;
 }
 
 /* LABEL ======================================= */
@@ -77,7 +82,7 @@ button.hover{
 
 }
 /* Responsiveness phones and tablets ========================== */
-@media (min-width: 813px) {
+@media (min-width: 830px) {
   .form-group {
     background: #f1f1f1;
   }
@@ -85,7 +90,7 @@ button.hover{
     visibility: hidden;
   }
   .box label{
-  visibility: visible;
-  font-size: 18px
+    visibility: visible;
+    font-size: 18px
   }
 }
