@@ -1,0 +1,56 @@
+/* This is the styling for the progress step bar which displays across all form pages.
+Should take the significance of each page into account*/
+.step-pog-bar{
+  margin-top: 20%;
+  counter-reset: step;
+}
+
+.step-pog-bar li{
+  list-style: none;
+  float: left; /*none*/
+  width: 20%;
+  position: relative;
+  text-align: center;
+  /*vertical-align: middle;*/
+}
+
+.step-pog-bar li::before{
+  content: counter(step);
+  counter-increment: step;
+  width: 30px;
+  height: 30px;
+  line-height: 30px;
+  border: 2px solid #ddd;
+  display: block;
+  text-align: center;
+  margin: 0 auto 10px auto;
+  border-radius: 50%;
+  background-color: #fff;
+}
+
+.step-pog-bar li::after{
+  content: '';
+  position: absolute;
+  top: 15px;
+  left: -50%;
+  border: 2px solid #ddd;
+  width: 100%;
+  z-index: -1;
+  vertical-align: middle;
+}
+
+.step-pog-bar li:first-child::after{
+  content: none;
+}
+
+.step-pog-bar li.active{
+  color: #228B22;
+}
+
+.step-pog-bar li.active::before{
+  border-color: #228B22;
+}
+
+.step-pog-bar li.active + li::after{
+  border-color: #228B22;
+}
