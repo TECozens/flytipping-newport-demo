@@ -1,6 +1,9 @@
 /* This is the styling for the progress step bar which displays across all form pages.
 Should take the significance of each page into account*/
-
+.stepContainer{
+  width: 100%;
+  position: fixed;
+}
 .step-pog-bar{
   margin-top: 20%;
   counter-reset: step;
