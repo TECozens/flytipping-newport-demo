@@ -1,5 +1,6 @@
 /* This is the styling for the progress step bar which displays across all form pages.
 Should take the significance of each page into account*/
+
 .step-pog-bar{
   margin-top: 20%;
   counter-reset: step;
@@ -27,7 +28,9 @@ Should take the significance of each page into account*/
   border-radius: 50%;
   background-color: #fff;
 }
-
+.container{
+  width: 100%
+}
 .step-pog-bar li::after{
   content: '';
   position: absolute;
