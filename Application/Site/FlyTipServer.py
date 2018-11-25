@@ -13,5 +13,10 @@ ALLOWED_EXTENSIONS = set(['txt', 'pdf', 'png', 'jpg', 'jpeg', 'gif'])
 def open_main_page():
     return render_template('ReportForm.html')
 
+@app.route("/admin")
+def open_admin_page():
+    return render_template('admin.html')
+
+
 if __name__ == "__main__":
     app.run(debug=True)
