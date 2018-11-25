@@ -8,7 +8,6 @@ body{
   height: 100%;
   font-family: sans-serif;
   background: lightblue;
-  height: 100%;
   background-position: center;
   background-repeat: no-repeat;
   background-size: cover;
@@ -16,18 +15,12 @@ body{
 
 /* box styling ================================================= */
 .box{
-  /* transform: translate(-50%,-50%); */
   margin:auto;
   width: 50%;
   background: #f1f1f1;
-  /* padding: 40px; */
-  /* width: 400px; */
-  /* box-sizing: border-box; */
-  /* border-radius: 20px; */
   padding: 20px;
   max-width: 600px;
-  /* height: 100%; */
-}
+  }
 .box hr{
   color: black;
   margin: 0 0 15px;
