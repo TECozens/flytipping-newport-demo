@@ -13,41 +13,44 @@
 
   <body>
     <!-- Step Bar -->
-    <div class="stepContainer">
-      <ul class="step-pog-bar">
-        <li class="active"> Question 1 </li>
-        <li> Question 2 </li>
-        <li> Question 3 </li>
-        <li> Question 4 </li>
-        <li> Finished </li>
-      </ul>
-    </div>
-    <form class="container">
-      <!-- Content Layout-->
-      <div class="row form-group">
-        <div class="col-1 col-md-6">
-          <formInfo>
-            <label for="someInfo">Some Info</label>
-          </formInfo>
-        </div>
-
-        <div class="col-4 col-md-4">
-          <div id="someName">
-            <label for="someName">Input Something</label>
-            <br>
-            <input id="someName" placeholder="some Input" class="form-control" type="text"></input>
-            <small id="Description" class="form-text text-muted">Some Text</small>
-          </div>
-          <!-- Next Page -->
-          <formSubmit>
-            <button type="Next" class="btn btn-primary btn-lg">Next</button>
-          </formSubmit>
+    <header>
+      <div class="fixed-top">
+        <div class="w3-container">
+          <ul class="progressBar">
+            <li class="active"> Question 1 </li>
+            <li> Question 2 </li>
+            <li> Question 3 </li>
+            <li> Question 4 </li>
+            <li> Finished </li>
+          </ul>
         </div>
       </div>
-    </form>
+    </header>
+    <article>
+      <form class="container">
+        <!-- Content Layout-->
+        <div class="row form-group">
+          <div class="col-1 col-md-8">
+            <label for="someInfo">Some Info</label>
+          </div>
+          <div class="col-4 col-md-4">
+            <div id="someName">
+              <label for="someName">Input Something</label>
+              <br>
+              <input id="someName" placeholder="some Input" class="form-control" type="text"></input>
+              <small id="Description" class="form-text text-muted">Some Text</small>
+            </div>
+            <!-- Next Page -->
+            <formSubmit>
+              <button type="Next" class="btn btn-primary btn-lg">Next</button>
+            </formSubmit>
+          </div>
+        </div>
+      </form>
+    </article>
+    <script>
+    </script>
   </body>
-  <!-- Additional Scripting -->
-  <script>
 
-  </script>
+
 </html>

@@ -1,15 +1,11 @@
 /* This is the styling for the progress step bar which displays across all form pages.
 Should take the significance of each page into account*/
-.stepContainer{
-  width: 100%;
-  position: fixed;
-}
-.step-pog-bar{
-  margin-top: 20%;
+
+.progressBar{
   counter-reset: step;
 }
 
-.step-pog-bar li{
+.progressBar li{
   list-style: none;
   float: left; /*none*/
   width: 20%;
@@ -18,7 +14,7 @@ Should take the significance of each page into account*/
   /*vertical-align: middle;*/
 }
 
-.step-pog-bar li::before{
+.progressBar li::before{
   content: counter(step);
   counter-increment: step;
   width: 30px;
@@ -31,10 +27,10 @@ Should take the significance of each page into account*/
   border-radius: 50%;
   background-color: #fff;
 }
-.container{
+.w3-container{
   width: 100%
 }
-.step-pog-bar li::after{
+.progressBar li::after{
   content: '';
   position: absolute;
   top: 15px;
@@ -45,18 +41,18 @@ Should take the significance of each page into account*/
   vertical-align: middle;
 }
 
-.step-pog-bar li:first-child::after{
+.progressBar li:first-child::after{
   content: none;
 }
 
-.step-pog-bar li.active{
+.progressBar li.active{
   color: #228B22;
 }
 
-.step-pog-bar li.active::before{
+.progressBar li.active::before{
   border-color: #228B22;
 }
 
-.step-pog-bar li.active + li::after{
+.progressBar li.active + li::after{
   border-color: #228B22;
 }

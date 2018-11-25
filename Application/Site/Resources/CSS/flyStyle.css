@@ -1,1 +1,9 @@
 /* Main Stylesheet used for all pages */
+*{
+  margin: 0;
+  padding: 0;
+  border: 0;
+}
+.container{
+  margin-top: 10%;
+}
