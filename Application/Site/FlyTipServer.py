@@ -11,7 +11,7 @@ ALLOWED_EXTENSIONS = set(['txt', 'pdf', 'png', 'jpg', 'jpeg', 'gif'])
 
 @app.route("/flyReport")
 def open_main_page():
-    return render_template('index.html')
+    return render_template('test.html')
 
 if __name__ == "__main__":
     app.run(debug=True)
