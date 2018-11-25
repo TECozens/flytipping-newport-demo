@@ -1,8 +1,9 @@
-/* Main Stylesheet used for all pages */
+/* =============================================== Main Stylesheet used for all pages ===================================================== */
 *{
   margin: 0;
   padding: 0;
   border: 0;
+  box-sizing: border-box;
 }
 .container{
   margin-top: 10%;
@@ -86,3 +87,99 @@ input:checked + .slider:before {
 .slider.round:before {
   border-radius: 50%;
 }
+/* Background styling ========================================== */
+body{
+  margin: 0;
+  padding: 0;
+  height: 100%;
+}
+/* box styling ================================================= */
+.box{
+  margin:auto;
+  width: 50%;
+  background: #f1f1f1;
+  padding: 20px;
+  max-width: 600px;
+  }
+.box hr{
+  color: black;
+  margin: 0 0 15px;
+
+}
+
+.box h2{
+  margin: 0 0 30px;
+  padding: 0;
+  text-align: center;
+}
+.box h3{
+  margin: 0 0 30px;
+  padding: 0;
+  text-align: center;
+}
+.box .formgroup input{
+  width: 100%;
+  padding: 10px 0;
+  font-size: 18px;
+  margin-bottom: 60px;
+  border: none;
+  outline: none;
+  border-bottom: 1px solid #fff;
+  background: transparent;
+  display: block;
+  /* box-sizing: border-box; */
+}
+/* BUTTON =================================== */
+button{
+  padding:10px 10px 10px 5px;
+  display:block;
+  width:100%;
+  border:none;
+  border-bottom:1px solid #757575;
+  background-color: #4CAF50;
+  opacity: 0.6;
+  -webkit-transition-duration: 0.4s; /* Safari */
+  transition-duration: 0.4s;
+}
+button:hover{
+  opacity: 1 ;
+  cursor: pointer;
+}
+
+/* LABEL ======================================= */
+.box .formgroup label {
+  font-size:18px;
+  font-weight:normal;
+  position:absolute;
+  pointer-events:none;
+  left:0px;
+  top:0px;
+  visibility: hidden  ;
+}
+
+.box label{
+  visibility: hidden;
+  /* position: absolute; */
+}
+::placeholder{
+  color: black;
+
+}
+/* Responsiveness phones and tablets ========================== */
+@media (min-width: 800px) {
+  .formgroup {
+    background: #f1f1f1;
+  }
+  ::placeholder{
+    visibility: hidden;
+  }
+  .box label{
+    visibility: visible;
+    font-size: 18px
+  }
+}
+  @media (max-width: 800px) {
+    .box{
+      width: 100%;
+    }
+  }

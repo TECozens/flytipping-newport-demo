@@ -2,33 +2,30 @@
 * {
   box-sizing: border-box;
 }
+
 body{
   margin: 0;
   padding: 0;
   height: 100%;
   font-family: sans-serif;
-  /* The image used */
-  /* Full height */
-  /* Center and scale the image nicely */
-  /* background-position: center; */
-  /* background-repeat: no-repeat; */
-  /* background-size: cover; */
-  background: url(formbackground.jpg);
+  background: lightblue;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
 }
 
 /* box styling ================================================= */
 .box{
-  /* transform: translate(-50%,-50%); */
   margin:auto;
   width: 50%;
   background: #f1f1f1;
-  /* padding: 40px; */
-  /* width: 400px; */
-  /* box-sizing: border-box; */
-  /* border-radius: 20px; */
   padding: 20px;
   max-width: 600px;
-  /* height: 100%; */
+  }
+.box hr{
+  color: black;
+  margin: 0 0 15px;
+
 }
 
 .box h2{
@@ -36,12 +33,17 @@ body{
   padding: 0;
   text-align: center;
 }
+.box h3{
+  margin: 0 0 30px;
+  padding: 0;
+  text-align: center;
+}
 
-.box .form-group{
+.box .formgroup{
   /* position: relative; */
 }
 
-.box .form-group input{
+.box .formgroup input{
   width: 100%;
   padding: 10px 0;
   font-size: 18px;
@@ -53,7 +55,7 @@ body{
   display: block;
   /* box-sizing: border-box; */
 }
-
+/* BUTTON =================================== */
 button{
   padding:10px 10px 10px 5px;
   display:block;
@@ -71,7 +73,7 @@ button:hover{
 }
 
 /* LABEL ======================================= */
-.box form-group label {
+.box .formgroup label {
   font-size:18px;
   font-weight:normal;
   position:absolute;
@@ -91,7 +93,7 @@ button:hover{
 }
 /* Responsiveness phones and tablets ========================== */
 @media (min-width: 800px) {
-  .form-group {
+  .formgroup {
     background: #f1f1f1;
   }
   ::placeholder{
