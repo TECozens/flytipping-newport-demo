@@ -7,13 +7,11 @@ body{
   padding: 0;
   height: 100%;
   font-family: sans-serif;
-  /* The image used */
-  /* Full height */
-  /* Center and scale the image nicely */
-  /* background-position: center; */
-  /* background-repeat: no-repeat; */
-  /* background-size: cover; */
-  background: url(formbackground.jpg);
+  background: lightblue;
+  height: 100%;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
 }
 
 /* box styling ================================================= */
@@ -36,12 +34,18 @@ body{
   padding: 0;
   text-align: center;
 }
+.box h3{
+  margin: 0 0 30px;
+  padding: 0;
+  text-align: center;
+}
+}
 
-.box .form-group{
+.box .formgroup{
   /* position: relative; */
 }
 
-.box .form-group input{
+.box .formgroup input{
   width: 100%;
   padding: 10px 0;
   font-size: 18px;
@@ -71,7 +75,7 @@ button:hover{
 }
 
 /* LABEL ======================================= */
-.box form-group label {
+.box .formgroup label {
   font-size:18px;
   font-weight:normal;
   position:absolute;
@@ -91,7 +95,7 @@ button:hover{
 }
 /* Responsiveness phones and tablets ========================== */
 @media (min-width: 800px) {
-  .form-group {
+  .formgroup {
     background: #f1f1f1;
   }
   ::placeholder{
@@ -107,3 +111,4 @@ button:hover{
       width: 100%;
     }
   }
+  
