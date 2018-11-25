@@ -9,9 +9,9 @@
   margin-top: 10%;
 }
 .card, .btn, .form-control { border-radius: 0; }
-#map {
-        height: 100%;
-      }
+#map{
+  height: 100%;
+}
 .pac-container:after {
   background-image: none !important;
   height: 0px;
