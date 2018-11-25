@@ -5,22 +5,30 @@
 body{
   margin: 0;
   padding: 0;
+  height: 100%;
   font-family: sans-serif;
+  /* The image used */
+  /* Full height */
+  /* Center and scale the image nicely */
+  /* background-position: center; */
+  /* background-repeat: no-repeat; */
+  /* background-size: cover; */
+  background: url(formbackground.jpg);
 }
 
 /* box styling ================================================= */
 .box{
   /* transform: translate(-50%,-50%); */
-  background: rgba(0,128,128,.8);
+  margin:auto;
+  width: 50%;
+  background: #f1f1f1;
   /* padding: 40px; */
   /* width: 400px; */
   /* box-sizing: border-box; */
   /* border-radius: 20px; */
   padding: 20px;
-  margin: 10px;
+  max-width: 600px;
   /* height: 100%; */
-  /* margin-left: 40px; */
-  /* margin-right: 40px; */
 }
 
 .box h2{
@@ -82,7 +90,7 @@ button:hover{
 
 }
 /* Responsiveness phones and tablets ========================== */
-@media (min-width: 830px) {
+@media (min-width: 800px) {
   .form-group {
     background: #f1f1f1;
   }
@@ -94,3 +102,8 @@ button:hover{
     font-size: 18px
   }
 }
+  @media (max-width: 800px) {
+    .box{
+      width: 100%;
+    }
+  }
