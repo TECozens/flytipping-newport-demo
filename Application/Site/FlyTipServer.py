@@ -17,6 +17,10 @@ def open_main_page():
 def open_admin_page():
     return render_template('admin.html')
 
+@app.route("/home")
+def open_home_page():
+    return render_template('home.html')
+
 
 if __name__ == "__main__":
     app.run(debug=True)
