@@ -1,8 +1,32 @@
 {%extends 'index.html'%}
 
-
 {%block mainBlock%}
-<h2>form page 2</h2>
-
+<div class="w3-container">
+  <ul class="progressBar">
+    <li class="active"></li>
+    <li></li>
+    <li></li>
+    <li></li>
+    <li></li>
+  </ul>
+</div>
+<h2>Additional details</h2>
+<form class="container">
+  <!-- Content Layout-->
+  <div class="row">
+    <div class="col-6 col-md-4">
+      <div id="locationDesc">
+        <label for="locationDesc">Describe the location of the incident</label>
+        <br>
+        <input id="someName" placeholder="some Input" class="form-control" type="text"></input>
+        <small id="Description" class="form-text text-muted">Some Text</small>
+      </div>
+      <!-- Next Page -->
+      <formSubmit>
+        <button type="Next" class="btn btn-primary btn-lg">Next</button>
+      </formSubmit>
+    </div>
+  </div>
+</form>
 
 {%endblock%}

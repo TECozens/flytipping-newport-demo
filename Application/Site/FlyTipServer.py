@@ -11,7 +11,7 @@ ALLOWED_EXTENSIONS = set(['txt', 'pdf', 'png', 'jpg', 'jpeg', 'gif'])
 
 @app.route("/flyReport")
 def open_main_page():
-    return render_template('ReportForm.html')
+    return render_template('ReportForm1.html')
 
 @app.route("/admin")
 def open_admin_page():

@@ -1,8 +1,122 @@
+
 {%extends 'index.html'%}
 
-
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+<link href="..\Resources\CSS\flyStyle.css" rel="stylesheet">
+<link href="..\Resources\CSS\progressStyle.css" rel="stylesheet">
+<link href="..\Resources\CSS\flyAddressStlyle.css" rel="stylesheet">
 {%block mainBlock%}
-<h2>form page 1</h2>
+<!-- Progress Bar -->
+<div class="w3-container">
+  <ul class="progressBar">
+    <li class="active"></li>
+    <li></li>
+    <li></li>
+    <li></li>
+    <li></li>
+  </ul>
+</div>
+<h2>Identify the area of the incident</h2>
+<form class="container">
+  <!-- Content Layout-->
+  <div class="row">
+    <div class="col-2 col-md-7">
+      <label for="flyTipInfo">*INSERT INFORMATION ON FLY TIPPING HERE*</label>
+    </div>
+    <div class="col-6 col-md-4">
+      <div id="locationDesc">
+        <label for="locationDesc">Describe the location of the incident</label>
+        <br>
+        <input id="descHelper" placeholder="provide details of the location" class="form-control" type="text"></input>
+        <small id="Description" class="form-text text-muted">Include details such as *Details*</small>
+        <br>
+        <div id="addressField">
+          <label for="addressField">Where it took place?</label>
+          <br>
+          <input id="autocomplete" placeholder="Enter an address" class="form-control" onFocus="geolocate()" type="text"></input>
+          <small id="addressDesc" class="form-text text-muted">Provide an address</small>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-6 col-md-4">
+      <!-- A slider for specific options -->
+      <!-- <label class="switch">
+        <input type="checkbox">
+        <span class="slider round"></span>
+      </label> -->
 
+    </div>
+  </div>
+  <div class="row">
+    <!-- Next Page -->
+    <div class="Next">
+      <button type="Next" class="btn btn-primary btn-lg">Next</button>
+    </div>
+  </div>
+</form>
+<script>
+  var placeSearch, autocomplete;
+  var componentForm = {
+    street_number: 'short_name',
+    route: 'long_name',
+    locality: 'long_name',
+    administrative_area_level_1: 'short_name',
+    country: 'long_name',
+    postal_code: 'short_name'
+  };
 
+  function initAutocomplete() {
+    // Create the autocomplete object, restricting the search to geographical
+    // location types.
+    autocomplete = new google.maps.places.Autocomplete(
+        /** @type {!HTMLInputElement} */(document.getElementById('autocomplete')),
+        {types: ['geocode']});
+
+    // When the user selects an address from the dropdown, populate the address
+    // fields in the form.
+    autocomplete.addListener('place_changed', fillInAddress);
+  }
+
+  function fillInAddress() {
+    // Get the place details from the autocomplete object.
+    var place = autocomplete.getPlace();
+
+    for (var component in componentForm) {
+      document.getElementById(component).value = '';
+      document.getElementById(component).disabled = false;
+    }
+
+    // Get each component of the address from the place details
+    // and fill the corresponding field on the form.
+    for (var i = 0; i < place.address_components.length; i++) {
+      var addressType = place.address_components[i].types[0];
+      if (componentForm[addressType]) {
+        var val = place.address_components[i][componentForm[addressType]];
+        document.getElementById(addressType).value = val;
+      }
+    }
+  }
+
+  // Bias the autocomplete object to the user's geographical location,
+  // as supplied by the browser's 'navigator.geolocation' object.
+  function geolocate() {
+    if (navigator.geolocation) {
+      navigator.geolocation.getCurrentPosition(function(position) {
+        var geolocation = {
+          lat: position.coords.latitude,
+          lng: position.coords.longitude
+        };
+        var circle = new google.maps.Circle({
+          center: geolocation,
+          radius: position.coords.accuracy
+        });
+        autocomplete.setBounds(circle.getBounds());
+      });
+    }
+  }
+</script>
+    <script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAbz3hw9mrTSD_ogVStiYLh2tp-I0cKkJ8&libraries=places&callback=initAutocomplete"
+    type="text/javascript"></script>
 {%endblock%}
