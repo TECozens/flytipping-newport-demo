@@ -28,6 +28,11 @@ body{
   max-width: 600px;
   /* height: 100%; */
 }
+.box hr{
+  color: black;
+  margin: 0 0 15px;
+
+}
 
 .box h2{
   margin: 0 0 30px;
@@ -38,7 +43,6 @@ body{
   margin: 0 0 30px;
   padding: 0;
   text-align: center;
-}
 }
 
 .box .formgroup{
@@ -57,7 +61,7 @@ body{
   display: block;
   /* box-sizing: border-box; */
 }
-
+/* BUTTON =================================== */
 button{
   padding:10px 10px 10px 5px;
   display:block;
@@ -111,4 +115,3 @@ button:hover{
       width: 100%;
     }
   }
-  
