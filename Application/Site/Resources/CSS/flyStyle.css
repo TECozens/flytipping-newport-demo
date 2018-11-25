@@ -13,11 +13,6 @@ body{
   margin: 0;
   padding: 0;
   height: 100%;
-  font-family: sans-serif;
-  background: lightblue;
-  background-position: center;
-  background-repeat: no-repeat;
-  background-size: cover;
 }
 /* box styling ================================================= */
 .box{
