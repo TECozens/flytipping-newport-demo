@@ -21,9 +21,13 @@
     <div class="col-6 col-md-4">
       <div id="locationDesc">
         <label for="locationDesc">would you like to receive emails about your report?</label>
-        <div class="checkbox">
-          <label><input type="checkbox" value="">tick here to receive emails about our progress</label>
-        </div>
+        <input type="checkbox" id="myCheck" onclick="myFunction()"> would you be willing to provide a statment?
+          <p id="text" style="display:none">
+          <br>
+          <label>please enter your email</label>
+          <input id="descHelper" placeholder="provide email" class="form-control" type="text"></input>
+          <small id="Description" class="form-text text-muted">Include valid email</small>
+          </p>
         <br>
       </div>
     </div>
