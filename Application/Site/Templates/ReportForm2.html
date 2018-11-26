@@ -1,32 +1,54 @@
 {%extends 'index.html'%}
 
 {%block mainBlock%}
-<div class="w3-container">
+<!-- Progress Bar -->
+<div class="w3-container" action="action_page.php">
   <ul class="progressBar">
-    <li class="active"></li>
     <li></li>
+    <li class="active"></li>
     <li></li>
     <li></li>
     <li></li>
   </ul>
 </div>
-<h2>Additional details</h2>
-<form class="container">
+<h2>Identify the area of the incident</h2>
+<form class="container" action="action_page.php">
   <!-- Content Layout-->
   <div class="row">
+    <div class="col-2 col-md-7">
+      <label for="flyTipInfo">*INSERT INFORMATION ON FLY TIPPING HERE*</label>
+    </div>
     <div class="col-6 col-md-4">
       <div id="locationDesc">
         <label for="locationDesc">Describe the location of the incident</label>
         <br>
-        <input id="someName" placeholder="some Input" class="form-control" type="text"></input>
-        <small id="Description" class="form-text text-muted">Some Text</small>
+        <input id="descHelper" placeholder="provide details of the location" class="form-control" type="text"></input>
+        <small id="Description" class="form-text text-muted">Include details such as *Details*</small>
+        <br>
+        <div id="addressField">
+          <label for="addressField">Where it took place?</label>
+          <br>
+          <input id="autocomplete" placeholder="Enter an address" class="form-control" onFocus="geolocate()" type="text"></input>
+          <small id="addressDesc" class="form-text text-muted">Provide an address</small>
+        </div>
       </div>
-      <!-- Next Page -->
-      <formSubmit>
-        <button type="Next" class="btn btn-primary btn-lg">Next</button>
-      </formSubmit>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-6 col-md-4">
+      <!-- A slider for specific options -->
+      <!-- <label class="switch">
+        <input type="checkbox">
+        <span class="slider round"></span>
+      </label> -->
+
+    </div>
+  </div>
+  <div class="row">
+    <!-- Next Page -->
+    <div class="Next">
+      <button id="goPage3" type="Next" class="btn btn-primary btn-lg">Next</button>
     </div>
   </div>
 </form>
-
 {%endblock%}

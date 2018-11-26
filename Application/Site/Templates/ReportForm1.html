@@ -1,13 +1,10 @@
-
 {%extends 'index.html'%}
+{%block extra_head%}
 
-<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
-<link href="..\Resources\CSS\flyStyle.css" rel="stylesheet">
-<link href="..\Resources\CSS\progressStyle.css" rel="stylesheet">
-<link href="..\Resources\CSS\flyAddressStlyle.css" rel="stylesheet">
+{%endblock%}
 {%block mainBlock%}
 <!-- Progress Bar -->
-<div class="w3-container">
+<div class="w3-container" action="action_page.php">
   <ul class="progressBar">
     <li class="active"></li>
     <li></li>
@@ -17,7 +14,7 @@
   </ul>
 </div>
 <h2>Identify the area of the incident</h2>
-<form class="container">
+<form class="container" action="action_page.php">
   <!-- Content Layout-->
   <div class="row">
     <div class="col-2 col-md-7">
@@ -52,7 +49,7 @@
   <div class="row">
     <!-- Next Page -->
     <div class="Next">
-      <button type="Next" class="btn btn-primary btn-lg">Next</button>
+      <button id="goPage2" type="Next" class="btn btn-primary btn-lg">Next</button>
     </div>
   </div>
 </form>
