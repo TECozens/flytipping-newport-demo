@@ -21,6 +21,27 @@ def open_admin_page():
 def open_home_page():
     return render_template('home.html')
 
+@app.route("/flyreport1", methods=["POST"])
+def open_flyform1_page():
+    locationDescription = request.form.get("locationDescription", default ="error")
+    print(locationDescription)
+    try:
+        conn = sqlite3.connect(DATABASE)
+        cur = conn.cursor()
+        print("An Error1")
+        cur.execute("INSERT INTO `Reports`(`ID`,`tipLocation`,`locationDescription`,`wasteID`,`wasteSizeID`,`wasteDescription`,`imageID`,`witness`,`witnessID`,`emailaddress`) VALUES (0,'','',0,0,NULL,'','',0,'')")
+        print("An Error1")
+        conn.commit()
+        print("An Error2")
+        msg = "Record successfully added"
+        print("An Error3")
+    except:
+        conn.rollback()
+        msg = "error in insert operation"
+
+    finally:
+        return render_template('ReportForm2.html')
+
 @app.route("/flyreport2")
 def open_flyform2_page():
     try:
@@ -34,8 +55,7 @@ def open_flyform2_page():
         conn.rollback()
         msg = "error in insert operation"
     finally:
-        conn.close()
-    return render_template('ReportForm2.html')
+        return render_template('ReportForm2.html')
 
 @app.route("/flyreport3")
 def open_flyform3_page():
