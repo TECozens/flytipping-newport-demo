@@ -23,62 +23,62 @@ def open_home_page():
 
 @app.route("/flyreport2")
 def open_flyform2_page():
-    try:
-        conn = sqlite3.connect(DATABASE)
-        cur = conn.cursor()
-        cur.execute("UPDATE `Reports` SET `tipLocation`=? WHERE _rowid_='0';")
-        conn.commit()
-        msg = "Record successfully added"
-    except:
-        conn.rollback()
-        msg = "error in insert operation"
-    finally:
-        conn.close()
+    # try:
+    #     conn = sqlite3.connect(DATABASE)
+    #     cur = conn.cursor()
+    #     cur.execute("UPDATE `Reports` SET `tipLocation`=? WHERE _rowid_='0';")
+    #     conn.commit()
+    #     msg = "Record successfully added"
+    # except:
+    #     conn.rollback()
+    #     msg = "error in insert operation"
+    # finally:
+    #     conn.close()
     return render_template('ReportForm2.html')
 
 @app.route("/flyreport3")
 def open_flyform3_page():
-        try:
-            conn = sqlite3.connect(DATABASE)
-            cur = conn.cursor()
-            cur.execute("UPDATE `Reports` SET `locationDescription`=? WHERE _rowid_='0';")
-            conn.commit()
-            msg = "Record successfully added"
-        except:
-            conn.rollback()
-            msg = "error in insert operation"
-        finally:
-            conn.close()
+        # try:
+        #     conn = sqlite3.connect(DATABASE)
+        #     cur = conn.cursor()
+        #     cur.execute("UPDATE `Reports` SET `locationDescription`=? WHERE _rowid_='0';")
+        #     conn.commit()
+        #     msg = "Record successfully added"
+        # except:
+        #     conn.rollback()
+        #     msg = "error in insert operation"
+        # finally:
+        #     conn.close()
         return render_template('ReportForm3.html')
 
 @app.route("/flyreport4")
 def open_flyform4_page():
-    try:
-        conn = sqlite3.connect(DATABASE)
-        cur = conn.cursor()
-        cur.execute("UPDATE `Reports` SET `wasteDescription`=? WHERE _rowid_='0';")
-        conn.commit()
-        msg = "Record successfully added"
-    except:
-        conn.rollback()
-        msg = "error in insert operation"
-    finally:
-        conn.close()
+    # try:
+    #     conn = sqlite3.connect(DATABASE)
+    #     cur = conn.cursor()
+    #     cur.execute("UPDATE `Reports` SET `wasteDescription`=? WHERE _rowid_='0';")
+    #     conn.commit()
+    #     msg = "Record successfully added"
+    # except:
+    #     conn.rollback()
+    #     msg = "error in insert operation"
+    # finally:
+    #     conn.close()
     return render_template('ReportForm4.html')
 
 @app.route("/flyreport5")
 def open_flyform5_page():
-        try:
-            conn = sqlite3.connect(DATABASE)
-            cur = conn.cursor()
-            cur.execute("UPDATE `Reports` SET `emailaddress`=? WHERE _rowid_='0';")
-            conn.commit()
-            msg = "Record successfully added"
-        except:
-            conn.rollback()
-            msg = "error in insert operation"
-        finally:
-            conn.close()
+        # try:
+        #     conn = sqlite3.connect(DATABASE)
+        #     cur = conn.cursor()
+        #     cur.execute("UPDATE `Reports` SET `emailaddress`=? WHERE _rowid_='0';")
+        #     conn.commit()
+        #     msg = "Record successfully added"
+        # except:
+        #     conn.rollback()
+        #     msg = "error in insert operation"
+        # finally:
+        #     conn.close()
         return render_template('ReportForm5.html')
 
 
