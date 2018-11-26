@@ -11,43 +11,32 @@
     <li class="active"></li>
   </ul>
 </div>
-<h2>Identify the area of the incident</h2>
+<h2>Thank you for your report.</h2>
 <form class="container" action="action_page.php">
   <!-- Content Layout-->
   <div class="row">
     <div class="col-2 col-md-7">
-      <label for="flyTipInfo">*INSERT INFORMATION ON FLY TIPPING HERE*</label>
+      <label for="flyTipInfo">Thank you for reporting a fly tipping incident. by doing this you have helped your local authority tackle waste dumping in your area.</label>
     </div>
     <div class="col-6 col-md-4">
       <div id="locationDesc">
-        <label for="locationDesc">Describe the location of the incident</label>
-        <br>
-        <input id="descHelper" placeholder="provide details of the location" class="form-control" type="text"></input>
-        <small id="Description" class="form-text text-muted">Include details such as *Details*</small>
-        <br>
-        <div id="addressField">
-          <label for="addressField">Where it took place?</label>
+        <label for="locationDesc">would you like to receive emails about your report?</label>
+        <input type="checkbox" id="myCheck" onclick="myFunction()"> tick to recieve emails
+          <p id="text" style="display:none">
           <br>
-          <input id="autocomplete" placeholder="Enter an address" class="form-control" onFocus="geolocate()" type="text"></input>
-          <small id="addressDesc" class="form-text text-muted">Provide an address</small>
-        </div>
+          <label>please enter your email</label>
+          <input id="descHelper" placeholder="provide email" class="form-control" type="text"></input>
+          <small id="Description" class="form-text text-muted">Include valid email</small>
+          </p>
+        <br>
       </div>
     </div>
   </div>
-  <div class="row">
-    <div class="col-6 col-md-4">
-      <!-- A slider for specific options -->
-      <!-- <label class="switch">
-        <input type="checkbox">
-        <span class="slider round"></span>
-      </label> -->
 
-    </div>
-  </div>
   <div class="row">
     <!-- Next Page -->
     <div class="Next">
-      <a href="/home" class="btn btn-primary btn-lg">Continue</a>
+      <a href="/home" class="btn btn-primary btn-lg">Home</a>
     </div>
   </div>
 </form>

@@ -11,26 +11,40 @@
     <li></li>
   </ul>
 </div>
-<h2>Identify the area of the incident</h2>
+<h2>where you a witness?</h2>
 <form class="container" action="action_page.php">
   <!-- Content Layout-->
   <div class="row">
     <div class="col-2 col-md-7">
-      <label for="flyTipInfo">*INSERT INFORMATION ON FLY TIPPING HERE*</label>
+      <label for="flyTipInfo">Did you witness a person or persons dumping their waste? If yes then tick the boxes to indicate this. It is important that if you do this you understand you are willing to give a statment to the police. Because of this you must make sure all the information is truthful.</label>
     </div>
     <div class="col-6 col-md-4">
       <div id="locationDesc">
-        <label for="locationDesc">Describe the location of the incident</label>
-        <br>
-        <input id="descHelper" placeholder="provide details of the location" class="form-control" type="text"></input>
-        <small id="Description" class="form-text text-muted">Include details such as *Details*</small>
-        <br>
-        <div id="addressField">
-          <label for="addressField">Where it took place?</label>
-          <br>
-          <input id="autocomplete" placeholder="Enter an address" class="form-control" onFocus="geolocate()" type="text"></input>
-          <small id="addressDesc" class="form-text text-muted">Provide an address</small>
+        <label for="locationDesc">did you witness the waste being dumped?</label>
+        <div class="checkbox">
+          <label><input type="checkbox" value="">did you witness the waste being dumped?</label>
         </div>
+
+        <input type="checkbox" id="myCheck" onclick="myFunction()"> would you be willing to provide a statment?
+        <p id="text" style="display:none">
+
+          <br>
+          <label>please enter information about what you whitnessed, this could include vehicle registation or a discription of the individual</label>
+          <input id="descHelper" placeholder="provide details of incident" class="form-control" type="text"></input>
+          <small id="Description" class="form-text text-muted">Include details such as *Description*</small>
+          <br>
+          <label>please enter any additional information about what you veiwed</label>
+          <input id="descHelper" placeholder="provide additional details of incident" class="form-control" type="text"></input>
+          <small id="Description" class="form-text text-muted">Include details such as *Description*</small>
+          <br>
+          <label>please enter your phone number</label>
+          <input id="descHelper" placeholder="enter phone number" class="form-control" type="text"></input>
+          <small id="Description" class="form-text text-muted">Include a phone number we can contact you on</small>
+
+
+
+        </p>
+        <br>
       </div>
     </div>
   </div>
