@@ -33,8 +33,7 @@ def open_flyform2_page():
         conn.rollback()
         msg = "error in insert operation"
     finally:
-        conn.close()
-    return render_template('ReportForm2.html')
+        return render_template('ReportForm2.html')
 
 @app.route("/flyreport3")
 def open_flyform3_page():
@@ -48,8 +47,7 @@ def open_flyform3_page():
             conn.rollback()
             msg = "error in insert operation"
         finally:
-            conn.close()
-        return render_template('ReportForm3.html')
+            return render_template('ReportForm3.html')
 
 @app.route("/flyreport4")
 def open_flyform4_page():
@@ -63,8 +61,7 @@ def open_flyform4_page():
         conn.rollback()
         msg = "error in insert operation"
     finally:
-        conn.close()
-    return render_template('ReportForm4.html')
+        return render_template('ReportForm4.html')
 
 @app.route("/flyreport5")
 def open_flyform5_page():
@@ -78,8 +75,7 @@ def open_flyform5_page():
             conn.rollback()
             msg = "error in insert operation"
         finally:
-            conn.close()
-        return render_template('ReportForm5.html')
+            return render_template('ReportForm5.html')
 
 
 if __name__ == "__main__":
