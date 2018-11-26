@@ -5,10 +5,9 @@
   border: 0;
   box-sizing: border-box;
 }
-/* .container{
+.container{
   margin-top: 10%;
-} */
-
+}
 .card, .btn, .form-control { border-radius: 0; }
 #map{
   height: 100%;

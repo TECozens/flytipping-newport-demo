@@ -1,0 +1,58 @@
+/* This is the styling for the progress step bar which displays across all form pages.
+Should take the significance of each page into account*/
+
+.progressBar{
+  counter-reset: step;
+}
+
+.progressBar li{
+  list-style: none;
+  float: left; /*none*/
+  width: 20%;
+  position: relative;
+  text-align: center;
+  /*vertical-align: middle;*/
+}
+
+.progressBar li::before{
+  content: counter(step);
+  counter-increment: step;
+  width: 30px;
+  height: 30px;
+  line-height: 30px;
+  border: 2px solid #ddd;
+  display: block;
+  text-align: center;
+  margin: 0 auto 10px auto;
+  border-radius: 50%;
+  background-color: #fff;
+}
+.w3-container{
+  width: 100%
+}
+.progressBar li::after{
+  content: '';
+  position: absolute;
+  top: 15px;
+  left: -50%;
+  border: 2px solid #ddd;
+  width: 100%;
+  z-index: -1;
+  vertical-align: middle;
+}
+
+.progressBar li:first-child::after{
+  content: none;
+}
+
+.progressBar li.active{
+  color: #228B22;
+}
+
+.progressBar li.active::before{
+  border-color: #228B22;
+}
+
+.progressBar li.active + li::after{
+  border-color: #228B22;
+}
