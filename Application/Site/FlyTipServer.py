@@ -2,7 +2,7 @@ import os
 from flask import Flask, redirect, request, render_template, make_response, escape, session
 import sqlite3
 
-DATABASE = 'Database/report.db'
+DATABASE = 'Resources/Database/report.db'
 
 app = Flask(__name__)
 
@@ -23,17 +23,19 @@ def open_home_page():
 
 @app.route("/flyreport2")
 def open_flyform2_page():
-    # try:
-    #     conn = sqlite3.connect(DATABASE)
-    #     cur = conn.cursor()
-    #     cur.execute("UPDATE `Reports` SET `tipLocation`=? WHERE _rowid_='0';")
-    #     conn.commit()
-    #     msg = "Record successfully added"
-    # except:
-    #     conn.rollback()
-    #     msg = "error in insert operation"
-    # finally:
-    #     conn.close()
+    try:
+        print('1')
+        conn = sqlite3.connect(DATABASE)
+        print('2')
+        cur = conn.cursor()
+        # cur.execute("UPDATE `Reports` SET `tipLocation`=? WHERE _rowid_='0';")
+        # conn.commit()
+        msg = "Record successfully added"
+    except:
+        conn.rollback()
+        msg = "error in insert operation"
+    finally:
+        conn.close()
     return render_template('ReportForm2.html')
 
 @app.route("/flyreport3")
