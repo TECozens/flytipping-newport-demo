@@ -14,23 +14,23 @@
   </ul>
 </div>
 <h2>Identify the area of the incident</h2>
-<form class="container">
+<form id="form1" class="container" action="/flyreport1" method="POST">
   <!-- Content Layout-->
   <div class="row">
     <div class="col-2 col-md-7">
       <label for="flyTipInfo">*INSERT INFORMATION ON FLY TIPPING HERE*</label>
     </div>
     <div class="col-6 col-md-4">
-      <div id="locationDesc">
-        <label for="locationDesc">Describe the location of the incident</label>
+      <div id="descHelper">
+        <label for="descHelper">Describe the location of the incident</label>
         <br>
-        <input id="descHelper" placeholder="provide details of the location" class="form-control" type="text"></input>
+        <input name="locationDescription" placeholder="provide details of the location" class="form-control" type="text"></input>
         <small id="Description" class="form-text text-muted">Include details such as *Details*</small>
         <br>
         <div id="addressField">
           <label for="addressField">Where it took place?</label>
           <br>
-          <input id="autocomplete" placeholder="Enter an address" class="form-control" onFocus="geolocate()" type="text"></input>
+          <input id="autocomplete" placeholder="Enter an address" class="form-control" type="text"></input>
           <small id="addressDesc" class="form-text text-muted">Provide an address</small>
         </div>
       </div>
@@ -54,6 +54,9 @@
   </div>
 </form>
 
+<<<<<<< HEAD
 
 
+=======
+>>>>>>> 0bbb5bb908cc0a6ef117be31a2ffbf785216ac72
 {%endblock%}
