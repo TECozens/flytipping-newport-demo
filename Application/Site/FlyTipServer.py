@@ -28,19 +28,6 @@ if __name__ == "__main__":
 try:
     conn = sqlite3.connect(DATABASE)
     cur = conn.cursor()
-    cur.execute("INSERT INTO ID")
-    conn.commit()
-    msg = "Record successfully added“
-except:
-    conn.rollback()
-    msg = "error in insert operation“
-finally:
-    return msg
-    conn.close()
-
-try:
-    conn = sqlite3.connect(DATABASE)
-    cur = conn.cursor()
     cur.execute("INSERT INTO tipLocation")
     conn.commit()
     msg = "Record successfully added“
