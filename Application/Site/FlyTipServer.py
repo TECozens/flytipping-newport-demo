@@ -43,12 +43,12 @@ def open_flyform1_page():
         msg = "error in insert operation"
 
     finally:
+        conn.close()
         return render_template('ReportForm2.html')
 
 @app.route("/flyreport2")
 def open_flyform2_page():
     try:
-
         conn = sqlite3.connect(DATABASE)
         cur = conn.cursor()
         cur.execute("UPDATE `Reports` SET `tipLocation`=? WHERE _rowid_='0';")
@@ -58,7 +58,8 @@ def open_flyform2_page():
         conn.rollback()
         msg = "error in insert operation"
     finally:
-        return render_template('ReportForm2.html')
+        conn.close()
+        return render_template('ReportForm3.html')
 
 @app.route("/flyreport3")
 def open_flyform3_page():
@@ -72,6 +73,7 @@ def open_flyform3_page():
             conn.rollback()
             msg = "error in insert operation"
         finally:
+            conn.close()
             return render_template('ReportForm3.html')
 
 @app.route("/flyreport4")
@@ -86,6 +88,7 @@ def open_flyform4_page():
         conn.rollback()
         msg = "error in insert operation"
     finally:
+        conn.close()
         return render_template('ReportForm4.html')
 
 @app.route("/flyreport5")
@@ -100,6 +103,7 @@ def open_flyform5_page():
             conn.rollback()
             msg = "error in insert operation"
         finally:
+            conn.close()
             return render_template('ReportForm5.html')
 
 
