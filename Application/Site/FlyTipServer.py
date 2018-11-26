@@ -21,6 +21,22 @@ def open_admin_page():
 def open_home_page():
     return render_template('home.html')
 
+@app.route("/flyreport2")
+def open_flyform2_page():
+    return render_template('ReportForm2.html')
+
+@app.route("/flyreport3")
+def open_flyform3_page():
+    return render_template('ReportForm3.html')
+
+@app.route("/flyreport4")
+def open_flyform4_page():
+    return render_template('ReportForm4.html')
+
+@app.route("/flyreport5")
+def open_flyform5_page():
+    return render_template('ReportForm5.html')
+
 
 if __name__ == "__main__":
     app.run(debug=True)
