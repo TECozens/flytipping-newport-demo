@@ -19,17 +19,26 @@
       <label for="flyTipInfo">*INSERT INFORMATION ON FLY TIPPING HERE*</label>
     </div>
     <div class="col-6 col-md-4">
-      <div id="locationDesc">
-        <label for="locationDesc">Describe the location of the incident</label>
+      <div id="waste">
+        <label for="waste">Select the waste you found</label>
         <br>
-        <input id="descHelper" placeholder="provide details of the location" class="form-control" type="text"></input>
-        <small id="Description" class="form-text text-muted">Include details such as *Details*</small>
+        <input class="form-control" type="text"></input>
+        <small class="form-text text-muted">Select waste found</small>
         <br>
-        <div id="addressField">
-          <label for="addressField">Where it took place?</label>
+        <div class="form-group">
+          <label for="sel1">Select list (select one):</label>
+          <select class="form-control" id="sel1">
+            <option>1</option>
+            <option>2</option>
+            <option>3</option>
+            <option>4</option>
+          </select>
           <br>
-          <input id="autocomplete" placeholder="Enter an address" class="form-control" onFocus="geolocate()" type="text"></input>
-          <small id="addressDesc" class="form-text text-muted">Provide an address</small>
+        <div id="wastesize">
+          <label for="wastesize">Select the waste size</label>
+          <br>
+          <input class="form-control" onFocus="geolocate()" type="text"></input>
+          <small class="form-text text-muted">Select a Wastesize</small>
         </div>
       </div>
     </div>
