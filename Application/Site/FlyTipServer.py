@@ -24,13 +24,16 @@ def open_home_page():
 @app.route("/flyreport1", methods=["POST"])
 def open_flyform1_page():
     locationDescription = request.form.get("locationDescription", default ="error")
+    tipLocation = request.form.get("tipLocation", default ="error")
     print(locationDescription)
     try:
+        print('trying')
         conn = sqlite3.connect(DATABASE)
         cur = conn.cursor()
-        print("An Error1")
-        cur.execute("INSERT INTO `Reports`(`ID`,`tipLocation`,`locationDescription`,`wasteID`,`wasteSizeID`,`wasteDescription`,`imageID`,`witness`,`witnessID`,`emailaddress`) VALUES (0,'','',0,0,NULL,'','',0,'')")
-        print("An Error1")
+        print("An connecting")
+        cur.execute("INSERT INTO  Reports ('ID','tipLocation','locationDescription','wasteID','wasteSizeID','wasteDescription','imageID','witness','witnessID','emailaddress')\
+                     VALUES(?,?,?,?,?,?,?,?,?,?)",(0,tipLocation,locationDescription,0,0,'NULL',0,'',0,''))
+        print('connected')
         conn.commit()
         print("An Error2")
         msg = "Record successfully added"

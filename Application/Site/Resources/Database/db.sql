@@ -1,4 +1,4 @@
-CREATE TABLE "Reports" (
+CREATE TABLE `Reports` (
   `ID` INTEGER NOT NULL PRIMARY KEY AUTOINCREMENT,
   `tipLocation` TEXT NOT NULL,
   `locationDescription` TEXT NOT NULL,
