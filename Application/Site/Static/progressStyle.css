@@ -46,13 +46,13 @@ Should take the significance of each page into account*/
 }
 
 .progressBar li.active{
-  color: #228B22;
+  color: #175945;
 }
 
 .progressBar li.active::before{
-  border-color: #228B22;
+  border-color: #175945;
 }
 
 .progressBar li.active + li::after{
-  border-color: #228B22;
+  border-color: #175945;
 }
