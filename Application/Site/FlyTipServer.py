@@ -26,7 +26,7 @@ def open_flyform2_page():
     try:
         conn = sqlite3.connect(DATABASE)
         cur = conn.cursor()
-        cur.execute("UPDATE `Reports` SET `tipLocation`=? WHERE _rowid_='0';")
+        cur.execute("UPDATE `Reports` SET `tipLocation`=blah WHERE id='0';")
         conn.commit()
         msg = "Record successfully added"
     except:
@@ -35,13 +35,14 @@ def open_flyform2_page():
     finally:
         conn.close()
     return render_template('ReportForm2.html')
+print(open_flyform2_page)
 
 @app.route("/flyreport3")
 def open_flyform3_page():
         try:
             conn = sqlite3.connect(DATABASE)
             cur = conn.cursor()
-            cur.execute("UPDATE `Reports` SET `locationDescription`=? WHERE _rowid_='0';")
+            cur.execute("UPDATE `Reports` SET `locationDescription`=? WHERE _id_='0';")
             conn.commit()
             msg = "Record successfully added"
         except:
