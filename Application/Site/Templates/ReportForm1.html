@@ -14,17 +14,17 @@
   </ul>
 </div>
 <h2>Identify the area of the incident</h2>
-<form class="container">
+<form id="form1" class="container" action="/flyreport1" method="POST">
   <!-- Content Layout-->
   <div class="row">
     <div class="col-2 col-md-7">
-      <label for="flyTipInfo">*INSERT INFORMATION ON FLY TIPPING HERE*</label>
+      <label for="flyTipInfo">During 2016-17, local authorities in Wales reported 38,614 fly-tipping incidents, representing an annual increase of around 2,400 incidents (6 per cent). This compares with an annual increase of 14 per cent in the number of incidents between 2014-15 and 2015-16. Previously, the number of incidents had consistently fallen from a peak of nearly 62,000 incidents in 2007-08 to around 31,700 in 2014-15. Estimated fly-tipping clearance costs have slightly risen from £2.1 million in 2015-16 to £2.2 million in 2016-17</label>
     </div>
     <div class="col-6 col-md-4">
-      <div id="locationDesc">
-        <label for="locationDesc">Describe the location of the incident</label>
+      <div id="descHelper">
+        <label for="descHelper">Describe the location of the incident</label>
         <br>
-        <input id="descHelper" placeholder="provide details of the location" class="form-control" type="text"></input>
+        <input name="locationDescription" placeholder="provide details of the location" class="form-control" type="text"></input>
         <small id="Description" class="form-text text-muted">Include details such as *Details*</small>
         <br>
         <div id="addressField">
@@ -49,8 +49,9 @@
   <div class="row">
     <!-- Next Page -->
     <div class="Next">
-      <a href="/flyreport2" class="btn btn-primary btn-lg">Next</a>
+      <a href="/flyreport2" class="btn btn-primary btn-lg">Continue</a>
     </div>
   </div>
 </form>
+
 {%endblock%}
