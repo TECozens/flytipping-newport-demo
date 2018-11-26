@@ -23,8 +23,24 @@
       <div id="waste">
         <label for="waste">Select the waste you found</label>
         <br>
-        <input class="form-control" type="text"></input>
-        <small class="form-text text-muted">Select waste found</small>
+        <input type="checkbox"> black bags
+        <input type="checkbox"> construction
+        <br>
+        <input type="checkbox"> white goods
+        <input type="checkbox"> furniture
+        <br>
+        <input type="checkbox"> tyres
+        <input type="checkbox"> mattress
+        <br>
+        <input type="checkbox"> vehicle parts
+        <input type="checkbox"> green waste
+        <br>
+        <input type="checkbox"> clinical
+        <input type="checkbox"> animal carcass
+        <br>
+        <label for="descHelper">waste not listed above? describe waste below</label>
+        <input name="locationDescription" placeholder="provide details of the location" class="form-control" type="text"></input>
+        <small id="Description" class="form-text text-muted">Include details such as type of waste</small>
         <br>
           <label for="sel1">Select the waste size (select one):</label>
           <select class="form-control" id="sel1">
@@ -36,10 +52,7 @@
             <option>Tipper lorry load</option>
             <option>Significant multiple loads</option>
           </select>
-          <br>
         <div id="wastesize">
-          <label for="wastesize">Select the waste size</label>
-          <br>
           <small class="form-text text-muted">Select a Wastesize</small>
         </div>
       </div>
