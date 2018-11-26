@@ -13,10 +13,11 @@ body{
   height: 400px;
   background: #1abc9c;
   float: left;
+  border-radius: 15px;
 }
 #data{
   height: 700px;
-  background: url(walesbackground.jpg);
+  background: url(panelBackground.jpg);
   color: white;
   font-family: Helvetica;
   font-size: 25px;
