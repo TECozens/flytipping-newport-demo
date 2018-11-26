@@ -21,123 +21,33 @@ def open_admin_page():
 def open_home_page():
     return render_template('home.html')
 
+@app.route("/flyreport2")
+def open_flyform2_page():
+    try:
+        conn = sqlite3.connect(DATABASE)
+        cur = conn.cursor()
+        cur.execute("INSERT INTO emailaddress")
+        conn.commit()
+        msg = "Record successfully added"
+    except:
+        conn.rollback()
+        msg = "error in insert operation"
+    finally:
+        conn.close()
+    return render_template('ReportForm2.html')
+
+@app.route("/flyreport3")
+def open_flyform3_page():
+    return render_template('ReportForm3.html')
+
+@app.route("/flyreport4")
+def open_flyform4_page():
+    return render_template('ReportForm4.html')
+
+@app.route("/flyreport5")
+def open_flyform5_page():
+    return render_template('ReportForm5.html')
+
 
 if __name__ == "__main__":
     app.run(debug=True)
-
-try:
-    conn = sqlite3.connect(DATABASE)
-    cur = conn.cursor()
-    cur.execute("INSERT INTO tipLocation")
-    conn.commit()
-    msg = "Record successfully added“
-except:
-    conn.rollback()
-    msg = "error in insert operation“
-finally:
-    return msg
-    conn.close()
-
-try:
-    conn = sqlite3.connect(DATABASE)
-    cur = conn.cursor()
-    cur.execute("INSERT INTO locationDescription")
-    conn.commit()
-    msg = "Record successfully added“
-except:
-    conn.rollback()
-    msg = "error in insert operation“
-finally:
-    return msg
-    conn.close()
-
-try:
-    conn = sqlite3.connect(DATABASE)
-    cur = conn.cursor()
-    cur.execute("INSERT INTO wasteID")
-    conn.commit()
-    msg = "Record successfully added“
-except:
-    conn.rollback()
-    msg = "error in insert operation“
-finally:
-    return msg
-    conn.close()
-
-try:
-    conn = sqlite3.connect(DATABASE)
-    cur = conn.cursor()
-    cur.execute("INSERT INTO wasteSizeID")
-    conn.commit()
-    msg = "Record successfully added“
-except:
-    conn.rollback()
-    msg = "error in insert operation“
-finally:
-    return msg
-    conn.close()
-
-try:
-    conn = sqlite3.connect(DATABASE)
-    cur = conn.cursor()
-    cur.execute("INSERT INTO wasteDescription")
-    conn.commit()
-    msg = "Record successfully added“
-except:
-    conn.rollback()
-    msg = "error in insert operation“
-finally:
-    return msg
-    conn.close()
-
-try:
-    conn = sqlite3.connect(DATABASE)
-    cur = conn.cursor()
-    cur.execute("INSERT INTO imageID")
-    conn.commit()
-    msg = "Record successfully added“
-except:
-    conn.rollback()
-    msg = "error in insert operation“
-finally:
-    return msg
-    conn.close()
-
-try:
-    conn = sqlite3.connect(DATABASE)
-    cur = conn.cursor()
-    cur.execute("INSERT INTO witness")
-    conn.commit()
-    msg = "Record successfully added“
-except:
-    conn.rollback()
-    msg = "error in insert operation“
-finally:
-    return msg
-    conn.close()
-
-try:
-    conn = sqlite3.connect(DATABASE)
-    cur = conn.cursor()
-    cur.execute("INSERT INTO witnessID")
-    conn.commit()
-    msg = "Record successfully added“
-except:
-    conn.rollback()
-    msg = "error in insert operation“
-finally:
-    return msg
-    conn.close()
-
-try:
-    conn = sqlite3.connect(DATABASE)
-    cur = conn.cursor()
-    cur.execute("INSERT INTO emailaddress")
-    conn.commit()
-    msg = "Record successfully added“
-except:
-    conn.rollback()
-    msg = "error in insert operation“
-finally:
-    return msg
-    conn.close()
