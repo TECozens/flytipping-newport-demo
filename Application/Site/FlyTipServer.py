@@ -28,7 +28,7 @@ if __name__ == "__main__":
 try:
     conn = sqlite3.connect(DATABASE)
     cur = conn.cursor()
-    cur.execute("INSERT INTO ID
+    cur.execute("INSERT INTO ID")
     conn.commit()
     msg = "Record successfully added“
 except:
@@ -41,7 +41,7 @@ finally:
 try:
     conn = sqlite3.connect(DATABASE)
     cur = conn.cursor()
-    cur.execute("INSERT INTO tipLocation
+    cur.execute("INSERT INTO tipLocation")
     conn.commit()
     msg = "Record successfully added“
 except:
@@ -54,7 +54,7 @@ finally:
 try:
     conn = sqlite3.connect(DATABASE)
     cur = conn.cursor()
-    cur.execute("INSERT INTO locationDescription
+    cur.execute("INSERT INTO locationDescription")
     conn.commit()
     msg = "Record successfully added“
 except:
@@ -67,7 +67,7 @@ finally:
 try:
     conn = sqlite3.connect(DATABASE)
     cur = conn.cursor()
-    cur.execute("INSERT INTO wasteID
+    cur.execute("INSERT INTO wasteID")
     conn.commit()
     msg = "Record successfully added“
 except:
@@ -80,7 +80,7 @@ finally:
 try:
     conn = sqlite3.connect(DATABASE)
     cur = conn.cursor()
-    cur.execute("INSERT INTO wasteSizeID
+    cur.execute("INSERT INTO wasteSizeID")
     conn.commit()
     msg = "Record successfully added“
 except:
@@ -93,7 +93,7 @@ finally:
 try:
     conn = sqlite3.connect(DATABASE)
     cur = conn.cursor()
-    cur.execute("INSERT INTO wasteDescription
+    cur.execute("INSERT INTO wasteDescription")
     conn.commit()
     msg = "Record successfully added“
 except:
@@ -106,7 +106,7 @@ finally:
 try:
     conn = sqlite3.connect(DATABASE)
     cur = conn.cursor()
-    cur.execute("INSERT INTO imageID
+    cur.execute("INSERT INTO imageID")
     conn.commit()
     msg = "Record successfully added“
 except:
@@ -119,7 +119,7 @@ finally:
 try:
     conn = sqlite3.connect(DATABASE)
     cur = conn.cursor()
-    cur.execute("INSERT INTO witness
+    cur.execute("INSERT INTO witness")
     conn.commit()
     msg = "Record successfully added“
 except:
@@ -132,7 +132,7 @@ finally:
 try:
     conn = sqlite3.connect(DATABASE)
     cur = conn.cursor()
-    cur.execute("INSERT INTO witnessID
+    cur.execute("INSERT INTO witnessID")
     conn.commit()
     msg = "Record successfully added“
 except:
@@ -145,7 +145,7 @@ finally:
 try:
     conn = sqlite3.connect(DATABASE)
     cur = conn.cursor()
-    cur.execute("INSERT INTO emailaddress
+    cur.execute("INSERT INTO emailaddress")
     conn.commit()
     msg = "Record successfully added“
 except:
