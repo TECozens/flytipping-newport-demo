@@ -40,48 +40,45 @@ def open_flyform2_page():
 
 @app.route("/flyreport3")
 def open_flyform3_page():
-        # try:
-        #     conn = sqlite3.connect(DATABASE)
-        #     cur = conn.cursor()
-        #     cur.execute("UPDATE `Reports` SET `locationDescription`=? WHERE _rowid_='0';")
-        #     conn.commit()
-        #     msg = "Record successfully added"
-        # except:
-        #     conn.rollback()
-        #     msg = "error in insert operation"
-        # finally:
-        #     conn.close()
-        return render_template('ReportForm3.html')
+        try:
+            conn = sqlite3.connect(DATABASE)
+            cur = conn.cursor()
+            cur.execute("UPDATE `Reports` SET `locationDescription`=? WHERE _rowid_='0';")
+            conn.commit()
+            msg = "Record successfully added"
+        except:
+            conn.rollback()
+            msg = "error in insert operation"
+        finally:
+            return render_template('ReportForm3.html')
 
 @app.route("/flyreport4")
 def open_flyform4_page():
-    # try:
-    #     conn = sqlite3.connect(DATABASE)
-    #     cur = conn.cursor()
-    #     cur.execute("UPDATE `Reports` SET `wasteDescription`=? WHERE _rowid_='0';")
-    #     conn.commit()
-    #     msg = "Record successfully added"
-    # except:
-    #     conn.rollback()
-    #     msg = "error in insert operation"
-    # finally:
-    #     conn.close()
-    return render_template('ReportForm4.html')
+    try:
+        conn = sqlite3.connect(DATABASE)
+        cur = conn.cursor()
+        cur.execute("UPDATE `Reports` SET `wasteDescription`=? WHERE _rowid_='0';")
+        conn.commit()
+        msg = "Record successfully added"
+    except:
+        conn.rollback()
+        msg = "error in insert operation"
+    finally:
+        return render_template('ReportForm4.html')
 
 @app.route("/flyreport5")
 def open_flyform5_page():
-        # try:
-        #     conn = sqlite3.connect(DATABASE)
-        #     cur = conn.cursor()
-        #     cur.execute("UPDATE `Reports` SET `emailaddress`=? WHERE _rowid_='0';")
-        #     conn.commit()
-        #     msg = "Record successfully added"
-        # except:
-        #     conn.rollback()
-        #     msg = "error in insert operation"
-        # finally:
-        #     conn.close()
-        return render_template('ReportForm5.html')
+        try:
+            conn = sqlite3.connect(DATABASE)
+            cur = conn.cursor()
+            cur.execute("UPDATE `Reports` SET `emailaddress`=? WHERE _rowid_='0';")
+            conn.commit()
+            msg = "Record successfully added"
+        except:
+            conn.rollback()
+            msg = "error in insert operation"
+        finally:
+            return render_template('ReportForm5.html')
 
 
 if __name__ == "__main__":
