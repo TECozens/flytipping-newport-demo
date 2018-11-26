@@ -45,6 +45,7 @@ def open_flyform1_page():
 @app.route("/flyreport2")
 def open_flyform2_page():
     try:
+
         conn = sqlite3.connect(DATABASE)
         cur = conn.cursor()
         cur.execute("UPDATE `Reports` SET `tipLocation`=? WHERE _rowid_='0';")
