@@ -24,12 +24,10 @@ def open_home_page():
 @app.route("/flyreport2")
 def open_flyform2_page():
     try:
-        print('1')
         conn = sqlite3.connect(DATABASE)
-        print('2')
         cur = conn.cursor()
-        # cur.execute("UPDATE `Reports` SET `tipLocation`=? WHERE _rowid_='0';")
-        # conn.commit()
+        cur.execute("UPDATE `Reports` SET `tipLocation`=? WHERE _rowid_='0';")
+        conn.commit()
         msg = "Record successfully added"
     except:
         conn.rollback()
