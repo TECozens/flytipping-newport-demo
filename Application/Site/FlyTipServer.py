@@ -23,17 +23,17 @@ def open_home_page():
 
 @app.route("/flyreport2")
 def open_flyform2_page():
-    try:
-        conn = sqlite3.connect(DATABASE)
-        cur = conn.cursor()
-        cur.execute("INSERT INTO emailaddress")
-        conn.commit()
-        msg = "Record successfully added"
-    except:
-        conn.rollback()
-        msg = "error in insert operation"
-    finally:
-        conn.close()
+    # try:
+    #     conn = sqlite3.connect(DATABASE)
+    #     cur = conn.cursor()
+    #     cur.execute("INSERT INTO emailaddress")
+    #     conn.commit()
+    #     msg = "Record successfully added"
+    # except:
+    #     conn.rollback()
+    #     msg = "error in insert operation"
+    # finally:
+    #     conn.close()
     return render_template('ReportForm2.html')
 
 @app.route("/flyreport3")

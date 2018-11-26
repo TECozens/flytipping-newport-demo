@@ -4,7 +4,7 @@
 {%endblock%}
 {%block mainBlock%}
 <!-- Progress Bar -->
-<div class="w3-container" action="action_page.php">
+<div class="w3-container">
   <ul class="progressBar">
     <li class="active"></li>
     <li></li>
@@ -14,7 +14,7 @@
   </ul>
 </div>
 <h2>Identify the area of the incident</h2>
-<form class="container" action="action_page.php">
+<form class="container">
   <!-- Content Layout-->
   <div class="row">
     <div class="col-2 col-md-7">
@@ -30,7 +30,7 @@
         <div id="addressField">
           <label for="addressField">Where it took place?</label>
           <br>
-          <input id="autocomplete" placeholder="Enter an address" class="form-control" onFocus="geolocate()" type="text"></input>
+          <input id="autocomplete" placeholder="Enter an address"  class="form-control" onFocus="geolocate()" type="text"></input>
           <small id="addressDesc" class="form-text text-muted">Provide an address</small>
         </div>
       </div>
@@ -48,8 +48,8 @@
   </div>
   <div class="row">
     <!-- Next Page -->
-    <div class="Next" href="/flyreport2">
-      <button id="goPage2" type="Next" class="btn btn-primary btn-lg">Next</button>
+    <div class="Next">
+      <button onclick="/flyreport2" href="/flyreport2" class="btn btn-primary btn-lg">Continue</button>
     </div>
   </div>
 </form>
