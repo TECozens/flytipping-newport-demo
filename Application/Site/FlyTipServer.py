@@ -17,7 +17,7 @@ def allowed_file(filename):
     print(ext)
     return '.' in filename and ext in ALLOWED_EXTENSIONS
 
-@app.route('/test', methods=['GET','POST'])
+@app.route('/flyreport4', methods=['GET','POST'])
 def upload_file():
     msg = ''
     if request.method == 'POST':
@@ -36,7 +36,7 @@ def upload_file():
                 filePath = os.path.join(app.config['UPLOAD_FOLDER'], filename)
                 file.save(filePath)
                 msg = filePath
-    return render_template('ReportForm4.html', msg=msg)
+    return render_template('ReportForm5.html', msg=msg)
 
 
 @app.route("/flyReport")
