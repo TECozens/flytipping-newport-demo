@@ -1,0 +1,1 @@
+to open file type 'python C1824227.py -f tournament_players.csv' into cmd without quotes 

@@ -13,36 +13,35 @@
   </ul>
 </div>
 <h2>Add photos</h2>
-<form class="container" action="/flyreport4" method=post enctype=multipart/form-data>
+<form class="container" action="/flyreport4" enctype=multipart/form-data method="POST">
   <!-- Content Layout-->
   <div class="row">
     <div class="col-2 col-md-7">
       <label for="flyTipInfo"></label>
+      <div id="emailRecieve">
+          <label for="emailRecieve">would you like to receive emails about your report?</label>
+          <input type="checkbox" id="myCheck" onclick="myFunction()"> tick to recieve emails
+            <p id="text" style="display:none">
+            <br>
+            <label>please enter your email</label>
+            <input id="descHelper" placeholder="provide email" class="form-control" type="text"></input>
+            <small id="Description" class="form-text text-muted">Include valid email</small>
+            </p>
+          <br>
+        </div>
+      </div>
     </div>
     <div class="col-8 col-md-6">
-      <div id="locationDesc">
+      <div id="uploadImage">
         <br>
-        <br>
-        <!-- <label class="switch"> -->
-          <!-- <input type="checkbox"> -->
-          <!-- <span class="slider round"></span> -->
-        <!-- </label> -->
-        </div>
-      </div
-        <p>
-          <input type=file name=file>
-          <input type=submit value=Upload>
-          {{msg}}
+        <input type='file' name='file' mulitple>
+        {{msg}}
+      </div> 
     </div>
-  <div class="row">
-    <div class="col-6 col-md-4">
-      <!-- A slider for specific options -->
-    </div>
-  </div>
   <div class="row">
     <!-- Next Page -->
     <div class="Next">
-      <button class="btn btn-primary btn-lg">Continue</button>
+      <button class="btn btn-primary btn-lg" type="submit">Submit</button>
     </div>
   </div>
 </form>
