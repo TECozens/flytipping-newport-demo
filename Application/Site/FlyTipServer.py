@@ -1,12 +1,42 @@
 import os
 from flask import Flask, redirect, request, render_template, make_response, escape, session
 import sqlite3
+from werkzeug.utils import secure_filename
 
 DATABASE = 'Resources/Database/report.db'
 
-app = Flask(__name__)
-
+APP_ROOT = os.path.dirname(os.path.abspath(__file__))
+UPLOAD_FOLDER = os.path.join(APP_ROOT, 'uploads')
 ALLOWED_EXTENSIONS = set(['txt', 'pdf', 'png', 'jpg', 'jpeg', 'gif'])
+
+app = Flask(__name__)
+app.config['UPLOAD_FOLDER'] = UPLOAD_FOLDER
+
+def allowed_file(filename):
+    ext = filename.rsplit('.', 1)[1]
+    print(ext)
+    return '.' in filename and ext in ALLOWED_EXTENSIONS
+
+@app.route('/test', methods=['GET','POST'])
+def upload_file():
+    msg = ''
+    if request.method == 'POST':
+        msg = 'ok'
+        # check if the post request has the file part
+        if 'file' not in request.files:
+            msg = 'no file given'
+        else:
+            file = request.files['file']
+            # if user does not select file, browser also
+            # submit a empty part without filename
+            if file.filename == '':
+                msg = 'no file name'
+            elif file and allowed_file(file.filename):
+                filename = secure_filename(file.filename)
+                filePath = os.path.join(app.config['UPLOAD_FOLDER'], filename)
+                file.save(filePath)
+                msg = filePath
+    return render_template('ReportForm4.html', msg=msg)
 
 
 @app.route("/flyReport")
