@@ -5,54 +5,53 @@
 {%block mainBlock%}
 <!-- Progress Bar -->
 <div class="w3-container">
-  <ul class="progressBar">
-    <li class="active"></li>
-    <li></li>
-    <li></li>
-    <li></li>
-    <li></li>
-  </ul>
-</div>
-<h2>Identify the area of the incident</h2>
-<form id="form1" class="container" action="/flyreport1" method="POST">
-  <!-- Content Layout-->
-  <div class="row">
-    <div class="col-2 col-md-7">
-      <label for="flyTipInfo">During 2016-17, local authorities in Wales reported 38,614 fly-tipping incidents, representing an annual increase of around 2,400 incidents (6 per cent). This compares with an annual increase of 14 per cent in the number of incidents between 2014-15 and 2015-16. Previously, the number of incidents had consistently fallen from a peak of nearly 62,000 incidents in 2007-08 to around 31,700 in 2014-15. Estimated fly-tipping clearance costs have slightly risen from £2.1 million in 2015-16 to £2.2 million in 2016-17</label>
-    </div>
-    <div class="col-6 col-md-4">
-      <div id="descHelper">
-        <label for="descHelper">Describe the location of the incident</label>
-        <br>
-        <input name="locationDescription" placeholder="provide details of the location" class="form-control" type="text"></input>
-        <small id="Description" class="form-text text-muted">Include details such as *Details*</small>
-        <br>
-        <div id="addressField">
-          <label for="addressField">Where it took place?</label>
-          <br>
-          <input name='tipLocation'  id="autocomplete" placeholder="Enter an address" onfocus="geolocate()"class="form-control" type="text" required=""></input>
-          <small id="addressDesc" class="form-text text-muted">Provide an address</small>
-        </div>
-      </div>
-    </div>
+    <ul class="progressBar">
+      <li class="active">Important</li>
+      <li></li>
+      <li></li>
+      <li></li>
+      <li></li>
+    </ul>
   </div>
-  <div class="row">
-    <div class="col-6 col-md-4">
-      <!-- A slider for specific options -->
-      <!-- <label class="switch">
-        <input type="checkbox">
-        <span class="slider round"></span>
-      </label> -->
+<br>
+<!-- Start of Form -->
+<div class="box">
+  <h2>Identify the area of the incident</h2>
+  <hr>
+  <h3>Location</h3>
+  <form id="form1" action="/flyreport1" method="POST">
+    <hr>
+    <!-- Information -->
+    <div>
+      <label> Information:
+          <label class="switch">
+              <input id="myCheck" type="checkbox" onclick="myFunction2()">
+              <span class="slider round"></span>
+          </label>
+          </label>
 
+      <p class="Information" id="text" style="display:none">
+          <label>During 2016-17, local authorities in Wales reported 38,614 fly-tipping incidents, representing an annual increase of around 2,400 incidents (6 per cent). This compares with an annual increase of 14 per cent in the number of incidents between 2014-15 and 2015-16. Previously, the number of incidents had consistently fallen from a peak of nearly 62,000 incidents in 2007-08 to around 31,700 in 2014-15. Estimated fly-tipping clearance costs have slightly risen from £2.1 million in 2015-16 to £2.2 million in 2016-17</label>
+      </p>
     </div>
-  </div>
-  <div class="row">
-    <!-- Next Page -->
-    <div class="Next">
-      <button class="btn btn-primary btn-lg">Continue</button>
+
+    <!-- Autocomplete Field -->
+    <label for="tipLocation">Select Between the use of an Address or Map</label>
+    <div class="form-group">
+        <input name='tipLocation'  id="autocomplete" placeholder="Enter an address" onfocus="geolocate()"class="form-control" type="text" required=""></input>
     </div>
-  </div>
-</form>
+
+    <!-- Submit -->
+    <div class="form-group">
+        <div class="Next">
+            <button class="btn btn-primary btn-lg">Continue</button>
+        </div>
+    </div>
+    <br>
+  </form>
+</div>
+
+<!-- Scripting -->
 <script>
   var placeSearch, autocomplete;
   var componentForm = {
