@@ -18,17 +18,23 @@
   <div class="row">
     <div class="col-2 col-md-7">
       <label for="flyTipInfo"></label>
+      <div id="emailRecieve">
+          <label for="emailRecieve">would you like to receive emails about your report?</label>
+          <input type="checkbox" id="myCheck" onclick="myFunction()"> tick to recieve emails
+            <p id="text" style="display:none">
+            <br>
+            <label>please enter your email</label>
+            <input id="descHelper" placeholder="provide email" class="form-control" type="text"></input>
+            <small id="Description" class="form-text text-muted">Include valid email</small>
+            </p>
+          <br>
+        </div>
+      </div>
     </div>
     <div class="col-8 col-md-6">
-      <div id="locationDesc">
+      <div id="emailRecieve">
         <br>
         <br>
-        <!-- A slider for specific options -->
-        <!-- <label class="switch"> -->
-          <!-- <input type="checkbox"> -->
-          <!-- <span class="slider round"></span> -->
-        <!-- </label> -->
-        </div>
       </div>
           <input type=file name=file>
           <input type=submit value=Upload>
