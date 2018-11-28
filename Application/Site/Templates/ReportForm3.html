@@ -1,58 +1,63 @@
 {%extends 'index.html'%}
 
 {%block mainBlock%}
+
 <!-- Progress Bar -->
-<div class="w3-container" action="action_page.php">
-  <ul class="progressBar">
-    <li class="active"></li>
-    <li class="active"></li>
-    <li class="active"></li>
-    <li></li>
-    <li></li>
-  </ul>
-</div>
-<h2>where you a witness?</h2>
-<form class="container" action="/flyreport3">
-  <!-- Content Layout-->
-  <div class="row">
-    <div class="col-2 col-md-7">
-      <label for="flyTipInfo">Did you witness a person or persons dumping their waste? If yes then tick the boxes to indicate this. It is important that if you do this you understand you are willing to give a statment to the police. Because of this you must make sure all the information is truthful.</label>
-    </div>
-    <div class="col-6 col-md-4">
+<br>
+<div class="w3-container">
+    <ul class="progressBar">
+      <li>Important Details</li>
+      <li>Additional Details</li>
+      <li class="active">Confirmation and Submission</li>
+      <li></li>
+      <li></li>
+    </ul>
+  </div>
+<br>
+<br>
+<br>
+<hr>
+
+<form id="form3" class="box" action="/flyreport3">
+    <!-- Witness Field=================================================================================================-->
+    <h2>where you a witness?</h2>
+    <label for="flyTipInfo">Did you witness a person or persons dumping their waste? If yes then tick the boxes to indicate this. It is important that if you do this you understand you are willing to give a statment to the police. Because of this you must make sure all the information is truthful.</label>
+    <br>
+    <div class="form-group">
       <div id="locationDesc">
-        <label for="locationDesc">did you witness the waste being dumped?</label>
-        <div class="checkbox">
-          <label><input type="checkbox" value="">did you witness the waste being dumped?</label>
+          <label for="locationDesc">did you witness the waste being dumped?</label>
+          <div class="checkbox">
+            <label><input type="checkbox" value="">did you witness the waste being dumped?</label>
+          </div>
+          <input type="checkbox" id="myCheck" onclick="myFunction()"> would you be willing to provide a statment?
+          <p id="text" style="display:none">
+              <br>
+              <label>please enter information about what you whitnessed, this could include vehicle registation or a discription of the individual</label>
+                <input id="descHelper" placeholder="provide details of incident" class="form-control" type="text"></input>
+                <small id="Description" class="form-text text-muted">Include details such as *Description*</small>
+              <br>
+
+              <label>please enter any additional information about what you veiwed</label>
+                <input id="descHelper" placeholder="provide additional details of incident" class="form-control" type="text"></input>
+                <small id="Description" class="form-text text-muted">Include details such as *Description*</small>
+              <br>
+
+              <label>please enter your phone number</label>
+                <input id="descHelper" placeholder="enter phone number" class="form-control" type="text"></input>
+                <small id="Description" class="form-text text-muted">Include a phone number we can contact you on</small>
+          </p>
+          </div>    
+    </div>
+    <br>
+
+    <!-- Submit -->
+    <div class="form-group">
+        <div class="Next">
+            <button class="btn btn-primary btn-lg">Continue</button>
         </div>
-
-        <input type="checkbox" id="myCheck" onclick="myFunction()"> would you be willing to provide a statment?
-        <p id="text" style="display:none">
-
-          <br>
-          <label>please enter information about what you whitnessed, this could include vehicle registation or a discription of the individual</label>
-          <input id="descHelper" placeholder="provide details of incident" class="form-control" type="text"></input>
-          <small id="Description" class="form-text text-muted">Include details such as *Description*</small>
-          <br>
-          <label>please enter any additional information about what you veiwed</label>
-          <input id="descHelper" placeholder="provide additional details of incident" class="form-control" type="text"></input>
-          <small id="Description" class="form-text text-muted">Include details such as *Description*</small>
-          <br>
-          <label>please enter your phone number</label>
-          <input id="descHelper" placeholder="enter phone number" class="form-control" type="text"></input>
-          <small id="Description" class="form-text text-muted">Include a phone number we can contact you on</small>
-
-
-
-        </p>
-        <br>
-      </div>
     </div>
-  </div>
-  <div class="row">
-    <!-- Next Page -->
-    <div class="Next">
-      <button class="btn btn-primary btn-lg">Continue</button>
-    </div>
-  </div>
-</form>
+    <br>
+
+  </form>
+</div>
 {%endblock%}
