@@ -55,14 +55,14 @@ def open_home_page():
 def open_flyform1_page():
     locationDescription = request.form.get("locationDescription", default ="error")
     tipLocation = request.form.get("tipLocation", default ="error")
-    print(locationDescription)
+    emailaddress = request.form.get("emailaddress", default ="error")
+    print(emailaddress)
     try:
-        print('trying')
         conn = sqlite3.connect(DATABASE)
         cur = conn.cursor()
-        print("An connecting")
-        cur.execute("INSERT INTO  Reports ('ID','tipLocation','locationDescription','wasteID','wasteSizeID','wasteDescription','imageID','witness','witnessID','emailaddress')\
-                     VALUES(?,?,?,?,?,?,?,?,?,?)",(0,tipLocation,locationDescription,0,0,'NULL',0,'',0,''))
+        print("connecting")
+        cur.execute("INSERT INTO Reports ('tipLocation', 'locationDescription', 'emailaddress')\
+                     VALUES(?,?,?)",(tipLocation, locationDescription, emailaddress) )
         print('connected')
         conn.commit()
         print("An Error2")
@@ -81,7 +81,7 @@ def open_flyform2_page():
     try:
         conn = sqlite3.connect(DATABASE)
         cur = conn.cursor()
-        cur.execute("UPDATE `Reports` SET `tipLocation`=blah WHERE id='0';")
+        cur.execute("INSERT INTO `Waste` SET `tipLocation`= 'hello' WHERE id='0';")
         conn.commit()
         msg = "Record successfully added"
     except:
@@ -138,4 +138,5 @@ def open_flyform5_page():
 
 
 if __name__ == "__main__":
+    # app.run(host='0.0.0.0', port=8080) #/to run this on your phone please uncomment this and type yourinternetipaddress(ipv4):8080/home
     app.run(debug=True)

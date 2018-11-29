@@ -2,26 +2,44 @@
 
 {%block mainBlock%}
 <!-- Progress Bar -->
+<br>
 <div class="w3-container">
-  <ul class="progressBar">
-    <li class="active"></li>
-    <li class="active"></li>
-    <li></li>
-    <li></li>
-    <li></li>
-  </ul>
-</div>
-<h2>Type of Waste</h2>
-<form id="form2" class="container" action="/flyreport2" >
-  <!-- Content Layout-->
-  <div class="row">
-    <div class="col-2 col-md-7">
-      <label for="flyTipInfo">*NOTICE: IT IS IMPORTANT NOT TO TAMPER OR ATTEMPT TO OPEN WATSE BAGS*</label>
-      <label>This is due to the danger of unknown items within the waste which could be HARMFUL to your health and others</label>
+    <ul class="progressBar">
+      <li>Important Details</li>
+      <li class="active">Additional Details</li>
+      <li>Confirmation and Submission</li>
+      <li></li>
+      <li></li>
+    </ul>
+  </div>
+<br>
+<br>
+<br>
+<hr>
+
+<!-- Start of Form -->
+<div class="box">
+  <h2>Type of Waste</h2>
+  <hr>
+  <form id="form2" class="box" action="/flyreport2">
+
+    <!-- Information -->
+    <div>
+      <h3> Info on Waste:
+          <label class="switch">
+              <input id="myCheck" type="checkbox" onclick="myFunction2()">
+              <span class="slider round"></span>
+          </label>
+      </h3>
+      <p class="Information" id="text" style="display:none">
+        <lavel>*NOTICE: IT IS IMPORTANT NOT TO TAMPER OR ATTEMPT TO OPEN WASTE BAGS*<br>This is due to the danger of unknown items within the waste which could be HARMFUL to your health and others </lavel>
+      </p>
     </div>
-    <div class="col-6 col-md-4">
+
+    <!-- Waste Field -->
+    <label for="waste">Select the waste you found</label>
+    <div class="form-group">
       <div id="waste">
-        <label for="waste">Select the waste you found</label>
 
         <select class="form-control" id="sel1">
           <option> Black bages - household </option>
@@ -42,45 +60,42 @@
           <option> Clinical </option>
           <option> Animal carcass </option>
         </select>
+
         <small class="form-text text-muted">Select waste found</small>
         <br>
-          <label for="sel1">Select the waste size (select one):</label>
-          <br>
-            <input type="checkbox" value="Single black bag">Single black bag <br>
-            <input type="checkbox" value="Single item">Single item <br>
-            <input type="checkbox" value="Car boot or less">Car boot or less <br>
-            <input type="checkbox" value="Small van load">Small van load <br>
-            <input type="checkbox" value="Transit van load">Transit van load <br>
-            <input type="checkbox" value="Tipper lorry load">Tipper lorry load <br>
-            <input type="checkbox" value="Significant multiple loads">Significant multiple loads
+
+        <label for="sel1">Select the waste size (select one):</label>
+        <br>
+
+        <input type="checkbox" value="Single black bag">Single black bag <br>
+        <input type="checkbox" value="Single item">Single item <br>
+        <input type="checkbox" value="Car boot or less">Car boot or less <br>
+        <input type="checkbox" value="Small van load">Small van load <br>
+        <input type="checkbox" value="Transit van load">Transit van load <br>
+        <input type="checkbox" value="Tipper lorry load">Tipper lorry load <br>
+        <input type="checkbox" value="Significant multiple loads">Significant multiple loads
+        <br>
 
         <label for="descHelper">Waste not listed above? describe waste below</label>
         <input name="locationDescription" placeholder="provide details of the location" class="form-control" type="text"></input>
         <small id="Description" class="form-text text-muted">Include details such as type of waste</small>
         <br>
+
         </div>
       </div>
-    </div>
-  <!-- <div class="row">
-    <div class="col-6 col-md-4">
-      A slider for specific options
-      <label class="switch">
-        <input type="checkbox">
-        <span class="slider round"></span>
-      </label> -->
 
-  <!-- </div> -->
-  <div class="row">
-    <!-- Next Page -->
-    <div class="Next">
-      <button class="btn btn-primary btn-lg">Continue</button>
+
+    <!-- Submit -->
+    <div class="form-group">
+        <div class="Next">
+            <button class="btn btn-primary btn-lg">Continue</button>
+        </div>
     </div>
-  </div>
-</form>
+    <br>
+  </form>
+</div>
 
 <script>
-
-
 
 </script>
 {%endblock%}

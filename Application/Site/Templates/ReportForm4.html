@@ -3,7 +3,7 @@
 
 {%block mainBlock%}
 <!-- Progress Bar -->
-<div class="w3-container" action="action_page.php">
+<div class="w3-container" >
   <ul class="progressBar">
     <li class="active"></li>
     <li class="active"></li>
@@ -12,37 +12,40 @@
     <li></li>
   </ul>
 </div>
-<h2>Add photos</h2>
-<form class="container" action="/flyreport4" enctype=multipart/form-data method="POST">
-  <!-- Content Layout-->
-  <div class="row">
-    <div class="col-2 col-md-7">
+
+<form mulitple class="box" action="/flyreport4" enctype=multipart/form-data method="POST">
+
+
+  <!--Upload And Preview Images-->
+  <h2>Add photos</h2>
+  <div class="form-group">
       <label for="flyTipInfo"></label>
       <div id="emailRecieve">
           <label for="emailRecieve">would you like to receive emails about your report?</label>
-          <input type="checkbox" id="myCheck" onclick="myFunction()"> tick to recieve emails
+          <input type="checkbox" id="myCheck" "> tick to recieve emails
             <p id="text" style="display:none">
             <br>
-            <label>please enter your email</label>
-            <input id="descHelper" placeholder="provide email" class="form-control" type="text"></input>
-            <small id="Description" class="form-text text-muted">Include valid email</small>
             </p>
           <br>
         </div>
       </div>
-    </div>
     <div class="col-8 col-md-6">
       <div id="uploadImage">
         <br>
-        <input type='file' name='file' mulitple>
+        <input type='file' class = 'form-control' name='file' id='images' multiple/>
+          <!-- <input type="file" class="form-control" id="images" name="name" onchange="preview_images();" multiple/> -->
         {{msg}}
-      </div> 
+      </div>
     </div>
-  <div class="row">
-    <!-- Next Page -->
-    <div class="Next">
-      <button class="btn btn-primary btn-lg" type="submit">Submit</button>
+
+    <!-- Submit -->
+    <div class="form-group">
+        <div class="Next">
+            <button class="btn btn-primary btn-lg">Continue</button>
+        </div>
     </div>
-  </div>
-</form>
+    <br>
+
+  </form>
+</div>
 {%endblock%}
