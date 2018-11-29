@@ -57,5 +57,5 @@ Should take the significance of each page into account*/
   border-color: #175945;
 }
 .btn-primary, .btn-primary:hover, .btn-primary:active, .btn-primary:visited {
-  background-color: rgb(255, 216, 43) !important;
+  background-color:#175945 !important;
 }
