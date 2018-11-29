@@ -6,7 +6,7 @@ CREATE TABLE `Reports` (
 	`wasteSizeID`	INTEGER ,
 	`wasteDescription`	TEXT,
 	`imageID`	INTEGER ,
-	`witness`	TEXT DEAFAULT 'No',
+	`witness`	TEXT DEFAULT 'No',
 	`firstname`	TEXT,
 	`surname`	TEXT,
 	`contactnumber`	TEXT,
