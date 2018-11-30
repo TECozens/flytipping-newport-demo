@@ -13,6 +13,55 @@ ALLOWED_EXTENSIONS = set(['txt', 'pdf', 'png', 'jpg', 'jpeg', 'gif'])
 app = Flask(__name__)
 app.config['UPLOAD_FOLDER'] = UPLOAD_FOLDER
 
+import smtplib
+
+from string import Template
+
+from email.mime.multipart import MIMEMultipart
+from email.mime.text import MIMEText
+
+MY_ADDRESS = 'do.not.reply.flytip@gmail.com'
+PASSWORD = 'NSAflytip'
+
+def read_template(filename):
+
+    "Returns the Template"
+
+    with open(filename, 'r', encoding='utf-8') as template_file:
+        template_file_content = template_file.read()
+    return Template(template_file_content)
+
+def main(email):
+
+    message_template = read_template('message.txt')
+
+    # set up the SMTP server
+    s = smtplib.SMTP(host='smtp.gmail.com', port=587)
+    s.starttls()
+    s.login(MY_ADDRESS, PASSWORD)
+
+    msg = MIMEMultipart()       # create a message
+
+    # adds email to template and fills in email
+    message = message_template.substitute(PERSON_NAME=email)
+    msg['From']=MY_ADDRESS
+    msg['To']=email
+    msg['Subject']="confirmation of report"
+
+    # add in the message body
+    msg.attach(MIMEText(message, 'plain'))
+
+    # send the message via the server set up earlier.
+    s.send_message(msg)
+    del msg
+
+    # Terminate the SMTP session and close the connection
+    s.quit()
+
+#if __name__ == '__main__':
+    #main()
+
+
 def allowed_file(filename):
     ext = filename.rsplit('.', 1)[1]
     print(ext)
@@ -39,6 +88,7 @@ def upload_file():
                 file.save(filePath)
                 msg = filePath
     print(emailaddress)
+    main(emailaddress)
     return render_template('ReportForm5.html', msg=msg)
 
 
@@ -143,3 +193,4 @@ def open_flyform5_page():
 if __name__ == "__main__":
     # app.run(host='0.0.0.0', port=8080) #/to run this on your phone please uncomment this and type yourinternetipaddress(ipv4):8080/home
     app.run(debug=True)
+    main()
