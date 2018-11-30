@@ -14,9 +14,7 @@ app = Flask(__name__)
 app.config['UPLOAD_FOLDER'] = UPLOAD_FOLDER
 
 import smtplib
-
 from string import Template
-
 from email.mime.multipart import MIMEMultipart
 from email.mime.text import MIMEText
 
@@ -76,17 +74,18 @@ def upload_file():
         if 'file' not in request.files:
             msg = 'no file given'
         else:
-            file = request.files['file']
-            print(file)
+            # file = request.files['file']
+            for file in request.files.getlist('file'):
+                if file.filename == '':
+                    msg = 'no file name'
+                elif file and allowed_file(file.filename):
+                    filename = secure_filename(file.filename)
+                    filePath = os.path.join(app.config['UPLOAD_FOLDER'], filename)
+                    file.save(filePath)
+                    msg = filePath
             # if user does not select file, browser also
             # submit a empty part without filename
-            if file.filename == '':
-                msg = 'no file name'
-            elif file and allowed_file(file.filename):
-                filename = secure_filename(file.filename)
-                filePath = os.path.join(app.config['UPLOAD_FOLDER'], filename)
-                file.save(filePath)
-                msg = filePath
+
     print(emailaddress)
     main(emailaddress)
     return render_template('ReportForm5.html', msg=msg)
