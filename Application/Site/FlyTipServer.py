@@ -27,6 +27,7 @@ def upload_file():
             msg = 'no file given'
         else:
             file = request.files['file']
+            print(file)
             # if user does not select file, browser also
             # submit a empty part without filename
             if file.filename == '':
