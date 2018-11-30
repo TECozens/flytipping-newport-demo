@@ -3,6 +3,7 @@ from flask import Flask, redirect, request, render_template, make_response, esca
 import sqlite3
 from werkzeug.utils import secure_filename
 
+emailaddress = ""
 DATABASE = 'Resources/Database/report.db'
 
 APP_ROOT = os.path.dirname(os.path.abspath(__file__))
@@ -54,6 +55,7 @@ def open_home_page():
 
 @app.route("/flyreport1", methods=["POST"])
 def open_flyform1_page():
+    global emailaddress
     locationDescription = request.form.get("locationDescription", default ="error")
     tipLocation = request.form.get("tipLocation", default ="error")
     emailaddress = request.form.get("emailaddress", default ="error")
@@ -127,13 +129,13 @@ def open_flyform5_page():
         try:
             conn = sqlite3.connect(DATABASE)
             cur = conn.cursor()
-            cur.execute("UPDATE `Reports` SET `emailaddress`=? WHERE _rowid_='0';")
             conn.commit()
             msg = "Record successfully added"
         except:
             conn.rollback()
             msg = "error in insert operation"
         finally:
+            print(emailaddress)
             conn.close()
             return render_template('home.html')
 
