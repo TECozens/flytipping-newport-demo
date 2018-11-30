@@ -63,13 +63,30 @@
         <label for="sel1">Select the waste size (select one):</label>
         <br>
 
-        <input type="checkbox" value="Single black bag">Single black bag <br>
-        <input type="checkbox" value="Single item">Single item <br>
-        <input type="checkbox" value="Car boot or less">Car boot or less <br>
-        <input type="checkbox" value="Small van load">Small van load <br>
-        <input type="checkbox" value="Transit van load">Transit van load <br>
-        <input type="checkbox" value="Tipper lorry load">Tipper lorry load <br>
-        <input type="checkbox" value="Significant multiple loads">Significant multiple loads
+        <ul>
+          <li> Carboot or Less <input type="checkbox" id="cb1" />
+            <label for="cb1"><img src="..\static\carboot.jpg" /></label>
+          </li>
+          <li> Significant loads <input type="checkbox" id="cb2" />
+            <label for="cb2"><img src="..\static\multiLoad.jpg" /></label>
+          </li>
+          <li> Single black bag <input type="checkbox" id="cb3" />
+            <label for="cb3"><img src="..\static\singleblack.jpg" /></label>
+          </li>
+          <br>
+          <li> Single item <input type="checkbox" id="cb4" />
+            <label for="cb4"><img src="..\static\singleitem.jpg" /></label>
+          </li>
+          <li> Small van load <input type="checkbox" id="cb5" />
+            <label for="cb5"><img src="..\static\smallvan.jpg" /></label>
+          </li>
+          <li> Tipper lorry load <input type="checkbox" id="cb6" />
+            <label for="cb6"><img src="..\static\tippervan.jpg" /></label>
+          </li>
+          <li> Transit van load <input type="checkbox" id="cb7" />
+            <label for="cb7"><img src="..\static\transitvan.jpg" /></label>
+          </li>
+        </ul>
         <br>
 
         <label for="descHelper">Waste not listed above? describe waste below</label>
@@ -88,10 +105,22 @@
         </div>
     </div>
     <br>
+    <!-- <button onclick="disable()">Disable checkbox</button> -->
   </form>
 </div>
 
-<script>
+<!-- <script>
+  $('cb1 input:checkbox').click(function(){
+      var $inputs = $('input input:checkbox');
+      if($(this).is(':checked')){  // <-- check if clicked box is currently checked
+         $inputs.not(this).prop('disabled',true); // <-- disable all but checked checkbox
+      }else{  //<-- if checkbox was unchecked
+         $inputs.prop('disabled',false); // <-- enable all checkboxes
+      }
+  });
+  function disable() {
+    document.getElementById("cb1").disabled = true;
+} -->
 
 </script>
 {%endblock%}
