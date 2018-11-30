@@ -16,6 +16,7 @@
      -moz-box-sizing: content-box;
           box-sizing: content-box;
 }
+
 /* style all input elements with a required attribute */
 input:required {
   box-shadow: 4px 4px 20px rgba(200, 0, 0, 0.85);
