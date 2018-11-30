@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <script type="text/javascript">
+    function showLocation(position) {
+      var latitude = position.coords.latitude;
+      var longitude = postion.coords.longitude;
+      alert("Latitude : " + latitude + " Longitude: " + longitude);
+    }
+    function errorHandler(err) {
+      if(err.code == 1) {
+        alert("Error: Access is denied!");
+      }
+      else if(err.code == 2) {
+        alert("Error: Position is unavaible!");
+      }
+    }
+    function getLocation() {
+      if(navigator.geolocation) {
+        var options = {timeout:60000};
+        navigator.geolocation.getCurrentPosition(showLocation, errorHandler, options);
+      }
+      else{
+        alert("Sorry, brower does not support geolocation!");
+      }
+    }
+  </script>
+
+  <p>Click the button to get the longitude and latitude of the incident location</p>
+
+  <button onclick="getLocation()"> Get Location </button>
+
+  <p id="demo"></p>
+
+  <script>
+  var x = document.getElementById("demo");
+
+  function getLocation() {
+      if (navigator.geolocation) {
+          navigator.geolocation.getCurrentPosition(showPosition);
+      } else {
+          x.innerHTML = "Geolocation is not supported by this browser.";
+      }
+  }
+
+  function showPosition(position) {
+      x.innerHTML = "Latitude: " + position.coords.latitude +
+      "<br>Longitude: " + position.coords.longitude;
+  }
+  </script>
+
+<!--Adapted from : https://www.w3schools.com/html/tryit.asp?filename=tryhtml5_geolocation */ --> 
+
+</head>
+<body>
+  <form>
+    <input type="button" onclick="getLocation();" value="Get Location"/>
+  </form>
+</body>
+</html>
