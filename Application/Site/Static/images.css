@@ -10,7 +10,7 @@ input[type="checkbox"][id^="cb"] {
   display: none;
 }
 
-label {
+.imgL label {
   border: 1px solid #fff;
   padding: 10px;
   display: block;
@@ -50,11 +50,11 @@ label img {
   transform-origin: 50% 50%;
 }
 
-:checked+label {
+ :checked+label {
   border-color: #ddd;
 }
 
-:checked+label::before {
+ :checked+label::before {
   content: "\2713";
   background-color: grey;
   transform: scale(1);
@@ -64,4 +64,11 @@ label img {
   transform: scale(0.9);
   box-shadow: 0 0 50px #228B22;
   z-index: -1;
+}
+ul {
+  list-style: none;
+}
+
+.imgL input {
+  visibility:hidden;
 }
