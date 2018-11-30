@@ -38,6 +38,7 @@ def upload_file():
                 filePath = os.path.join(app.config['UPLOAD_FOLDER'], filename)
                 file.save(filePath)
                 msg = filePath
+    print(emailaddress)
     return render_template('ReportForm5.html', msg=msg)
 
 
@@ -121,7 +122,6 @@ def open_flyform4_page():
         conn.rollback()
         msg = "error in insert operation"
     finally:
-        print(emailaddress)
         conn.close()
         return render_template('ReportForm5.html')
 
