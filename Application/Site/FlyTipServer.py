@@ -121,6 +121,7 @@ def open_flyform4_page():
         conn.rollback()
         msg = "error in insert operation"
     finally:
+        print(emailaddress)
         conn.close()
         return render_template('ReportForm5.html')
 
@@ -135,7 +136,6 @@ def open_flyform5_page():
             conn.rollback()
             msg = "error in insert operation"
         finally:
-            print(emailaddress)
             conn.close()
             return render_template('home.html')
 
