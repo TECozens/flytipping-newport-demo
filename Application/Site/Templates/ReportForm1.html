@@ -1,6 +1,5 @@
 {%extends 'index.html'%}
 {%block extra_head%}
-
 {%endblock%}
 {%block mainBlock%}
 <!-- Progress Bar -->
@@ -28,17 +27,18 @@
     <hr>
     <!-- Information -->
     <div>
-      <label> Information:
-          <label class="switch">
-              <input id="myCheck" type="checkbox" onclick="myFunction2()">
-              <span class="slider round"></span>
-          </label>
-      </label>
+        <label> Information:
+            <label class="switch">
+                <input id="myCheck" type="checkbox" onclick="myFunction2()">
+                <span class="slider round"></span>
+            </label>
+        </label>
 
-      <p class="Information" id="text" style="display:none">
-          <label>During 2016-17, local authorities in Wales reported 38,614 fly-tipping incidents, representing an annual increase of around 2,400 incidents (6 per cent). This compares with an annual increase of 14 per cent in the number of incidents between 2014-15 and 2015-16. Previously, the number of incidents had consistently fallen from a peak of nearly 62,000 incidents in 2007-08 to around 31,700 in 2014-15. Estimated fly-tipping clearance costs have slightly risen from £2.1 million in 2015-16 to £2.2 million in 2016-17</label>
-      </p>
-    </div>
+        <p class="Information" id="text" style="display:none">
+            <label>During 2016-17, local authorities in Wales reported 38,614 fly-tipping incidents, representing an annual increase of around 2,400 incidents (6 per cent). This compares with an annual increase of 14 per cent in the number of incidents between 2014-15 and 2015-16. Previously, the number of incidents had consistently fallen from a peak of nearly 62,000 incidents in 2007-08 to around 31,700 in 2014-15. Estimated fly-tipping clearance costs have slightly risen from £2.1 million in 2015-16 to £2.2 million in 2016-17</label>
+        </p>
+      </div>
+
 
     <!-- Autocomplete Field -->
     <label for="tipLocation">Select Between the use of an Address or Map</label>
@@ -46,14 +46,20 @@
         <input name='tipLocation'  id="autocomplete" placeholder="Enter an address" onfocus="geolocate()"class="form-control" type="text" required=""></input>
     </div>
 
+    <!-- Openlayers map Field -->
+    <div class="form-group">
+        <div id="map"></div>
+    </div>
+
     <!-- location Desc-->
     <label for="descHelper">Describe the location of the incident</label>
       <input name="locationDescription" placeholder="provide details of the location" class="form-control" type="text"></input>
       <small id="Description" class="form-text text-muted">Include details such as *Details*</small>
 
+      <!-- Email-->
     <label for="emailaddress">Please enter your Email address</label>
       <input name='emailaddress' placeholder="provide email address" required="" class="form-control" type="text"></input>
-      <small id="emailadd" class="form-text text-muted"Include valid email</small>
+      <small id="emailadd" class="form-text text-muted">Include valid email <br> This will allow us to validate the submission of your report</small>
 
       <br>
 
@@ -70,6 +76,45 @@
 
 <!-- Scripting=========================================================================================================================== -->
 <script>
+  /* OSM & OL example code provided by https://mediarealm.com.au/ */
+  var map;
+        var mapLat = -33.829357;
+         var mapLng = 150.961761;
+        var mapDefaultZoom = 10;
+        function initialize_map() {
+        map = new ol.Map({
+        target: "map",
+        layers: [
+        new ol.layer.Tile({
+        source: new ol.source.OSM({
+        url: "https://a.tile.openstreetmap.org/{z}/{x}/{y}.png"
+        })
+        })
+        ],
+        view: new ol.View({
+        center: ol.proj.fromLonLat([mapLng, mapLat]),
+        zoom: mapDefaultZoom
+        })
+        });
+        }
+        function add_map_point(lat, lng) {
+        var vectorLayer = new ol.layer.Vector({
+        source:new ol.source.Vector({
+        features: [new ol.Feature({
+        geometry: new ol.geom.Point(ol.proj.transform([parseFloat(lng), parseFloat(lat)], 'EPSG:4326', 'EPSG:3857')),
+        })]
+        }),
+        style: new ol.style.Style({
+        image: new ol.style.Icon({
+        anchor: [0.5, 0.5],
+        anchorXUnits: "fraction",
+        anchorYUnits: "fraction",
+        src: "https://upload.wikimedia.org/wikipedia/commons/e/ec/RedDot.svg"
+        })
+        })
+        });
+        map.addLayer(vectorLayer);
+        }
   var placeSearch, autocomplete;
   var componentForm = {
     street_number: 'short_name',
@@ -130,6 +175,7 @@
     }
   }
 </script>
-    <script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAbz3hw9mrTSD_ogVStiYLh2tp-I0cKkJ8&libraries=places&callback=initAutocomplete"
-    type="text/javascript"></script>
+<script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAbz3hw9mrTSD_ogVStiYLh2tp-I0cKkJ8&libraries=places&callback=initAutocomplete"
+type="text/javascript"></script>
+<script src="https://openlayers.org/en/v4.6.5/build/ol.js" type="text/javascript"></script>
 {%endblock%}
