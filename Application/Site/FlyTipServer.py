@@ -121,18 +121,23 @@ def open_flyform2_page():
 
 @app.route("/flyreport3")
 def open_flyform3_page():
-        try:
-            conn = sqlite3.connect(DATABASE)
-            cur = conn.cursor()
-            cur.execute("UPDATE `Reports` SET `locationDescription`=? WHERE _id_='0';")
-            conn.commit()
-            msg = "Record successfully added"
-        except:
-            conn.rollback()
-            msg = "error in insert operation"
-        finally:
-            conn.close()
-            return render_template('ReportForm4.html')
+    contactnumber = request.form.get("contactnumber", default ="error")
+    print(contactnumber)
+    try:
+        conn = sqlite3.connect(DATABASE)
+        cur = conn.cursor()
+        print('connecting')
+        cur.execute("UPDATE Reports SET contactnumber = '4759' WHERE id='1';")
+
+        print('connected')
+        conn.commit()
+        msg = "Record successfully added"
+    except:
+        conn.rollback()
+        msg = "error in insert operation"
+    finally:
+        conn.close()
+        return render_template('ReportForm4.html')
 
 @app.route('/flyreport4', methods=['GET','POST'])
 def upload_file():
@@ -210,6 +215,6 @@ def open_flyform5_page():
 
 
 if __name__ == "__main__":
-    app.run(host='0.0.0.0', port=8080) #/to run this on your phone please uncomment this and type yourinternetipaddress(ipv4):8080/home
+    # app.run(host='0.0.0.0', port=8080) #/to run this on your phone please uncomment this and type yourinternetipaddress(ipv4):8080/home
     app.run(debug=True)
     main()

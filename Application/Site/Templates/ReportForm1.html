@@ -27,7 +27,7 @@
     <hr>
     <!-- Information -->
     <div>
-        <label> Information:
+        <label> <h3>Information:</h3>
             <label class="switch">
                 <input id="myCheck" type="checkbox" onclick="myFunction2()">
                 <span class="slider round"></span>
@@ -39,16 +39,30 @@
         </p>
       </div>
 
+      <label> <h3>GPS or Address:</h3>
+        <label class="switch">
+            <input id="mySwitch" type="checkbox" onclick="switchFunction()">
+            <span class="slider round"></span>
+        </label>
+    </label>
 
     <!-- Autocomplete Field -->
-    <label for="tipLocation">Select Between the use of an Address or Map</label>
-    <div class="form-group">
-        <input name='tipLocation'  id="autocomplete" placeholder="Enter an address" onfocus="geolocate()"class="form-control" type="text" required=""></input>
+    <div id="addressField" style="display:none">
+      <label for="tipLocation">Select Between the use of an Address or Map</label>
+      <div class="form-group">
+          <input name='tipLocation'  id="autocomplete" placeholder="Enter an address" onfocus="geolocate()"class="form-control" type="text" required=""></input>
+      </div>
     </div>
 
     <!-- Openlayers map Field -->
-    <div class="form-group">
-        <div id="map"></div>
+    <div id="mapField">
+      <div id="js-map" class="map"></div>
+      <h1>Geolocation</h1>
+              <p>Position: <code>[</code><samp id="js-position">n/a</samp><code>]</code></p>
+              <p>Speed: <samp id="js-speed">0</samp></p>
+              <p>Altitude: <samp id="js-altitude">n/a</samp></p>
+              <p>Heading: <samp id="js-heading">n/a</samp></p>
+            </ul>
     </div>
 
     <!-- location Desc-->
@@ -76,45 +90,64 @@
 
 <!-- Scripting=========================================================================================================================== -->
 <script>
-  /* OSM & OL example code provided by https://mediarealm.com.au/ */
-  var map;
-        var mapLat = -33.829357;
-         var mapLng = 150.961761;
-        var mapDefaultZoom = 10;
-        function initialize_map() {
-        map = new ol.Map({
-        target: "map",
-        layers: [
-        new ol.layer.Tile({
-        source: new ol.source.OSM({
-        url: "https://a.tile.openstreetmap.org/{z}/{x}/{y}.png"
-        })
-        })
-        ],
-        view: new ol.View({
-        center: ol.proj.fromLonLat([mapLng, mapLat]),
-        zoom: mapDefaultZoom
-        })
-        });
-        }
-        function add_map_point(lat, lng) {
-        var vectorLayer = new ol.layer.Vector({
-        source:new ol.source.Vector({
-        features: [new ol.Feature({
-        geometry: new ol.geom.Point(ol.proj.transform([parseFloat(lng), parseFloat(lat)], 'EPSG:4326', 'EPSG:3857')),
-        })]
-        }),
-        style: new ol.style.Style({
-        image: new ol.style.Icon({
-        anchor: [0.5, 0.5],
-        anchorXUnits: "fraction",
-        anchorYUnits: "fraction",
-        src: "https://upload.wikimedia.org/wikipedia/commons/e/ec/RedDot.svg"
-        })
-        })
-        });
-        map.addLayer(vectorLayer);
-        }
+/**
+ * OpenLayers 3 Cookbook - Chapter 5
+ * Working with the Geolocation HTML5 API
+ * for a map using OpenLayers 3 (ol3)
+ *
+ * Peter J Langley
+ * http://pjlangley.com
+ * http://www.codechewing.com
+ */
+ var locationCircle = new ol.Feature();
+var positionElem = document.getElementById('js-position');
+var speedElem = document.getElementById('js-speed');
+var altitudeElem = document.getElementById('js-altitude');
+var headingElem = document.getElementById('js-heading');
+
+var map = new ol.Map({
+  view: new ol.View({
+    zoom: 17,
+    center: [10030840, 6731350]
+  }),
+  target: 'js-map',
+  layers: [
+    new ol.layer.Tile({
+      source: new ol.source.OSM()
+    }),
+    new ol.layer.Vector({
+      source: new ol.source.Vector({
+        features: [locationCircle]
+      })
+    })
+  ]
+});
+
+new ol.Geolocation({
+    projection: map.getView().getProjection(),
+    tracking: true,
+    trackingOptions: {
+      enableHighAccuracy: true
+    }
+  })
+  .on('change', function() {
+    var position = this.getPosition();
+    var speed = this.getSpeed();
+    var altitude = this.getAltitude();
+    var heading = this.getHeading();
+
+    map.getView().setCenter(position);
+
+    locationCircle.setGeometry(
+      new ol.geom.Circle(position, 20)
+    );
+
+    positionElem.innerHTML = position.join(',<br>');
+    speedElem.innerHTML = speed ? speed.toFixed(3) + ' m/s' : 'n/a';
+    altitudeElem.innerHTML = altitude ? altitude.toFixed(3) + ' m' : 'n/a';
+    headingElem.innerHTML = heading ? heading.toFixed(3) + ' degrees' : 'n/a';
+  });
+  
   var placeSearch, autocomplete;
   var componentForm = {
     street_number: 'short_name',
