@@ -122,7 +122,9 @@ def open_flyform2_page():
 @app.route("/flyreport3")
 def open_flyform3_page():
     contactnumber = request.form.get("contactnumber", default ="error")
+    print("above contact number")
     print(contactnumber)
+    print("below contact number")
     try:
         conn = sqlite3.connect(DATABASE)
         cur = conn.cursor()
