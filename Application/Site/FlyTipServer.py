@@ -127,7 +127,7 @@ def open_flyform3_page():
         conn = sqlite3.connect(DATABASE)
         cur = conn.cursor()
         print('connecting')
-        cur.execute("UPDATE Reports SET contactnumber = '4759' WHERE id='1';")
+        cur.execute("UPDATE Reports SET contactnumber = contactnumber WHERE id=(SELECT MAX(Id) FROM Reports);")
 
         print('connected')
         conn.commit()
