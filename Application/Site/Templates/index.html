@@ -2,19 +2,31 @@
 <html lang="en">
   <head>
     <meta charset="utf-8">
-	  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=yes">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>Fly tipping wales</title>
 	<!-- link to the bootstrap -->
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://openlayers.org/en/v4.6.5/css/ol.css" type="text/css">
     <link href="..\static\flyStyle.css" rel="stylesheet">
     <link href="..\static\progressStyle.css" rel="stylesheet">
     <!-- <link href="..\static\flyAddressStlyle.css" rel="stylesheet"> -->
     <link href="..\static\adminLogo.css" rel="stylesheet">
     <link href="..\static\images.css" rel="stylesheet">
     <script src="..\static\main.js"></script>
+    <script src="..\static\OpenLayers.js"></script>
+    <!-- Map stuff Here====================================================================== -->
+
+
+
+    <script>
+
+    </script>
+    <!-- No more Map stuff -->
   </head>
 
-  <body>
+  <!-- This onload will generate the map -->
+  <body onload="initialize_map(); add_map_point(-33.8688, 151.2093);">
     <nav class="navbar navbar-expand-lg navbar-dark bg-dark static-top">
       <!-- <div class="w3-container"> -->
         <a class="navbar-brand" href="/">Web Application</a>
@@ -30,7 +42,7 @@
             <li class="nav-item active">
               <a class="nav-link" href="/flyReport">Report Fly-Tipping</a>
           </ul>
-        <!-- </div> -->
+        </div>
       </div>
     </nav>
 

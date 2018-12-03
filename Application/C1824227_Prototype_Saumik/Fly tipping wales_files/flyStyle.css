@@ -4,17 +4,12 @@
   padding: 0;
   border: 0;
   box-sizing: border-box;
+}
+* {
   -webkit-box-sizing: content-box;
-  -moz-box-sizing: content-box;
-  box-sizing: content-box;
+     -moz-box-sizing: content-box;
+          box-sizing: content-box;
 }
-/* Background styling ========================================== */
-body{
-  margin: 0;
-  padding: 0;
-  height: 100%;
-}
-
 *:before,
 *:after {
   -webkit-box-sizing: content-box;
@@ -23,24 +18,24 @@ body{
 }
 
 /* style all input elements with a required attribute */
-/* input:required {
+input:required {
   box-shadow: 4px 4px 20px rgba(200, 0, 0, 0.85);
-} */
+}
 
 /**
  * style input elements that have a required
  * attribute and a focus state
  */
-/* input:required:focus {
+input:required:focus {
   border: 1px solid red;
   outline: none;
-} */
+}
 
 /**
  * style input elements that have a required
  * attribute and a hover state
  */
-/* input:required:hover {
+input:required:hover {
   opacity: 1;
 }
 .form-control{
@@ -53,7 +48,7 @@ body{
   color: #f0f0f0;
   border-color: #175945;
   box-shadow: inset 2px 2px 2px rgba(23, 89, 69, 0.3), 2px 2px 2px rgba(23, 89, 69, 0.3);
-} */
+}
 
 .container{
   margin-top: 10%;
@@ -64,7 +59,7 @@ body{
   height: 100%;
 }
 
-/* .pac-container:after {
+.pac-container:after {
   background-image: none !important;
   height: 0px;
 }
@@ -80,7 +75,7 @@ body{
   color: #f0f0f0;
   border-color: #175945;
   box-shadow: inset 0px 1px 1px rgba(23, 89, 69, 1.0), 0 0 8px rgba(23, 89, 69, 1.0);
-} */
+}
 
 .switch {
   position: relative;
@@ -145,6 +140,12 @@ input:checked + .slider:before {
 .slider.round:before {
   border-radius: 50%;
 }
+/* Background styling ========================================== */
+body{
+  margin: 0;
+  padding: 0;
+  height: 100%;
+}
 
 button:disabled,
 button[disabled]{
@@ -153,20 +154,24 @@ button[disabled]{
   color: #666666;
 }
 
-/* box styling and inputs inside the box   ================================================= */
+/* box styling ================================================= */
 .box{
   margin:auto;
-  width: 80%;
+  width: 70%;
   background: #ffffff;
   padding: 20px;
-  max-width: 800px;
-  /* background: maroon; */
+  max-width: 865px;
   }
 .box hr{
   color: black;
   margin: 0 0 15px;
 
 }
+.box::placeholder{
+  color: black;
+
+
+
 
 .box h2{
   margin: 0 0 30px;
@@ -179,17 +184,16 @@ button[disabled]{
   text-align: center;
 }
 
-.box input{
+.box .formgroup input{
   width: 100%;
   padding: 20px 0;
   font-size: 18px;
-  margin-bottom: 30px;
+  margin-bottom: 100px;
   border: none;
   outline: none;
   border-bottom: 1px solid rgb(0, 0, 0);
   background: transparent;
   display: block;
-  height:18px
   /* box-sizing: border-box; */
 }
 
@@ -197,7 +201,7 @@ button[disabled]{
 button{
   padding:10px 10px 10px 5px;
   display:block;
-  width:90%;
+  width:100%;
   border:none;
   border-bottom:1px solid #757575;
   background-color: #4CAF50;
@@ -222,11 +226,11 @@ button:hover{
 }
 
 .box label{
-  /* visibility: hidden; */
+  visibility: hidden;
   /* position: absolute; */
 }
 ::placeholder{
-  color: white;
+  color: black;
 
 }
 
@@ -234,18 +238,18 @@ button:hover{
 
 
 /* Responsiveness phones and tablets ========================== */
-/* @media (min-width: 800px) {
+@media (min-width: 800px) {
   .formgroup {
     background: #f1f1f1;
   }
   ::placeholder{
-    /* visibility: hidden; */
-  } */
-  /* .box label{
+    visibility: hidden;
+  }
+  .box label{
     visibility: visible;
     font-size: 18px
   }
-} */
+}
   @media (max-width: 800px) {
     .box{
       width: 100%;
