@@ -74,6 +74,29 @@ def open_main_page():
 def open_admin_page():
     return render_template('admin.html')
 
+# Cookie sessions
+@app.route("/Login", methods = ['GET','POST'])
+def login():
+    if request.method=='POST':
+        uName = request.form.get('username', default="Error")
+        pw = request.form.get('password', default="Error")
+        if checkCredentials(uName, pw):
+            resp = make_response(render_template('AdminPanel.html', msg='hello '+uName+reminder, username = uName))
+            session['username'] = request.form['username']
+            session['Password'] = 'pa55wrd'
+        return resp
+    else:
+        username = 'none'
+        if 'username' in session:
+            username = escape(session['username'])
+        return render_template('AdminPanel.html', msg='', username = username)
+
+# =======================================================================
+#       methods
+def checkCredentials(uName, pw):
+    return pw == 'ian'
+# =======================================================================
+
 @app.route("/home")
 def open_home_page():
     return render_template('home.html')
