@@ -197,13 +197,14 @@ button[disabled]{
 button{
   padding:10px 10px 10px 5px;
   display:block;
-  width:90%;
+  width: 25%;
   border:none;
   border-bottom:1px solid #757575;
   background-color: #4CAF50;
   opacity: 0.6;
   -webkit-transition-duration: 0.4s; /* Safari */
   transition-duration: 0.4s;
+  float: right;
 }
 button:hover{
   opacity: 1 ;
@@ -240,14 +241,17 @@ button:hover{
   }
   ::placeholder{
     /* visibility: hidden; */
-  } */
+  /* } */
   /* .box label{
     visibility: visible;
     font-size: 18px
   }
 } */
-  @media (max-width: 800px) {
+  /* @media (max-width: 800px) {
     .box{
       width: 100%;
     }
-  }
+    .box button{
+      width: 100%;
+    }
+  } */
