@@ -1,18 +1,23 @@
 {%extends 'index.html'%}
-
-
+{%block extra_head%}
+{%endblock%}
 {%block mainBlock%}
 <div class="box">
-  <div class="loginBox">
-    <img src="..\static\admin.png" class="user" style="width:100px;height100px;">
-    <h2> Admin Log In </h2>
-    <form>
-      <p>Username</p>
-      <input type="text" name="" placeholder="Username">
-      <p>Password</p>
-      <input type="Password" name="" placeholder="Password">
-      <input type="submit" name="" value="Sign In">
-  </div>
+  <form class="AdminForm">
+    <div class="formgroup">
+      <center> 
+        <img src="..\static\admin.png" class="user" style="width:100px;height100px;">
+        <h2> Admin Log In </h2>
+          <p>Username</p>
+          <input type="text" name="" placeholder="Username">
+          <p>Password</p>
+          <input type="Password" name="" placeholder="Password">
+          <div class="Next">
+              <button type="submit" class="btn btn-primary btn-lg">Sign In</button>
+          </div>
+      </center>
+    </div>
+  </form>
 </div>
 
 
