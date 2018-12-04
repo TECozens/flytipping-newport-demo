@@ -72,24 +72,30 @@ def open_main_page():
 
 @app.route("/admin")
 def open_admin_page():
+    username = request.cookies.get('username')
     return render_template('admin.html')
 
 # Cookie sessions
-@app.route("/Login", methods = ['GET','POST'])
+app.secret_key = 'fj590Rt?h40gg'
+
+@app.route("/AdminLogin", methods = ['GET','POST'])
 def login():
     if request.method=='POST':
+        reminder =". "
         uName = request.form.get('username', default="Error")
         pw = request.form.get('password', default="Error")
         if checkCredentials(uName, pw):
             resp = make_response(render_template('AdminPanel.html', msg='hello '+uName+reminder, username = uName))
             session['username'] = request.form['username']
             session['Password'] = 'pa55wrd'
+        else:
+            resp = make_response(render_template('AdminPanel.html', msg='Incorrect  login',username='Guest'))
         return resp
     else:
         username = 'none'
         if 'username' in session:
             username = escape(session['username'])
-        return render_template('AdminPanel.html', msg='', username = username)
+        return render_template('admin.html', msg='', username = username)
 
 # =======================================================================
 #       methods
@@ -144,18 +150,25 @@ def open_flyform2_page():
 
 @app.route("/flyreport3")
 def open_flyform3_page():
-        try:
-            conn = sqlite3.connect(DATABASE)
-            cur = conn.cursor()
-            cur.execute("UPDATE `Reports` SET `locationDescription`=? WHERE _id_='0';")
-            conn.commit()
-            msg = "Record successfully added"
-        except:
-            conn.rollback()
-            msg = "error in insert operation"
-        finally:
-            conn.close()
-            return render_template('ReportForm4.html')
+    contactnumber = request.form.get("contactnumber", default ="error")
+    print("above contact number")
+    print(contactnumber)
+    print("below contact number")
+    try:
+        conn = sqlite3.connect(DATABASE)
+        cur = conn.cursor()
+        print('connecting')
+        cur.execute("UPDATE Reports SET contactnumber = contactnumber WHERE id=(SELECT MAX(Id) FROM Reports);")
+
+        print('connected')
+        conn.commit()
+        msg = "Record successfully added"
+    except:
+        conn.rollback()
+        msg = "error in insert operation"
+    finally:
+        conn.close()
+        return render_template('ReportForm4.html')
 
 @app.route('/flyreport4', methods=['GET','POST'])
 def upload_file():
@@ -198,7 +211,7 @@ def upload_file():
                         finally:
                             conn.close()
                             print(msg)
-                            return render_template('ReportForm5.html')
+        return render_template('ReportForm5.html')
 
                     # return render_template('ReportForm5.html')
 
