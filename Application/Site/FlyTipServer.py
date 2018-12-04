@@ -180,7 +180,7 @@ def upload_file():
                         finally:
                             conn.close()
                             print(msg)
-        return render_template('ReportForm5.html')
+    return render_template('ReportForm5.html')
 
                     # return render_template('ReportForm5.html')
 

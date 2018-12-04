@@ -14,7 +14,8 @@
     </ul>
   </div>
 <br>
-<form class="box" action="/flyreport4" enctype=multipart/form-data method="POST">
+
+  <form class="box action="/flyreport4" enctype=multipart/form-data method="POST">
 
 
   <!--Upload And Preview Images-->
@@ -23,7 +24,7 @@
       <label for="flyTipInfo"></label>
       <div id="emailRecieve">
           <label for="emailRecieve">would you like to receive emails about your report?</label>
-          <input type="checkbox" id="myCheck" "> tick to recieve emails
+          <input type="checkbox" id="myCheck" "> tick to recieve emails</input>
             <p id="text" style="display:none">
             <br>
             </p>
@@ -35,10 +36,13 @@
         <br>
         <input type='file' class = 'form-control' name='file' id='images' multiple/>
           <!-- <input type="file" class="form-control" id="images" name="name" onchange="preview_images();" multiple/> -->
-        {{msg}}
       </div>
     </div>
 
+    <div class='upload'>
+      <p>This is where the images will go</p>
+      <input type="image" src="static\upload.png" id='uploadimg' name='file'></input>
+    </div>
     <!-- Submit -->
   <div class = 'box'>
     <div class="formgroup">
@@ -51,5 +55,4 @@
     <br>
 
   </form>
-</div>
 {%endblock%}
