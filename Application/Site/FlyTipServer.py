@@ -138,7 +138,9 @@ def open_flyform2_page():
     try:
         conn = sqlite3.connect(DATABASE)
         cur = conn.cursor()
-        cur.execute("INSERT INTO `Waste` SET `tipLocation`= 'hello' WHERE id='0';")
+        print('Connecting')
+        cur.execute("INSERT INTO Reports ('wastetypeID', 'wasteSize')\
+                     VALUES(?,?,?)",(wastetypeID, wasteSize) )
         conn.commit()
         msg = "Record successfully added"
     except:
