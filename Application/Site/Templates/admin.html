@@ -2,17 +2,19 @@
 
 
 {%block mainBlock%}
-<div class="loginBox">
-  <img src="..\static\admin.png" class="user" style="width:100px;height100px;">
-  <h2> Admin Log In </h2>
-  <form id='myForm' action="/AdminLogin" method="post">
-    <p>Username</p>
-    <input type="text" name="" placeholder="Username">
-    <p>Password</p>
-    <input type="Password" name="" placeholder="Password">
-    <input type="submit" name="" value="Sign In">
-  </form>
+<div class="box">
+  <div class="loginBox">
+    <img src="..\static\admin.png" class="user" style="width:100px;height100px;">
+    <h2> Admin Log In </h2>
+    <form>
+      <p>Username</p>
+      <input type="text" name="" placeholder="Username">
+      <p>Password</p>
+      <input type="Password" name="" placeholder="Password">
+      <input type="submit" name="" value="Sign In">
+  </div>
 </div>
+
 
 
 {%endblock%}
