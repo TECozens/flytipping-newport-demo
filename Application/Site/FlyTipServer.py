@@ -72,7 +72,36 @@ def open_main_page():
 
 @app.route("/admin")
 def open_admin_page():
+    username = request.cookies.get('username')
     return render_template('admin.html')
+
+# Cookie sessions
+app.secret_key = 'fj590Rt?h40gg'
+
+@app.route("/AdminLogin", methods = ['GET','POST'])
+def login():
+    if request.method=='POST':
+        reminder =". "
+        uName = request.form.get('username', default="Error")
+        pw = request.form.get('password', default="Error")
+        if checkCredentials(uName, pw):
+            resp = make_response(render_template('AdminPanel.html', msg='hello '+uName+reminder, username = uName))
+            session['username'] = request.form['username']
+            session['Password'] = 'pa55wrd'
+        else:
+            resp = make_response(render_template('AdminPanel.html', msg='Incorrect  login',username='Guest'))
+        return resp
+    else:
+        username = 'none'
+        if 'username' in session:
+            username = escape(session['username'])
+        return render_template('admin.html', msg='', username = username)
+
+# =======================================================================
+#       methods
+def checkCredentials(uName, pw):
+    return pw == 'ian'
+# =======================================================================
 
 @app.route("/home")
 def open_home_page():
@@ -182,7 +211,7 @@ def upload_file():
                         finally:
                             conn.close()
                             print(msg)
-        return render_template('ReportForm5.html')
+    return render_template('ReportForm5.html')
 
                     # return render_template('ReportForm5.html')
 

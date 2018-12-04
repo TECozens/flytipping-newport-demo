@@ -208,12 +208,13 @@ button[disabled]{
 /* box styling and inputs inside the box   ================================================= */
 .box{
   margin:auto;
-  width: 80%;
+  width: 90%;
   background: #ffffff;
   padding: 20px;
   max-width: 800px;
   /* background: maroon; */
   }
+
 .box hr{
   color: black;
   margin: 0 0 15px;
@@ -231,7 +232,7 @@ button[disabled]{
   text-align: center;
 }
 
-.box input{
+.box .formgroup input{
   width: 100%;
   padding: 20px 0;
   font-size: 18px;
@@ -241,10 +242,37 @@ button[disabled]{
   border-bottom: 1px solid rgb(0, 0, 0);
   background: transparent;
   display: block;
-  height:18px
+  height:18px;
   /* box-sizing: border-box; */
 }
+/* upload page styling */
+ .upload {
+  margin:auto;
+  margin-top: 50px;
+  min-height: 300px;
+  width: 80%;
+  background: #ffffff;
+  padding: 20px;
+  max-width: 800px;
+  border-color: grey;
+  border-style:dashed;
+  border-radius: 20px;
+  border-width: 5px;
+  /* background: green; */
+}
 
+#uploadimg{
+  display: block;
+  height: 100px;
+  width: 130px;
+  margin-left: auto;
+  margin-right: auto;
+  margin-top: 70px;
+}
+
+#uploadimg:hover{
+ /* src="static\upload.png" */
+}
 /* BUTTON =================================== */
 button{
   padding:10px 10px 10px 5px;
@@ -253,6 +281,7 @@ button{
   border:none;
   border-bottom:1px solid #757575;
   background-color: #4CAF50;
+  border-radius: 30px;
   opacity: 0.6;
   -webkit-transition-duration: 0.4s; /* Safari */
   transition-duration: 0.4s;
