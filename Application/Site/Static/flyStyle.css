@@ -8,19 +8,19 @@
   -moz-box-sizing: content-box;
   box-sizing: content-box;
 }
-/* Background styling ========================================== */
-body{
-  margin: 0;
-  padding: 0;
-  height: 100%;
-}
-
 *:before,
 *:after {
   -webkit-box-sizing: content-box;
      -moz-box-sizing: content-box;
           box-sizing: content-box;
 }
+body{
+  margin: 0;
+  padding: 0;
+  height: 100%;
+}
+
+/* Background styling ========================================== */
 
 /* style all input elements with a required attribute */
 /* input:required {
@@ -54,14 +54,6 @@ body{
   border-color: #175945;
   box-shadow: inset 2px 2px 2px rgba(23, 89, 69, 0.3), 2px 2px 2px rgba(23, 89, 69, 0.3);
 } */
-* {
-  box-sizing: border-box;
-}
-
-body {
-  margin: 0px;
-  font-family: 'segoe ui';
-}
 
 .nav {
   height: 50px;
