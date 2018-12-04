@@ -41,13 +41,13 @@
 
       <label> <h3>GPS or Address:</h3>
         <label class="switch">
-            <input id="mySwitch" type="checkbox" onclick="switchFunction()">
+            <input id="mySwitch" required="" type="checkbox" onclick="switchFunction()">
             <span class="slider round"></span>
         </label>
     </label>
 
     <!-- Autocomplete Field -->
-    <div id="addressField" style="display:none">
+    <div id="addressField" style="display:none;">
       <label for="tipLocation">Select Between the use of an Address or Map</label>
       <div class="form-group">
           <input name='tipLocation'  id="autocomplete" placeholder="Enter an address" onfocus="geolocate()"class="form-control" type="text" required=""></input>
