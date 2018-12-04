@@ -1,8 +1,8 @@
-ul {
+.List1 ul {
   list-style-type: none;
 }
 
-li {
+.List1 li {
   display: inline-block;
 }
 
@@ -65,7 +65,7 @@ label img {
   box-shadow: 0 0 50px #228B22;
   z-index: -1;
 }
-ul {
+.List1 ul {
   list-style: none;
 }
 
