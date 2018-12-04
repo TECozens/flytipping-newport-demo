@@ -148,7 +148,7 @@ def open_flyform2_page():
         conn.close()
         return render_template('ReportForm3.html')
 
-@app.route("/flyreport3")
+@app.route("/flyreport3", methods=["POST"])
 def open_flyform3_page():
     contactnumber = request.form.get("contactnumber", default ="error")
     print("above contact number")

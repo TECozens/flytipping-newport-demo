@@ -62,7 +62,7 @@
               <p>Speed: <samp id="js-speed">0</samp></p>
               <p>Altitude: <samp id="js-altitude">n/a</samp></p>
               <p>Heading: <samp id="js-heading">n/a</samp></p>
-            </ul>
+            <!-- </ul> -->
     </div>
 
     <!-- location Desc-->
@@ -147,7 +147,7 @@ new ol.Geolocation({
     altitudeElem.innerHTML = altitude ? altitude.toFixed(3) + ' m' : 'n/a';
     headingElem.innerHTML = heading ? heading.toFixed(3) + ' degrees' : 'n/a';
   });
-  
+
   var placeSearch, autocomplete;
   var componentForm = {
     street_number: 'short_name',
