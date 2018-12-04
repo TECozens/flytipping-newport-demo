@@ -49,7 +49,7 @@
     <!-- Autocomplete Field -->
     <div id="addressField" style="display:none">
       <label for="tipLocation">Select Between the use of an Address or Map</label>
-      <div class="form-group">
+      <div class="formgroup">
           <input name='tipLocation'  id="autocomplete" placeholder="Enter an address" onfocus="geolocate()"class="form-control" type="text" required=""></input>
       </div>
     </div>
@@ -62,19 +62,22 @@
               <p>Speed: <samp id="js-speed">0</samp></p>
               <p>Altitude: <samp id="js-altitude">n/a</samp></p>
               <p>Heading: <samp id="js-heading">n/a</samp></p>
-            </ul>
+            <!-- </ul> -->
     </div>
 
     <!-- location Desc-->
     <label for="descHelper">Describe the location of the incident</label>
+    <div class="formgroup">
       <input name="locationDescription" placeholder="provide details of the location" class="form-control" type="text"></input>
+    </div>
       <small id="Description" class="form-text text-muted">Include details such as *Details*</small>
 
       <!-- Email-->
     <label for="emailaddress">Please enter your Email address</label>
+    <div class="formgroup">
       <input name='emailaddress' placeholder="provide email address" required="" class="form-control" type="text"></input>
-      <small id="emailadd" class="form-text text-muted">Include valid email <br> This will allow us to validate the submission of your report</small>
-
+    </div>
+    <small id="emailadd" class="form-text text-muted">Include valid email <br> This will allow us to validate the submission of your report</small>
       <br>
 
 
@@ -147,7 +150,7 @@ new ol.Geolocation({
     altitudeElem.innerHTML = altitude ? altitude.toFixed(3) + ' m' : 'n/a';
     headingElem.innerHTML = heading ? heading.toFixed(3) + ' degrees' : 'n/a';
   });
-  
+
   var placeSearch, autocomplete;
   var componentForm = {
     street_number: 'short_name',
