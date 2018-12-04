@@ -5,14 +5,14 @@
 <!-- Progress Bar -->
 <br>
 <div class="w3-container">
-    <ul class="progressBar">
-      <li class="active">Important Details</li>
-      <li>Additional Details</li>
-      <li>witness report</li>
-      <li></li>
-      <li></li>
-    </ul>
-  </div>
+  <ul class="progressBar">
+    <li class="active">Important Details</li>
+    <li>Additional Details</li>
+    <li>witness report</li>
+    <li></li>
+    <li></li>
+  </ul>
+</div>
 <br>
 <br>
 <br>
@@ -20,37 +20,37 @@
 
 <!-- Start of Form=================================================================================================== -->
 <div class="box">
-  <h2>Identify the area of the incident</h2>
-  <hr>
-  <h3>Location</h3>
   <form id="form1" action="/flyreport1" method="POST">
+    <h2>Identify the area of the incident</h2>
     <hr>
+    <h3>Location</h3>
+    <hr>
+    <div class="box2">
     <!-- Information -->
-    <div>
-        <label> <h3>Information:</h3>
-            <label class="switch">
-                <input id="myCheck" type="checkbox" onclick="myFunction2()">
-                <span class="slider round"></span>
-            </label>
-        </label>
-
-        <p class="Information" id="text" style="display:none">
-            <label>During 2016-17, local authorities in Wales reported 38,614 fly-tipping incidents, representing an annual increase of around 2,400 incidents (6 per cent). This compares with an annual increase of 14 per cent in the number of incidents between 2014-15 and 2015-16. Previously, the number of incidents had consistently fallen from a peak of nearly 62,000 incidents in 2007-08 to around 31,700 in 2014-15. Estimated fly-tipping clearance costs have slightly risen from £2.1 million in 2015-16 to £2.2 million in 2016-17</label>
-        </p>
-      </div>
-
-      <label> <h3>GPS or Address:</h3>
+      <label> <h3>Information:</h3>
         <label class="switch">
-            <input id="mySwitch" type="checkbox" onclick="switchFunction()">
+            <input id="mySwitch" required="" type="checkbox" onclick="switchFunction()">
             <span class="slider round"></span>
         </label>
-    </label>
+      </label>
 
+      <p class="Information" id="text" style="display:none">
+        <label>During 2016-17, local authorities in Wales reported 38,614 fly-tipping incidents, representing an annual increase of around 2,400 incidents (6 per cent). This compares with an annual increase of 14 per cent in the number of incidents between 2014-15 and 2015-16. Previously, the number of incidents had consistently fallen from a peak of nearly 62,000 incidents in 2007-08 to around 31,700 in 2014-15. Estimated fly-tipping clearance costs have slightly risen from £2.1 million in 2015-16 to £2.2 million in 2016-17</label>
+      </p>
+    </div>
+  <div class="box1">
+    <label> <h3>GPS or Address:</h3>
+      <label class="switch">
+        <input id="mySwitch" type="checkbox" onclick="switchFunction()">
+        <span class="slider round"></span>
+      </label>
+    </label>
+  </div>  
     <!-- Autocomplete Field -->
-    <div id="addressField" style="display:none">
+    <div id="addressField" style="display:none;">
       <label for="tipLocation">Select Between the use of an Address or Map</label>
-      <div class="form-group">
-          <input name='tipLocation'  id="autocomplete" placeholder="Enter an address" onfocus="geolocate()"class="form-control" type="text" required=""></input>
+      <div class="formgroup">
+        <input name='tipLocation'  id="autocomplete" placeholder="Enter an address" onfocus="geolocate()"class="form-control" type="text" required=""></input>
       </div>
     </div>
 
@@ -58,31 +58,33 @@
     <div id="mapField">
       <div id="js-map" class="map"></div>
       <h1>Geolocation</h1>
-              <p>Position: <code>[</code><samp id="js-position">n/a</samp><code>]</code></p>
-              <p>Speed: <samp id="js-speed">0</samp></p>
-              <p>Altitude: <samp id="js-altitude">n/a</samp></p>
-              <p>Heading: <samp id="js-heading">n/a</samp></p>
-            </ul>
+      <p>Position: <code>[</code><samp id="js-position">n/a</samp><code>]</code></p>
+      <p>Speed: <samp id="js-speed">0</samp></p>
+      <p>Altitude: <samp id="js-altitude">n/a</samp></p>
+      <p>Heading: <samp id="js-heading">n/a</samp></p>
+      <!-- </ul> -->
     </div>
 
     <!-- location Desc-->
     <label for="descHelper">Describe the location of the incident</label>
+    <div class="formgroup">
       <input name="locationDescription" placeholder="provide details of the location" class="form-control" type="text"></input>
       <small id="Description" class="form-text text-muted">Include details such as *Details*</small>
-
-      <!-- Email-->
+    </div>
+    <!-- Email-->
     <label for="emailaddress">Please enter your Email address</label>
+    <div class="formgroup">
       <input name='emailaddress' placeholder="provide email address" required="" class="form-control" type="text"></input>
       <small id="emailadd" class="form-text text-muted">Include valid email <br> This will allow us to validate the submission of your report</small>
-
-      <br>
+    </div>
+    <br>
 
 
     <!-- Submit -->
-    <div class="form-group">
-        <div class="Next">
-            <button class="btn btn-primary btn-lg">Continue</button>
-        </div>
+    <div class="formgroup">
+      <div class="Next">
+        <button class="btn btn-primary btn-lg">Continue</button>
+      </div>
     </div>
     <br>
   </form>
@@ -147,7 +149,7 @@ new ol.Geolocation({
     altitudeElem.innerHTML = altitude ? altitude.toFixed(3) + ' m' : 'n/a';
     headingElem.innerHTML = heading ? heading.toFixed(3) + ' degrees' : 'n/a';
   });
-  
+
   var placeSearch, autocomplete;
   var componentForm = {
     street_number: 'short_name',
