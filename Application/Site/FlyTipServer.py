@@ -138,7 +138,9 @@ def open_flyform2_page():
     try:
         conn = sqlite3.connect(DATABASE)
         cur = conn.cursor()
-        cur.execute("INSERT INTO `Waste` SET `tipLocation`= 'hello' WHERE id='0';")
+        print('Connecting')
+        cur.execute("INSERT INTO Reports ('wastetypeID', 'wasteSize')\
+                     VALUES(?,?,?)",(wastetypeID, wasteSize) )
         conn.commit()
         msg = "Record successfully added"
     except:
@@ -148,11 +150,7 @@ def open_flyform2_page():
         conn.close()
         return render_template('ReportForm3.html')
 
-<<<<<<< HEAD
-@app.route("/flyreport3", methods=["POST"])
-=======
 @app.route("/flyreport3", methods=['POST'])
->>>>>>> 37784c0db8f3ccc88643db1ad8f576b413908751
 def open_flyform3_page():
     contactnumber = request.form.get("contactnumber", default ="error")
     print("above contact number")
