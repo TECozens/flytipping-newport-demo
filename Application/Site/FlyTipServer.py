@@ -4,7 +4,7 @@ import sqlite3
 from werkzeug.utils import secure_filename
 
 emailaddress = "test@test.com"
-DATABASE = 'Resources/Database/report.db'
+DATABASE = 'Resources/Database/reports.db'
 
 APP_ROOT = os.path.dirname(os.path.abspath(__file__))
 UPLOAD_FOLDER = os.path.join(APP_ROOT, 'uploads')
@@ -200,25 +200,32 @@ def upload_file():
                         # if user does not select file, browser also
                         # submit a empty part without filename
                         main(emailaddress)
-                        send_image(filename)
+                        del numberofimages[0]
                         numberofimages.append(filePath)
-                    try:
-                        conn = sqlite3.connect(DATABASE)
-                        cur = conn.cursor()
-                        print(filePath)
-                        print('connecting')
-                        cur.execute("INSERT INTO Image (imagePath1) VALUES(?)", (filePath,) )
-                        print('connected')
-                        conn.commit()
-                        msg = "Record successfully added"
-                    except Exception as err:
-                        conn.rollback()
-                        msg = "error in insert operation"
-                        print(msg)
-                        print(err)
-                    finally:
-                        conn.close()
-                        print(msg)
+                numberofimages = numberofimages[::-1]
+                imagepath1, imagepath2, imagepath3, imagepath4 = numberofimages
+                try:
+                    conn = sqlite3.connect(DATABASE)
+                    cur = conn.cursor()
+                    print(filePath)
+                    print('connecting')
+                    cur.execute("INSERT INTO Image (imagePath1, imagePath2, imagePath3, imagePath4)\
+                                 VALUES(?,?,?,?)", (imagepath1, imagepath2, imagepath3, imagepath4) )
+                    print('connected')
+                    conn.commit()
+                    print('trying id')
+                    cur.execute("UPDATE Reports SET imageID =(SELECT MAX(imageID) FROM Image) WHERE id=(SELECT MAX(Id) FROM Reports)")
+                    print('id successfull')
+                    conn.commit()
+                    msg = "Record successfully added"
+                except Exception as err:
+                    conn.rollback()
+                    msg = "error in insert operation"
+                    print(msg)
+                    print(err)
+                finally:
+                    conn.close()
+                    print(msg)
     return render_template('ReportForm5.html')
 # @app.route("/flyreport4")
 # def open_flyform4_page():
@@ -241,8 +248,8 @@ def open_flyform5_page():
             conn = sqlite3.connect(DATABASE)
             cur = conn.cursor()
             conn.commit()
-            msg = "Record successfully added"
         except:
+            msg = "Record successfully added"
             conn.rollback()
             msg = "error in insert operation"
         finally:
