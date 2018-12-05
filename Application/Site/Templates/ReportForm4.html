@@ -17,9 +17,9 @@
 
   <form class="box" action="/flyreport4" enctype=multipart/form-data method="POST">
 
+    <h2>Add photos</h2>
 
   <!--Upload And Preview Images-->
-  <h2>Add photos</h2>
   <div class="form-group">
       <label for="flyTipInfo"></label>
       <div id="emailRecieve">
@@ -36,6 +36,7 @@
         <br>
         <input type='file' class = 'form-control' name='file' id='images' multiple/>
           <!-- <input type="file" class="form-control" id="images" name="name" onchange="preview_images();" multiple/> -->
+          {{msg}}
       </div>
     </div>
 
