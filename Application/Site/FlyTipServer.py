@@ -138,7 +138,9 @@ def open_flyform2_page():
     try:
         conn = sqlite3.connect(DATABASE)
         cur = conn.cursor()
-        cur.execute("INSERT INTO `Waste` SET `tipLocation`= 'hello' WHERE id='0';")
+        print('Connecting')
+        cur.execute("INSERT INTO Reports ('wastetypeID', 'wasteSize')\
+                     VALUES(?,?,?)",(wastetypeID, wasteSize) )
         conn.commit()
         msg = "Record successfully added"
     except:
@@ -158,7 +160,7 @@ def open_flyform3_page():
         conn = sqlite3.connect(DATABASE)
         cur = conn.cursor()
         print('connecting')
-        cur.execute("UPDATE Reports SET contactnumber = contactnumber WHERE id=(SELECT MAX(Id) FROM Reports);")
+        cur.execute("UPDATE Reports SET contactnumber = 10 WHERE id=(SELECT MAX(Id) FROM Reports);")
 
         print('connected')
         conn.commit()
