@@ -4,6 +4,7 @@
 {%block mainBlock%}
 <!-- Progress Bar -->
 <br>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
 <div class="w3-container">
     <ul class="progressBar">
       <li class="active">Important Details</li>
@@ -34,7 +35,7 @@
     <div class="col-8 col-md-6">
       <div id="uploadImage">
         <br>
-        <input type='file' class = 'form-control' name='file' id='images' multiple/>
+        <input type='file' class = 'form-control' name='file' id='imgInp' runat="server" multiple/>
           <!-- <input type="file" class="form-control" id="images" name="name" onchange="preview_images();" multiple/> -->
           {{msg}}
       </div>
@@ -42,6 +43,7 @@
 
     <div class='upload'>
       <p>This is where the images will go</p>
+      <img id="blah" src="#" alt="your image" />
       <input type="image" src="static\upload.png" id='uploadimg' name='file'></input>
     </div>
     <!-- Submit -->
@@ -56,4 +58,23 @@
     <br>
 
   </form>
+  <script>
+
+    function readURL(input) {
+
+  if (input.files && input.files[0]) {
+    var reader = new FileReader();
+
+    reader.onload = function(e) {
+      $('#blah').attr('src', e.target.result);
+    }
+
+    reader.readAsDataURL(input.files[0]);
+  }
+}
+
+$("#imgInp").change(function() {
+  readURL(this);
+});
+  </script>
 {%endblock%}

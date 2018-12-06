@@ -1,4 +1,12 @@
 /* Stylesheet for the address field */
+*{
+  padding: 0;
+  margin: 0;
+  border: 0;
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+}
 .pac-container:after {
   background-image: none !important;
   height: 0px;
@@ -11,7 +19,7 @@
     right: 30%;
     font-family: Arial, sans-serif;
   }
-  
+
   .pane {
     position: absolute;
     top: 0;
@@ -24,11 +32,11 @@
     padding: 0 20px;
     font-family: Arial, sans-serif;
   }
-  
+
   .ol-attribution > ul {
     font-size: 2.3rem;
   }
-  
+
   .pane ul {
     padding-top: 10px;
   }

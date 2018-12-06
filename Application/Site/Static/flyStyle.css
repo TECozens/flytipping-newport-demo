@@ -8,6 +8,8 @@
   -moz-box-sizing: content-box;
   box-sizing: content-box;
 }
+
+
 *:before,
 *:after {
   -webkit-box-sizing: content-box;
@@ -17,7 +19,8 @@
 body{
   margin: 0;
   padding: 0;
-  height: 100%;
+  border:0;
+  /* height: 100%; */
 }
 
 /* Background styling ========================================== */
@@ -204,7 +207,7 @@ button[disabled]{
   background: #ffffff;
   padding: 20px;
   max-width: 800px;
-  /* background: maroon; */ 
+  /* background: maroon; */
   }
 
 .box hr{
