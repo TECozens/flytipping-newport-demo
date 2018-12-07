@@ -163,6 +163,9 @@ def open_flyform3_page():
         cur = conn.cursor()
         print('connecting')
         cur.execute("UPDATE Reports SET contactnumber = ? WHERE id=(SELECT MAX(Id) FROM Reports)", (contactnumber,))
+        cur.execute("UPDATE Reports SET firstname = ? WHERE id=(SELECT MAX(Id) FROM Reports)", (firstname,))
+        cur.execute("UPDATE Reports SET surname = ? WHERE id=(SELECT MAX(Id) FROM Reports)", (surname,))
+        # above is in progress
 
         print('connected')
         conn.commit()
