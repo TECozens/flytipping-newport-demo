@@ -26,30 +26,26 @@
     <br>
     <div class="form-group">
       <div id="locationDesc">
-          <label for="locationDesc">did you witness the waste being dumped?</label>
           <div class="checkbox">
             <label><input type="checkbox" value="">did you witness the waste being dumped?</label>
           </div>
           <input type="checkbox" id="myCheck" onclick="myFunction()"> would you be willing to provide a statment?
           <p id="text" style="display:none">
               <br>
-              <label>please enter information about what you whitnessed, this could include vehicle registation or a discription of the individual</label>
-                <input id="descHelper" placeholder="provide details of incident" class="form-control" type="text"></input>
-                <small id="Description" class="form-text text-muted">Include details such as *Description*</small>
+              <!-- --first name entry-- -->
+              <label>please enter your first name</label>
+                <input name="firstname" placeholder="first name" class="form-control" type="text"></input>
+
               <br>
+              <!-- --last name entry-- -->
+              <label>please enter your surname</label>
+                <input name="surname" placeholder="surname" class="form-control" type="text"></input>
 
-              <label>please enter any additional information about what you veiwed</label>
-                <input id="descHelper" placeholder="provide additional details of incident" class="form-control" type="text"></input>
-                <small id="Description" class="form-text text-muted">Include details such as *Description*</small>
               <br>
-
-              <!-- <label>please enter your phone number</label>
-                <input name="contactnumber" placeholder="enter phone number" class="form-control" type="text"></input>
-                <small id="Description" class="form-text text-muted">Include a phone number we can contact you on</small> -->
-
+              <!-- --number entry-- -->
               <label for="contactnumber">please enter your phone number</label>
                 <input name='contactnumber' placeholder="enter phone number" required="" class="form-control" type="text"></input>
-                <small id="contactnumber" class="form-text text-muted">Include valid email <br> This will allow us to validate the submission of your report</small>
+                <small id="contactnumber" class="form-text text-muted">Include valid number <br> we need this information in order to contact you about your statement</small>
 
           </p>
           </div>
