@@ -35,16 +35,16 @@
     <div class="col-8 col-md-6">
       <div id="uploadImage">
         <br>
-        <input type='file' class = 'form-control' name='file' id='imgInp' runat="server" multiple/>
+        <input type='file' id="file" class = 'form-control' name='file' id='imgInp' runat="server" multiple/>
           <!-- <input type="file" class="form-control" id="images" name="name" onchange="preview_images();" multiple/> -->
           {{msg}}
       </div>
     </div>
 
     <div class='upload'>
-      <p>This is where the images will go</p>
-      <img id="blah" src="#" alt="your image" />
-      <input type="image" src="static\upload.png" id='uploadimg' name='file'></input>
+      <!-- <p>This is where the images will go</p> -->
+      <p id="img"/>
+      <!-- <input type="image" src="static\upload.png" id='uploadimg' name='file'></input> -->
     </div>
     <!-- Submit -->
   <div class = 'box'>
@@ -60,21 +60,42 @@
   </form>
   <script>
 
-    function readURL(input) {
+//     function readURL(input) {
+//
+//   if (input.files && input.files[0]) {
+//     var reader = new FileReader();
+//
+//     reader.onload = function(e) {
+//       $('#img').attr('src', e.target.result);
+//     }
+//
+//     reader.readAsDataURL(input.files[0]);
+//   }
+// }
+//
+// $("#imgInp").change(function() {
+//   readURL(this);
+// });
 
-  if (input.files && input.files[0]) {
-    var reader = new FileReader();
+$(document).ready(function () {
 
-    reader.onload = function(e) {
-      $('#blah').attr('src', e.target.result);
-    }
+    $('#file').change(function () {
+        if (this.files.length > 0) {
 
-    reader.readAsDataURL(input.files[0]);
-  }
-}
+            $.each(this.files, function () {
+                var reader = new FileReader();
 
-$("#imgInp").change(function() {
-  readURL(this);
+                reader.onload = function (e) {
+                    var img = new Image();
+                    img.src = e.target.result;
+
+                    img.setAttribute('style', 'width:300px;');    // you can adjust the image size by changing the width value.
+                    $('#img').append(img);
+                };
+                reader.readAsDataURL(this);
+            });
+        }
+    });
 });
   </script>
 {%endblock%}
