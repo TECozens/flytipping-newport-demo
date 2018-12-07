@@ -206,7 +206,7 @@ button[disabled]{
   margin:auto;
   width: 90%;
   background: #ffffff;
-  padding: 20px;
+  padding: 10px;
   max-width: 800px;
   /* background: maroon; */
   }
@@ -248,12 +248,13 @@ button[disabled]{
   min-height: 300px;
   width: 80%;
   background: #ffffff;
-  padding: 20px;
+  /* padding: 20px; */
   max-width: 800px;
   border-color: grey;
   border-style:dashed;
   border-radius: 20px;
   border-width: 5px;
+  /* min-width: 320px; */
   /* background: green; */
 }
 
@@ -332,6 +333,9 @@ button:hover{
     }
   } */
   @media (max-width:600px) {
+    .upload {
+      width:100%;
+    }
     .nav > .nav-btn {
       display: inline-block;
       position: absolute;
