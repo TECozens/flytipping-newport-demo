@@ -50,7 +50,7 @@
     <div id="addressField" style="display:none">
       <label for="tipLocation">Select Between the use of an Address or Map</label>
       <div class="formgroup">
-          <input name='tipLocation'  id="autocomplete" placeholder="Enter an address" onfocus="geolocate()"class="form-control" type="text" required=""></input>
+          <input name='tipLocation'  id="autocomplete" placeholder="E.g. 72 Mackworth Street" onfocus="geolocate()"class="form-control" type="text" required=""></input>
       </div>
     </div>
 
@@ -65,26 +65,26 @@
     <!-- location Desc-->
     <label for="descHelper">Describe the location of the incident</label>
     <div class="formgroup">
-      <input name="locationDescription" placeholder="provide details of the location" class="form-control" type="text"></input>
+      <input name="locationDescription" placeholder="E.g. Behind the two big trees" class="form-control" type="text"></input>
     </div>
       <small id="Description" class="form-text text-muted">Include details such as *Details*</small>
 
       <!-- Email-->
     <label for="emailaddress">Please enter your Email address</label>
     <div class="formgroup">
-      <input name='emailaddress' placeholder="provide email address" required="" class="form-control" type="text"></input>
+      <input name='emailaddress' placeholder="E.g. Ben@gmail.com" required="" class="form-control" type="text"></input>
     </div>
     <small id="emailadd" class="form-text text-muted">Include valid email <br> This will allow us to validate the submission of your report</small>
       <br>
 
 
     <!-- Submit -->
-    <div class="form-group">
+    <div class="formgroup">
         <div class="Next">
-            <button class="btn btn-primary btn-lg">Continue</button>
+            <button>Continue</button>
         </div>
     </div>
-    <br>
+      <br>
   </form>
 </div>
 
@@ -139,7 +139,7 @@
 
       positionElem.innerHTML = position.join(',<br>');
     });
-  }; 
+  };
   window.onload=loadMap();
 
   var GPSLocale = document.getElementById("js-position")

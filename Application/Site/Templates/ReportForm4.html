@@ -35,7 +35,7 @@
     <div class="col-8 col-md-6">
       <div id="uploadImage">
         <br>
-        <input type='file' id="file" class = 'form-control' name='file' id='imgInp' runat="server" multiple/>
+        <input type='file' id="file" name='file' id='imgInp' runat="server" multiple/>
           <!-- <input type="file" class="form-control" id="images" name="name" onchange="preview_images();" multiple/> -->
           {{msg}}
       </div>
@@ -43,14 +43,18 @@
 
     <div class='upload'>
       <!-- <p>This is where the images will go</p> -->
-      <p id="img"/>
+      <center>
+        <p id="img"/>
+      </center>
       <!-- <input type="image" src="static\upload.png" id='uploadimg' name='file'></input> -->
     </div>
     <!-- Submit -->
   <div class = 'box'>
     <div class="formgroup">
         <div class="Next">
-            <button class="btn btn-primary btn-lg">Submit</button>
+          <center>
+            <button>Submit</button>
+          </center>
         </div>
     </div>
   </div>

@@ -61,8 +61,12 @@ body{
 .nav {
   height: 55px;
   width: 100%;
-  background-color: #4d4d4d;
+  background-color: #025B30; /*#4d4d4d;*/
   position: relative;
+  font-family: "Impact W01", "Arial Black", Gadget, sans-serif;
+  /* color: #FFF; */
+  font-size: 18px;
+
 }
 
 .nav > .nav-header {
@@ -94,7 +98,7 @@ body{
 }
 
 .nav > .nav-links > a:hover {
-  background-color: rgba(0, 0, 0, 0.3);
+  background-color:#8dc63f; /*rgba(0, 0, 0, 0.3);*/
 }
 
 .nav > #nav-check {
@@ -254,8 +258,13 @@ button[disabled]{
   border-style:dashed;
   border-radius: 20px;
   border-width: 5px;
+  padding-top: 10px;
+  margin-bottom: 40px;
   /* min-width: 320px; */
   /* background: green; */
+}
+.upload:hover{
+ border-color: green;
 }
 
 #uploadimg{
@@ -275,16 +284,19 @@ button{
   padding:10px;
   display:block;
   width: 120px;
-  border-bottom:1px solid #757575;
-  background-color: #4CAF50;
-  opacity: 0.6;
+  /* border-bottom:1px solid #757575; */
+  background-color: #006838;
+  font-family: "Impact W01", "Arial Black", Gadget, sans-serif;
+  /* opacity: 0.6; */
+  color: #FFF;
+  font-size: 18px;
   -webkit-transition-duration: 0.4s; /* Safari */
   transition-duration: 0.4s;
-  border-radius: 10px;
+  border-radius: 25px;
   /* float: right; */
 }
 button:hover{
-  opacity: 1 ;
+  background-color: #8dc63f;
   cursor: pointer;
 }
 
@@ -336,6 +348,11 @@ button:hover{
     .upload {
       width:100%;
     }
+    button{
+    margin: auto;
+    width: 100%;
+    /* margin-right: 20%; */
+    }
     .nav > .nav-btn {
       display: inline-block;
       position: absolute;
@@ -361,7 +378,7 @@ button:hover{
       position: absolute;
       display: block;
       width: 100%;
-      background-color: #333;
+      background-color: #006838;
       height: 0px;
       transition: all 0.3s ease-in;
       overflow-y: hidden;
