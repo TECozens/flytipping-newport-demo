@@ -49,10 +49,12 @@ function checknumber(){
 
   if (phone.length != 12){
     console.log("invalid")
-    document.getElementById("numerror").innerHTML = "error";
+    document.getElementById("numerror").innerHTML = "enter valid number";
+    document.getElementById("numerror").style.color = "red";
   } else{
     console.log("valid")
     document.getElementById("numerror").innerHTML = "valid";
+        document.getElementById("numerror").style.color = "green";
   }
 
 }
