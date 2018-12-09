@@ -22,14 +22,17 @@
 
     <!-- Witness Field=================================================================================================-->
     <h2>where you a witness?</h2>
-    <label for="flyTipInfo">Did you witness a person or persons dumping their waste? If yes then tick the boxes to indicate this. It is important that if you do this you understand you are willing to give a statment to the police. Because of this you must make sure all the information is truthful.</label>
+    <label for="flyTipInfo">Did you witness a person or persons dumping their waste? If yes then flip the switch to indicate this. It is important that if you do this you understand you are willing to give a statment to the police. Because of this you must make sure all the information is truthful.</label>
+    <label>Were you a witness and willing to give a statment?</label>
     <br>
     <div class="form-group">
       <div id="locationDesc">
-          <div class="checkbox">
-            <label><input type="checkbox" value="">did you witness the waste being dumped?</label>
-          </div>
-          <input type="checkbox" id="myCheck" onclick="myFunction()"> would you be willing to provide a statment?
+
+          <label class="switch">
+              <input id="myCheck" type="checkbox" onclick="myFunction2()">
+              <span class="slider round"></span>
+          </label>
+
           <p id="text" style="display:none">
               <br>
               <!-- --first name entry-- -->
