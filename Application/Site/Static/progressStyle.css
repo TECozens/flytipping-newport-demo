@@ -8,6 +8,10 @@ Should take the significance of each page into account*/
   -moz-box-sizing: border-box;
   box-sizing: border-box;
 }
+.containera {
+      width: auto;
+      margin: auto;
+  }
 .progressBar{
   counter-reset: step;
 }
