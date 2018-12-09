@@ -41,3 +41,16 @@ function switchFunction() {
     mapF.style.display = "block";
   }
 }
+
+function checknumber(){
+  console.log("test")
+  var phone = document.getElementById('phonenum').value;
+  console.log(phone);
+
+  if (phone.length != 12){
+    console.log("invalid")
+  } else{
+    console.log("valid")
+  }
+
+}
