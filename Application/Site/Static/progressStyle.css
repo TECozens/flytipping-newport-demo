@@ -41,7 +41,7 @@ Should take the significance of each page into account*/
 .w3-container{
   width: 100%
 }
-.progressBar li::after{
+.progressBar li:after{
   content: '';
   position: absolute;
   top: 15px;
@@ -52,7 +52,7 @@ Should take the significance of each page into account*/
   vertical-align: middle;
 }
 
-.progressBar li:first-child::after{
+.progressBar li:first-child:after{
   content: none;
 }
 
@@ -60,13 +60,16 @@ Should take the significance of each page into account*/
   color: #175945;
 }
 
-.progressBar li.active::before{
+.progressBar li.active:before{
   border-color: #175945;
 }
 
-.progressBar li.active + li::after{
+.progressBar li.active + li:before{
   border-color: #175945;
 }
-.btn-primary, .btn-primary:hover, .btn-primary:active, .btn-primary:visited {
-  background-color:#175945 !important;
+.progressBar li.active + li:after{
+  border-color: #175945;
 }
+/* .btn-primary, .btn-primary:hover, .btn-primary:active, .btn-primary:visited {
+  background-color:#175945 !important;
+} */
