@@ -58,3 +58,13 @@ function checknumber(){
   }
 
 }
+
+function makerequired(){
+  console.log("makerequired");
+  document.getElementById("phonenum").required = true;
+}
+
+function twofunctions(){
+  myFunction2();
+  makerequired();
+}
