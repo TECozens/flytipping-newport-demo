@@ -15,31 +15,28 @@
     </ul>
   </div>
 <br>
+<br>
+<br>
+<hr>
 
   <form class="box" action="/flyreport4" enctype=multipart/form-data method="POST">
 
     <h2>Add photos</h2>
 
   <!--Upload And Preview Images-->
-  <div class="form-group">
-      <label for="flyTipInfo"></label>
-      <div id="emailRecieve">
-          <label for="emailRecieve">would you like to receive emails about your report?</label>
-          <input type="checkbox" id="myCheck" "> tick to recieve emails</input>
-            <p id="text" style="display:none">
-            <br>
-            </p>
-          <br>
-        </div>
-      </div>
-    <div class="col-8 col-md-6">
+  <div>
+    <label for="emailRecieve">Would you like to receive emails about your report?</label>
+      <label class="switch">
+        <input type="checkbox" onclick="myFunction2()"/>
+        <span class="slider round"></span>
+      </label>
+  </div>
       <div id="uploadImage">
         <br>
         <input type='file' id="file" name='file' id='imgInp' runat="server" multiple/>
           <!-- <input type="file" class="form-control" id="images" name="name" onchange="preview_images();" multiple/> -->
           {{msg}}
       </div>
-    </div>
 
     <div class='upload'>
       <!-- <p>This is where the images will go</p> -->
