@@ -49,8 +49,10 @@ function checknumber(){
 
   if (phone.length != 12){
     console.log("invalid")
+    document.getElementById("numerror").innerHTML = "error";
   } else{
     console.log("valid")
+    document.getElementById("numerror").innerHTML = "valid";
   }
 
 }
