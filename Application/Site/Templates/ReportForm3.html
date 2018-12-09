@@ -12,7 +12,7 @@
       <li>Add Photos</li>
       <li>Report Submission</li>
     </ul>
-  </div>
+  <!-- </div> -->
 <br>
 <br>
 <br>
@@ -47,9 +47,9 @@
               <br>
               <!-- --number entry-- -->
               <label for="contactnumber">please enter your phone number</label>
-                <input name='contactnumber' placeholder="enter phone number" required="" class="form-control" type="text"></input>
+                <input name='contactnumber' id='phonenum' placeholder="enter phone number" required="" class="form-control" type="number" onkeyup="checknumber()"></input>
+                <small id="numerror"></small>
                 <small id="contactnumber" class="form-text text-muted">Include valid number <br> we need this information in order to contact you about your statement</small>
-
           </p>
           </div>
     </div>
@@ -58,7 +58,7 @@
     <!-- Submit -->
     <div class="formgroup">
         <div class="Next">
-            <button>Continue</button>
+            <button formnovalidate>Continue</button>
         </div>
     </div>
     <br>
