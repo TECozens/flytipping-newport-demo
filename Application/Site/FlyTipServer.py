@@ -202,6 +202,7 @@ def open_flyform3_page():
 def upload_file():
     numberofimages=['','','' ,'']
     msg = ''
+    main(emailaddress)
     if request.method == 'POST':
         msg = 'ok'
         print(msg)
@@ -225,7 +226,6 @@ def upload_file():
                         file.save(filePath)
                         # if user does not select file, browser also
                         # submit a empty part without filename
-                        main(emailaddress)
                         del numberofimages[0]
                         numberofimages.append(filePath)
                 numberofimages = numberofimages[::-1]
