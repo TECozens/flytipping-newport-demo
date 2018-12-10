@@ -61,12 +61,12 @@ function checknumber(){
 
 function makerequired(){
   console.log("makerequired");
-  document.getElementById("phonenum").required = true;
-  // if (document.getElementById("phonenum").required = true;){
-  //   phonenum.removeAttribute("required");
-  // } else{
-  //   document.getElementById("phonenum").required = true;
-  // }
+  // document.getElementById("phonenum").required = true;
+  if (document.getElementById("phonenum").required == true){
+    phonenum.removeAttribute("required");
+  } else{
+    document.getElementById("phonenum").required = true;
+  }
 }
 
 
