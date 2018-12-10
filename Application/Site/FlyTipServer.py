@@ -146,6 +146,21 @@ def open_flyform2_page():
             wasteselection.append("false")
     print(wasteselection)
 
+    
+    test1 = request.form.get('wasteSize1')
+    print(test1)
+    test2 = request.form.get('wasteSize2')
+    print(test2)
+    test3 = request.form.get('wasteSize3')
+    print(test3)
+    test4 = request.form.get('wasteSize4')
+    print(test4)
+    test5 = request.form.get('wasteSize5')
+    print(test5)
+    test6 = request.form.get('wasteSize6')
+    print(test6)
+    test7 = request.form.get('wasteSize7')
+    print(test7)
     try:
         conn = sqlite3.connect(DATABASE)
         cur = conn.cursor()
