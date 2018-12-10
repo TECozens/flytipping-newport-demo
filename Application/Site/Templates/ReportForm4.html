@@ -31,11 +31,18 @@
         <span class="slider round"></span>
       </label>
   </div>
-      <div id="uploadImage">
-        <br>
-        <input type='file' id="file" name='file' id='imgInp' runat="server" multiple/>
+      <!-- <div class="file-upload"> -->
+        <!-- <br> -->
+        <!-- <input type='file' id="choosefile" name='choosefile' id='imgInp' runat="server" multiple/> -->
           <!-- <input type="file" class="form-control" id="images" name="name" onchange="preview_images();" multiple/> -->
+      <!-- </div> -->
+      <div class="file-upload">
+        <div class="file-select">
+          <div class="file-select-button" id="fileName">Choose File</div>
+          <div class="file-select-name" id="noFile">No file chosen...</div>
+          <input type="file" name="file" id="file" runat="server" multiple>
           {{msg}}
+        </div>
       </div>
 
     <div class='upload'>
@@ -81,7 +88,10 @@
 $(document).ready(function () {
 
     $('#file').change(function () {
+        var filename = $("#file").val();
         if (this.files.length > 0) {
+          $(".file-upload").removeClass('active');
+          // $("#noFile").text("No file chosen...");
 
             $.each(this.files, function () {
                 var reader = new FileReader();
@@ -89,9 +99,12 @@ $(document).ready(function () {
                 reader.onload = function (e) {
                     var img = new Image();
                     img.src = e.target.result;
+                    $("#noFile").text(reader);
 
                     img.setAttribute('style', 'width:300px;');    // you can adjust the image size by changing the width value.
                     $('#img').append(img);
+                    $(".file-upload").addClass('active');
+                    $("#noFile").text(filename.replace("C:\\fakepath\\", ""));
                 };
                 reader.readAsDataURL(this);
             });

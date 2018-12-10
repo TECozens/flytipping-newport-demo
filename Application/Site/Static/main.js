@@ -60,9 +60,10 @@ function twofunctions(){
 
 function checknumber(){
   var phone = document.getElementById('phonenum').value;
-  console.log(phone);
 
-  if (phone.length != 11){
+  if (phone.length == 0){
+    return true;
+  } else if(phone.length != 11){
     document.getElementById("numerror").innerHTML = "enter valid number";
     document.getElementById("numerror").style.color = "red";
     return false;
@@ -75,24 +76,14 @@ function checknumber(){
 
 }
 function checkemail(){
-  console.log("test")
-  var email = document.getElementById('contact-email').value;
-
-  if (email.length == 0) {
-    document.getElementById("emailerror").innerHTML = "invalid";
-    document.getElementById("emailerror").style.color = "red";;
-    return false;
-
-  } else{
+  var emailentr = document.getElementById('emailentr').value;
+  if (/^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/.test(emailentr)){
     document.getElementById("emailerror").innerHTML = "valid";
     document.getElementById("emailerror").style.color = "green";
     return true;
+  } else{
+    document.getElementById("emailerror").innerHTML = "invalid";
+    document.getElementById("emailerror").style.color = "red";
+    return false;
   }
-
-  // if (!email.match(/^[A-Za-z\._\-[0-9]*[@][A-Za-z]*[\.][a-z]{2,4}$/)) {
-  //
-  //   document.getElementById("emailerror").innerHTML = "invalid";
-  //   document.getElementById("emailerror").style.color = "red";
-  //   return false;
-  //
-  // }
+}

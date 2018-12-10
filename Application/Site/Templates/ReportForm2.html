@@ -1,7 +1,6 @@
 {%extends 'index.html'%}
 {%block headBlock%}
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
-
 <script src="..\static\fSelect.js"type="text/javascript"></script>
 <link href="..\static\fSelect.css" rel="stylesheet">
 <script>
@@ -51,23 +50,24 @@
     <!-- Waste Field -->
     <label for="waste">Select the waste you found</label>
     <div class="form-group">
+
       <div id="waste">
-        <select class="test" multiple="multiple">
+        <select class="test" id="optionlist" name="wastedropdown" multiple="multiple">
           <optgroup label="Type Of Waste">
-              <option name="wastetypeID" value="blackbags-household">Black bages - household</option>
-              <option name="wastetypeID" value="construction">Construction / demolition / excavation</option>
-              <option name="wastetypeID" value="whiteGoods">White Goods</option>
-              <option name="wastetypeID" value="furniture" >Furniture</option>
-              <option name="wastetypeID" value="mattress">Mattress</option>
-              <option name="wastetypeID" value="otherUnidentified">Other unidentified</option>
-              <option name="wastetypeID" value="greenWaste">Green waste</option>
-              <option name="wastetypeID" value="blackBags-commercial">Black Bags - commercial</option>
-              <option name="wastetypeID" value="otherCommercialWaste">Other commercial waste</option>
-              <option name="wastetypeID" value="vehicleParts">Vehicle parts</option>
-              <option name="wastetypeID" value="asbestos">Asbestos</option>
-              <option name="wastetypeID" value="chemicalDrums/oil/fuel">Chemical drums, oil, fuel</option>
-              <option name="wastetypeID" value="clinical">Clinical</option>
-              <option name="wastetypeID" value="animalCarcass">Animal carcass</option>
+              <option name='blkbag' value="blackbags-household">Black bages - household</option>
+              <option value="construction">Construction / demolition / excavation</option>
+              <option value="whiteGoods">White Goods</option>
+              <option value="furniture" >Furniture</option>
+              <option value="mattress">Mattress</option>
+              <option value="otherUnidentified">Other unidentified</option>
+              <option value="greenWaste">Green waste</option>
+              <option value="blackBags-commercial">Black Bags - commercial</option>
+              <option value="otherCommercialWaste">Other commercial waste</option>
+              <option value="vehicleParts">Vehicle parts</option>
+              <option value="asbestos">Asbestos</option>
+              <option value="chemicalDrums/oil/fuel">Chemical drums, oil, fuel</option>
+              <option value="clinical">Clinical</option>
+              <option value="animalCarcass">Animal carcass</option>
           </optgroup>
       </select>
         <small class="form-text text-muted">Select waste found</small>

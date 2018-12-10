@@ -113,13 +113,14 @@ def open_flyform1_page():
     locationDescription = request.form.get("locationDescription", default ="error")
     tipLocation = request.form.get("tipLocation", default ="error")
     emailaddress = request.form.get("emailaddress", default ="error")
+    Position = request.form.get("position", default = "error")
     print(emailaddress)
     try:
         conn = sqlite3.connect(DATABASE)
         cur = conn.cursor()
         print("connecting")
-        cur.execute("INSERT INTO Reports ('tipLocation', 'locationDescription', 'emailaddress')\
-                     VALUES(?,?,?)",(tipLocation, locationDescription, emailaddress) )
+        cur.execute("INSERT INTO Reports ('tipLocation', 'locationDescription', 'emailaddress', 'Position')\
+                     VALUES(?,?,?,?)",(tipLocation, locationDescription, emailaddress, Position) )
         print('connected')
         conn.commit()
         print("An Error2")
@@ -135,6 +136,8 @@ def open_flyform1_page():
 
 @app.route("/flyreport2")
 def open_flyform2_page():
+    test1 = request.args.get('wastedropdown')
+    print(test1)
     try:
         conn = sqlite3.connect(DATABASE)
         cur = conn.cursor()
@@ -155,15 +158,22 @@ def open_flyform3_page():
     contactnumber = request.form.get("contactnumber", default ="error")
     firstname = request.form.get("firstname", default ="error")
     surname = request.form.get("surname", default ="error")
+    witness = request.form.getlist('witness')
+    print(witness)
+    if witness == ['on']:
+        witness = "yes"
+    else:
+        witness = "no"
     print(contactnumber)
     print(firstname)
     print(surname)
+    print(witness)
     try:
         conn = sqlite3.connect(DATABASE)
         cur = conn.cursor()
         print('connecting')
 
-        cur.execute("UPDATE Reports SET ('contactnumber', 'firstname', 'surname') = (?,?,?) WHERE id=(SELECT MAX(Id) FROM Reports)", (contactnumber,firstname,surname,))
+        cur.execute("UPDATE Reports SET ('contactnumber', 'firstname', 'surname', 'witness') = (?,?,?,?) WHERE id=(SELECT MAX(Id) FROM Reports)", (contactnumber,firstname,surname,witness,))
 
         print('connected')
         conn.commit()
