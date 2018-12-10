@@ -135,6 +135,8 @@ def open_flyform1_page():
 
 @app.route("/flyreport2")
 def open_flyform2_page():
+    test1 = request.args.get('wastedropdown')
+    print(test1)
     try:
         conn = sqlite3.connect(DATABASE)
         cur = conn.cursor()
