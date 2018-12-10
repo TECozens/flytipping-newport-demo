@@ -156,7 +156,7 @@ def open_flyform2_page():
         print('Connecting')
         cur.execute("INSERT INTO wastetypeID ('blackbags-househould', 'whiteGoods', 'furniture', 'mattress', 'otherUnidentified', 'greenWaste', 'blackBags-commercial', 'otherCommercialWaste', 'vehicleParts', 'asbestos', 'clinical', 'animalCarcass')\
                      VALUES(?,?,?,?,?,?,?,?,?,?,?,?)",(wasteselection[0], wasteselection[1], wasteselection[2], wasteselection[3], wasteselection[4], wasteselection[5], wasteselection[6], wasteselection[7], wasteselection[8], wasteselection[9], wasteselection[10], wasteselection[11]) )
-        cur.execute("UPDATE Reports SET ('wasteSize',) = (?,) WHERE id=(SELECT MAX(Id) FROM Reports)", (wasteSize,))
+        cur.execute("UPDATE Reports SET ('wasteSize') = (?) WHERE id=(SELECT MAX(Id) FROM Reports)", (wasteSize,))
         conn.commit()
         msg = "Record successfully added"
     except:
