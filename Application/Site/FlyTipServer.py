@@ -139,8 +139,8 @@ def open_flyform2_page():
         conn = sqlite3.connect(DATABASE)
         cur = conn.cursor()
         print('Connecting')
-        cur.execute("INSERT INTO Reports ('wastetypeID', 'wasteSize')\
-                     VALUES(?,?)",(wastetypeID, wasteSize) )
+        cur.execute("INSERT INTO wastetypeID ('wastetypeID')\
+                     VALUES(?)",(wastetypeID) )
         conn.commit()
         msg = "Record successfully added"
     except:
@@ -258,6 +258,25 @@ def open_flyform5_page():
         finally:
             conn.close()
             return render_template('home.html')
+
+@app.route("/Reports")
+def future():
+    print("In Admin")
+    try:
+         conn = sqlite3.connect(DATABASE)
+         cur = conn.cursor()
+         print("in the try1")
+         cur.execute("SELECT * FROM Reports")
+         print("in the try2")
+         data = cur.fetchall()
+         print("in the try")
+         print (str(data))
+        #  return str(data)
+    except:
+        conn.rollback()
+        msg = "error"
+    finally:
+        conn.close()
 
 
 if __name__ == "__main__":

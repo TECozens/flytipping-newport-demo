@@ -19,13 +19,6 @@
   float: left;
   border-radius: 15px;
 }
-#data{
-  height: 700px;
-  background: url(panelBackground.jpg);
-  color: white;
-  font-family: Helvetica;
-  font-size: 25px;
-}
 #adminlogo{
   background: white;
   border-radius: 30px;

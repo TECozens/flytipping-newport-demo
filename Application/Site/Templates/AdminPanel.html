@@ -6,20 +6,38 @@
   </center>
 </div>
 
-<div id="sidebar">
-  <ul>
-    <li> Report ID </li>
-    <li> Tip Location </li>
-    <li> Location Description </li>
-    <li> Waste ID </li>
-    <li> Image Path </li>
-    <li> Administator </li>
-  </ul>
-</div>
-
 <div id="data"><br>
   <center> <h3> Admin Panel </h3>
     <p> Here, the admin will be able to view certain information from the database </p>
   </center>
 </div>
+
+<button onclick="button1()"> All Reports </button>
+<article><p> <span id="reports"></span> <p></article>
+
+<button onclick="button2()"> All Locations </button>
+<article><p> <span id="locations"></span> <p></article>
+
+<button onclick="button3()"> Waste </button>
+<article><p> <span id="waste"></span> <p></article>
+  
+<script src="\static\jquery.min.js"></script>
+<script>
+
+function button1(){
+  $('#reports').load('/Reports');
+}
+
+function button2(){
+  $('#locations').load('/Locations');
+}
+
+function button3(){
+  $('#waste').load('/Waste');
+}
+
+
+  //  ========================================================
+  </script>
+
 {%endblock%}
