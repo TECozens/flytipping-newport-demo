@@ -17,15 +17,54 @@
 
 <button onclick="button2()"> All Locations </button>
 <article><p> <span id="locations"></span> <p></article>
-
+<!-- <div class="box"> -->
+  <center>
+  <table id = "report">
+  <tr>
+    <th>ID</th>
+    <th>Address</th>
+    <th>Location Description</th>
+    <th>Pinpoint</th>
+    <th>Waste Type ID</th>
+    <th>Waste size</th>
+    <th>Waste Description</th>
+    <th>Image ID</th>
+    <th>Witness</th>
+    <th>First Name</th>
+    <th>Surname</th>
+    <th>Contact number</th>
+    <th>Email Address</th>
+  </tr>
+  {%for fur in report%}
+    <tr>
+      <td>{{fur[0]}}</td>
+      <td>{{fur[1]}}</td>
+      <td>{{fur[2]}}</td>
+      <td>{{fur[3]}}</td>
+      <td>{{fur[4]}}</td>
+      <td>{{fur[5]}}</td>
+      <td>{{fur[6]}}</td>
+      <td>{{fur[7]}}</td>
+      <td>{{fur[8]}}</td>
+      <td>{{fur[9]}}</td>
+      <td>{{fur[10]}}</td>
+      <td>{{fur[11]}}</td>
+      <td>{{fur[12]}}</td>
+    </tr>
+  {%endfor%}
+  {{ super() }}
+</table>
+</center>
+<!-- </div> -->
 <button onclick="button3()"> Waste </button>
 <article><p> <span id="waste"></span> <p></article>
-  
+
 <script src="\static\jquery.min.js"></script>
 <script>
 
 function button1(){
   $('#reports').load('/Reports');
+
 }
 
 function button2(){

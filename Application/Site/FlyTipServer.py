@@ -138,7 +138,11 @@ def open_flyform1_page():
 def open_flyform2_page():
 
     wasteselection = []
+<<<<<<< HEAD
     for i in range(1,14):
+=======
+    for i in range(1,13):
+>>>>>>> 50bbe4182958591b350d1b146416cc551e4c3dd8
         waste = request.form.getlist(f'{i}')
         if waste == ['on']:
             wasteselection.append("true")
@@ -146,12 +150,17 @@ def open_flyform2_page():
             wasteselection.append("false")
     print(wasteselection)
 
+
+    wasteSize = request.form['wasteSize']
+    print(wasteSize)
+
     try:
         conn = sqlite3.connect(DATABASE)
         cur = conn.cursor()
         print('Connecting')
-        cur.execute("INSERT INTO wastetypeID ('blackbags-househould', 'whiteGoods')\
-                     VALUES(?,?)",(wasteselection[0], wasteselection[1]) )
+        cur.execute("INSERT INTO wastetypeID ('blackbags-househould', 'whiteGoods', 'furniture', 'mattress', 'otherUnidentified', 'greenWaste', 'blackBags-commercial', 'otherCommercialWaste', 'vehicleParts', 'asbestos', 'clinical', 'animalCarcass')\
+                     VALUES(?,?,?,?,?,?,?,?,?,?,?,?)",(wasteselection[0], wasteselection[1], wasteselection[2], wasteselection[3], wasteselection[4], wasteselection[5], wasteselection[6], wasteselection[7], wasteselection[8], wasteselection[9], wasteselection[10], wasteselection[11]) )
+        cur.execute("UPDATE Reports SET ('wasteSize') = (?) WHERE id=(SELECT MAX(Id) FROM Reports)", (wasteSize,))
         conn.commit()
         msg = "Record successfully added"
     except:
@@ -197,6 +206,7 @@ def open_flyform3_page():
 def upload_file():
     numberofimages=['','','' ,'']
     msg = ''
+    main(emailaddress)
     if request.method == 'POST':
         msg = 'ok'
         print(msg)
@@ -220,7 +230,6 @@ def upload_file():
                         file.save(filePath)
                         # if user does not select file, browser also
                         # submit a empty part without filename
-                        main(emailaddress)
                         del numberofimages[0]
                         numberofimages.append(filePath)
                 numberofimages = numberofimages[::-1]
@@ -276,6 +285,27 @@ def open_flyform5_page():
         finally:
             conn.close()
             return render_template('home.html')
+
+@app.route("/Reports") #change this to /Reports later
+def future():
+    print("In Admin")
+    try:
+         conn = sqlite3.connect(DATABASE)
+         cur = conn.cursor()
+         print("in the try1")
+         cur.execute("SELECT * FROM Reports")
+         print("in the try2")
+         # print(data)
+         data = cur.fetchall()
+         print("in the try")
+         print (str(data))
+        #  return str(data)
+    except:
+        conn.rollback()
+        msg = "error"
+    finally:
+        conn.close()
+    return render_template('AdminPanel.html', report=data)
 
 if __name__ == "__main__":
     # app.run(host='0.0.0.0', port=8080) #/to run this on your phone please uncomment this and type yourinternetipaddress(ipv4):8080/home
