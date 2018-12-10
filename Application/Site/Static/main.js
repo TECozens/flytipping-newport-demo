@@ -78,33 +78,13 @@ function checkemail(){
   console.log("test")
   var emailentr = document.getElementById('emailentr').value;
   console.log(emailentr);
-  if (emailentr.length == 1){
+  if (/^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/.test(emailentr)){
+    document.getElementById("emailerror").innerHTML = "valid";
+    document.getElementById("emailerror").style.color = "green";
+    return true;
+  } else{
     document.getElementById("emailerror").innerHTML = "invalid";
     document.getElementById("emailerror").style.color = "red";
     return false;
-  } else if(emailentr.length == 5){
-    document.getElementById("emailerror").innerHTML = "test";
-    document.getElementById("emailerror").style.color = "red";
-  } else{
-    document.getElementById("emailerror").innerHTML = "valid";
-    document.getElementById("emailerror").style.color = "green";
   }
-//
-//   if (email.length == 0) {
-//     document.getElementById("emailerror").innerHTML = "invalid";
-//     document.getElementById("emailerror").style.color = "red";;
-//     // return false;
-//
-//   } else{
-//     document.getElementById("emailerror").innerHTML = "valid";
-//     document.getElementById("emailerror").style.color = "green";
-//     // return true;
-//   }
-
-  // if (!email.match(/^[A-Za-z\._\-[0-9]*[@][A-Za-z]*[\.][a-z]{2,4}$/)) {
-  //
-  //   document.getElementById("emailerror").innerHTML = "invalid";
-  //   document.getElementById("emailerror").style.color = "red";
-  //   return false;
-  //
-  }
+}
