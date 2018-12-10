@@ -140,7 +140,7 @@ def open_flyform2_page():
         cur = conn.cursor()
         print('Connecting')
         cur.execute("INSERT INTO Reports ('wastetypeID', 'wasteSize')\
-                     VALUES(?,?,?)",(wastetypeID, wasteSize) )
+                     VALUES(?,?)",(wastetypeID, wasteSize) )
         conn.commit()
         msg = "Record successfully added"
     except:

@@ -1,5 +1,17 @@
 {%extends 'index.html'%}
+{%block headBlock%}
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
 
+<script src="..\static\fSelect.js"type="text/javascript"></script>
+<link href="..\static\fSelect.css" rel="stylesheet">
+<script>
+  (function($) {
+      $(function() {
+          $('.test').fSelect();
+      });
+  })(jQuery);
+  </script>
+{%endblock%}
 {%block mainBlock%}
 <!-- Progress Bar -->
 <br>
@@ -40,23 +52,24 @@
     <label for="waste">Select the waste you found</label>
     <div class="form-group">
       <div id="waste">
-
-        <input type="checkbox" value="Black bages - household">Black bages - household <br>
-        <input type="checkbox" value="Construction / demolition / excavation">Construction / demolition / excavation <br>
-        <input type="checkbox" value="White Goods">White Goods <br>
-        <input type="checkbox" value="Furniture">Furniture <br>
-        <input type="checkbox" value="Mattress">Mattress <br>
-        <input type="checkbox" value="Other unidentified">Other unidentified <br>
-        <input type="checkbox" value="Green waste">Green waste<br>
-        <input type="checkbox" value="Black Bags - commercial">Black Bags - commercial<br>
-        <input type="checkbox" value="Other commercial waste">Other commercial waste<br>
-        <input type="checkbox" value="Vehicle parts">Vehicle parts<br>
-        <input type="checkbox" value="Asbestos">Asbestos<br>
-        <input type="checkbox" value="Chemical drums, oil, fuel">Chemical drums, oil, fuel <br>
-        <input type="checkbox" value="Clinical">Clinical<br>
-        <input type="checkbox" value="Animal carcass">Animal carcass<br>
-
-
+        <select class="test" multiple="multiple">
+          <optgroup label="Type Of Waste">
+              <option value="blackbags-household">Black bages - household</option>
+              <option value="construction">Construction / demolition / excavation</option>
+              <option value="whiteGoods">White Goods</option>
+              <option value="furniture" >Furniture</option>
+              <option value="mattress">Mattress</option>
+              <option value="otherUnidentified">Other unidentified</option>
+              <option value="greenWaste">Green waste</option>
+              <option value="blackBags-commercial">Black Bags - commercial</option>
+              <option value="otherCommercialWaste">Other commercial waste</option>
+              <option value="vehicleParts">Vehicle parts</option>
+              <option value="asbestos">Asbestos</option>
+              <option value="chemicalDrums/oil/fuel">Chemical drums, oil, fuel</option>
+              <option value="clinical">Clinical</option>
+              <option value="animalCarcass">Animal carcass</option>
+          </optgroup>
+      </select>
         <small class="form-text text-muted">Select waste found</small>
         <br>
 
@@ -94,7 +107,7 @@
         <small id="Description" class="form-text text-muted">Include details such as type of waste</small>
         <br>
 
-        </div>
+      </div>
       </div>
 
 
@@ -108,7 +121,5 @@
   </form>
 </div>
 
-<script>
 
-</script>
 {%endblock%}
