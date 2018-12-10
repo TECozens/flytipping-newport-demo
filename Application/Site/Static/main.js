@@ -60,7 +60,6 @@ function twofunctions(){
 
 function checknumber(){
   var phone = document.getElementById('phonenum').value;
-  console.log(phone);
 
   if (phone.length != 11){
     document.getElementById("numerror").innerHTML = "enter valid number";
@@ -75,9 +74,7 @@ function checknumber(){
 
 }
 function checkemail(){
-  console.log("test")
   var emailentr = document.getElementById('emailentr').value;
-  console.log(emailentr);
   if (/^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/.test(emailentr)){
     document.getElementById("emailerror").innerHTML = "valid";
     document.getElementById("emailerror").style.color = "green";
