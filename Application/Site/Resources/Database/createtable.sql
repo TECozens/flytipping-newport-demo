@@ -2,6 +2,7 @@ CREATE TABLE `Reports` (
 	`ID`	INTEGER NOT NULL PRIMARY KEY AUTOINCREMENT,
 	`tipLocation`	TEXT NOT NULL,
 	`locationDescription`	TEXT ,
+	`Position`	TEXT,
 	`wastetypeID`	TEXT,
 	`wasteSize`	TEXT,
 	`wasteDescription`	TEXT,
