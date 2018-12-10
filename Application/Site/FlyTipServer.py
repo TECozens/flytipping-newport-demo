@@ -134,16 +134,24 @@ def open_flyform1_page():
         conn.close()
         return render_template('ReportForm2.html')
 
-@app.route("/flyreport2")
+@app.route("/flyreport2", methods=['POST'])
 def open_flyform2_page():
-    test1 = request.args.get('wastedropdown')
-    print(test1)
+
+    wasteselection = []
+    for i in range(1,14):
+        waste = request.form.getlist(f'{i}')
+        if waste == ['on']:
+            wasteselection.append("true")
+        else:
+            wasteselection.append("false")
+    print(wasteselection)
+
     try:
         conn = sqlite3.connect(DATABASE)
         cur = conn.cursor()
         print('Connecting')
-        cur.execute("INSERT INTO wastetypeID ('wastetypeID')\
-                     VALUES(?)",(wastetypeID) )
+        cur.execute("INSERT INTO wastetypeID ('blackbags-househould', 'whiteGoods')\
+                     VALUES(?,?)",(wasteselection[0], wasteselection[1]) )
         conn.commit()
         msg = "Record successfully added"
     except:
@@ -268,26 +276,6 @@ def open_flyform5_page():
         finally:
             conn.close()
             return render_template('home.html')
-
-@app.route("/Reports")
-def future():
-    print("In Admin")
-    try:
-         conn = sqlite3.connect(DATABASE)
-         cur = conn.cursor()
-         print("in the try1")
-         cur.execute("SELECT * FROM Reports")
-         print("in the try2")
-         data = cur.fetchall()
-         print("in the try")
-         print (str(data))
-        #  return str(data)
-    except:
-        conn.rollback()
-        msg = "error"
-    finally:
-        conn.close()
-
 
 if __name__ == "__main__":
     # app.run(host='0.0.0.0', port=8080) #/to run this on your phone please uncomment this and type yourinternetipaddress(ipv4):8080/home

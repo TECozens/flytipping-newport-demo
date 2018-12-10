@@ -32,7 +32,7 @@
 <div class="box">
   <h2>Type of Waste</h2>
   <hr>
-  <form id="form2" class="box" action="/flyreport2" method="GET">
+  <form id="form2" class="box" action="/flyreport2" method="POST">
 
     <!-- Information -->
     <div>
@@ -52,24 +52,21 @@
     <div class="form-group">
 
       <div id="waste">
-        <select class="test" id="optionlist" name="wastedropdown" multiple="multiple">
-          <optgroup label="Type Of Waste">
-              <option name='blkbag' value="blackbags-household">Black bages - household</option>
-              <option value="construction">Construction / demolition / excavation</option>
-              <option value="whiteGoods">White Goods</option>
-              <option value="furniture" >Furniture</option>
-              <option value="mattress">Mattress</option>
-              <option value="otherUnidentified">Other unidentified</option>
-              <option value="greenWaste">Green waste</option>
-              <option value="blackBags-commercial">Black Bags - commercial</option>
-              <option value="otherCommercialWaste">Other commercial waste</option>
-              <option value="vehicleParts">Vehicle parts</option>
-              <option value="asbestos">Asbestos</option>
-              <option value="chemicalDrums/oil/fuel">Chemical drums, oil, fuel</option>
-              <option value="clinical">Clinical</option>
-              <option value="animalCarcass">Animal carcass</option>
-          </optgroup>
-      </select>
+        <div name="selectwaste">
+          <input type="checkbox" name="1"> blackbags/household<br>
+          <input type="checkbox" name="2"> White Goods<br>
+          <input type="checkbox" name="3"> Furniture<br>
+          <input type="checkbox" name="4"> Mattress<br>
+          <input type="checkbox" name="5"> other Unidentified<br>
+          <input type="checkbox" name="6"> Green waste<br>
+          <input type="checkbox" name="7"> black bags-commercial<br>
+          <input type="checkbox" name="8"> other commercial<br>
+          <input type="checkbox" name="9"> vehicle Parts<br>
+          <input type="checkbox" name="10"> asbestos<br>
+          <input type="checkbox" name="11"> chemicalDrums/oil/fuel<br>
+          <input type="checkbox" name="12"> clinical <br>
+          <input type="checkbox" name="13"> animal Carcass <br>
+        </div>
         <small class="form-text text-muted">Select waste found</small>
         <br>
 
