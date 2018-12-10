@@ -133,16 +133,21 @@ def open_flyform1_page():
         conn.close()
         return render_template('ReportForm2.html')
 
-@app.route("/flyreport2")
+@app.route("/flyreport2", methods=["POST"])
 def open_flyform2_page():
+    wastetypeID = request.form.get("wastetypeID", default ="error")
+    wasteSize = request.form.get("wasteSize", default ="error")
     try:
         conn = sqlite3.connect(DATABASE)
         cur = conn.cursor()
         print('Connecting')
         cur.execute("INSERT INTO Reports ('wastetypeID', 'wasteSize')\
-                     VALUES(?,?,?)",(wastetypeID, wasteSize) )
+                     VALUES(?,?)",(wastetypeID, wasteSize))
+        print('connected')
         conn.commit()
+        print("An Error2")
         msg = "Record successfully added"
+        print("An Error3")
     except:
         conn.rollback()
         msg = "error in insert operation"
@@ -246,6 +251,22 @@ def open_flyform5_page():
             conn.close()
             return render_template('home.html')
 
+@app.route("/allReports")
+def allReports():
+        try:
+            conn = sqlite3.connect(DATABASE)
+            cur = conn.cursor()
+            print('Connecting')
+            cur.execute('select * from Reports;')
+            print('connected')
+            rows = cur.fetchall()
+            name = rows
+            return rows
+        except:
+            conn.rollback()
+            msg = "error"
+        finally:
+            conn.close()
 
 if __name__ == "__main__":
     # app.run(host='0.0.0.0', port=8080) #/to run this on your phone please uncomment this and type yourinternetipaddress(ipv4):8080/home
