@@ -138,7 +138,7 @@ def open_flyform1_page():
 def open_flyform2_page():
 
     wasteselection = []
-    for i in range(1,14):
+    for i in range(1,13):
         waste = request.form.getlist(f'{i}')
         if waste == ['on']:
             wasteselection.append("true")
@@ -151,9 +151,7 @@ def open_flyform2_page():
         cur = conn.cursor()
         print('Connecting')
         cur.execute("INSERT INTO wastetypeID ('blackbags-househould', 'whiteGoods', 'furniture', 'mattress', 'otherUnidentified', 'greenWaste', 'blackBags-commercial', 'otherCommercialWaste', 'vehicleParts', 'asbestos', 'clinical', 'animalCarcass')\
-                     VALUES(?,?,?,?,?,?,?,?,?,?,?,?)",(wasteselection[0], wasteselection[1], wasteselection[2], wasteselection[3], wasteselection[4], wasteselection[5], wasteselection[6], wasteselection[7], wasteselection[8], wasteselection[9], wasteselection[11], wasteselection[12]) )
-        # cur.execute("INSERT INTO wastetypeID ('blackbags-househould', 'whiteGoods', 'furniture', 'mattress', 'otherUnidentified', 'greenWaste', 'blackBags-commercial', 'otherCommercialWaste', 'vehicleParts', 'asbestos', 'chemicalDrums/oil/fuel', 'clinical', 'animalCarcass')\
-        #              VALUES(?,?,?,?,?,?,?,?,?,?,?,?,?)",(wasteselection[0], wasteselection[1], wasteselection[2], wasteselection[3], wasteselection[4], wasteselection[5], wasteselection[6], wasteselection[7], wasteselection[8], wasteselection[9], wasteselection[10], wasteselection[11], wasteselection[12]) )
+                     VALUES(?,?,?,?,?,?,?,?,?,?,?,?)",(wasteselection[0], wasteselection[1], wasteselection[2], wasteselection[3], wasteselection[4], wasteselection[5], wasteselection[6], wasteselection[7], wasteselection[8], wasteselection[9], wasteselection[10], wasteselection[11]) )
         conn.commit()
         msg = "Record successfully added"
     except:
