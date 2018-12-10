@@ -59,12 +59,10 @@ function twofunctions(){
 }
 
 function checknumber(){
-  console.log("test")
   var phone = document.getElementById('phonenum').value;
   console.log(phone);
 
   if (phone.length != 11){
-    console.log("invalid")
     document.getElementById("numerror").innerHTML = "enter valid number";
     document.getElementById("numerror").style.color = "red";
     return false;
@@ -75,4 +73,7 @@ function checknumber(){
     return true;
   }
 
+}
+function checkemail(){
+  console.log("test")
 }
