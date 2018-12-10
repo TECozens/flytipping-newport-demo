@@ -136,8 +136,12 @@ def open_flyform1_page():
 
 @app.route("/flyreport2", methods=['POST'])
 def open_flyform2_page():
-    wasteselection = request.form.getlist('blkbag')
+
+    wasteselection = []
+    for i in range(1,14):
+        wasteselection.append(request.form.getlist(f'{i}'))
     print(wasteselection)
+
     try:
         conn = sqlite3.connect(DATABASE)
         cur = conn.cursor()
