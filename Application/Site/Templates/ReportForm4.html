@@ -4,50 +4,54 @@
 {%block mainBlock%}
 <!-- Progress Bar -->
 <br>
-<div class="w3-container">
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+<div class="containera">
     <ul class="progressBar">
       <li class="active">Important Details</li>
-      <li class="active">Additional Details</li>
-      <li class="active">witness report</li>
-      <li class="active"> add photos</li>
-      <li></li>
+      <li class="active">Waste Details</li>
+      <li class="active">Witness Details</li>
+      <li>Add Photos</li>
+      <li>Report Submission</li>
     </ul>
   </div>
 <br>
+<br>
+<br>
+<hr>
 
   <form class="box" action="/flyreport4" enctype=multipart/form-data method="POST">
 
+    <h2>Add photos</h2>
 
   <!--Upload And Preview Images-->
-  <h2>Add photos</h2>
-  <div class="form-group">
-      <label for="flyTipInfo"></label>
-      <div id="emailRecieve">
-          <label for="emailRecieve">would you like to receive emails about your report?</label>
-          <input type="checkbox" id="myCheck" "> tick to recieve emails</input>
-            <p id="text" style="display:none">
-            <br>
-            </p>
-          <br>
-        </div>
-      </div>
-    <div class="col-8 col-md-6">
+  <div>
+    <label for="emailRecieve">Would you like to receive emails about your report?</label>
+      <label class="switch">
+        <input type="checkbox" onclick="myFunction2()"/>
+        <span class="slider round"></span>
+      </label>
+  </div>
       <div id="uploadImage">
         <br>
-        <input type='file' class = 'form-control' name='file' id='images' multiple/>
+        <input type='file' id="file" name='file' id='imgInp' runat="server" multiple/>
           <!-- <input type="file" class="form-control" id="images" name="name" onchange="preview_images();" multiple/> -->
+          {{msg}}
       </div>
-    </div>
 
     <div class='upload'>
-      <p>This is where the images will go</p>
-      <input type="image" src="static\upload.png" id='uploadimg' name='file'></input>
+      <!-- <p>This is where the images will go</p> -->
+      <center>
+        <p id="img"/>
+      </center>
+      <!-- <input type="image" src="static\upload.png" id='uploadimg' name='file'></input> -->
     </div>
     <!-- Submit -->
   <div class = 'box'>
     <div class="formgroup">
         <div class="Next">
-            <button class="btn btn-primary btn-lg">Submit</button>
+          <center>
+            <button>Submit</button>
+          </center>
         </div>
     </div>
   </div>
@@ -55,4 +59,44 @@
     <br>
 
   </form>
+  <script>
+
+//     function readURL(input) {
+//
+//   if (input.files && input.files[0]) {
+//     var reader = new FileReader();
+//
+//     reader.onload = function(e) {
+//       $('#img').attr('src', e.target.result);
+//     }
+//
+//     reader.readAsDataURL(input.files[0]);
+//   }
+// }
+//
+// $("#imgInp").change(function() {
+//   readURL(this);
+// });
+
+$(document).ready(function () {
+
+    $('#file').change(function () {
+        if (this.files.length > 0) {
+
+            $.each(this.files, function () {
+                var reader = new FileReader();
+
+                reader.onload = function (e) {
+                    var img = new Image();
+                    img.src = e.target.result;
+
+                    img.setAttribute('style', 'width:300px;');    // you can adjust the image size by changing the width value.
+                    $('#img').append(img);
+                };
+                reader.readAsDataURL(this);
+            });
+        }
+    });
+});
+  </script>
 {%endblock%}

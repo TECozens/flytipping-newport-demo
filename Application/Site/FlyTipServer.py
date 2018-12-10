@@ -4,7 +4,7 @@ import sqlite3
 from werkzeug.utils import secure_filename
 
 emailaddress = "test@test.com"
-DATABASE = 'Resources/Database/report.db'
+DATABASE = 'Resources/Database/reports.db'
 
 APP_ROOT = os.path.dirname(os.path.abspath(__file__))
 UPLOAD_FOLDER = os.path.join(APP_ROOT, 'uploads')
@@ -158,14 +158,17 @@ def open_flyform2_page():
 @app.route("/flyreport3", methods=['POST'])
 def open_flyform3_page():
     contactnumber = request.form.get("contactnumber", default ="error")
-    print("above contact number")
+    firstname = request.form.get("firstname", default ="error")
+    surname = request.form.get("surname", default ="error")
     print(contactnumber)
-    print("below contact number")
+    print(firstname)
+    print(surname)
     try:
         conn = sqlite3.connect(DATABASE)
         cur = conn.cursor()
         print('connecting')
-        cur.execute("UPDATE Reports SET contactnumber = 10 WHERE id=(SELECT MAX(Id) FROM Reports);")
+
+        cur.execute("UPDATE Reports SET ('contactnumber', 'firstname', 'surname') = (?,?,?) WHERE id=(SELECT MAX(Id) FROM Reports)", (contactnumber,firstname,surname,))
 
         print('connected')
         conn.commit()
@@ -179,17 +182,21 @@ def open_flyform3_page():
 
 @app.route('/flyreport4', methods=['GET','POST'])
 def upload_file():
+    numberofimages=['','','' ,'']
     msg = ''
     if request.method == 'POST':
         msg = 'ok'
+        print(msg)
         # check if the post request has the file part
         if 'file' not in request.files:
             msg = 'no file given'
+            print(msg)
         else:
             # file = request.files['file']
             if len(request.files.getlist('file')) > 4:
-                print('Cannot excced more than 4 images')
-                return render_template('ReportForm5.html')
+                msg = 'Cannot exceed more than 4 images'
+                print(msg)
+                return render_template('ReportForm4.html', msg=msg)
             else:
                 for file in request.files.getlist('file'):
                     if file.filename == '':
@@ -201,27 +208,33 @@ def upload_file():
                         # if user does not select file, browser also
                         # submit a empty part without filename
                         main(emailaddress)
-                        try:
-                            conn = sqlite3.connect(DATABASE)
-                            cur = conn.cursor()
-                            print(filePath)
-                            print('connecting')
-                            cur.execute("INSERT INTO Image (imagePath1) VALUES(?)", (filePath,) )
-                            print('connected')
-                            conn.commit()
-                            msg = "Record successfully added"
-                        except Exception as err:
-                            conn.rollback()
-                            msg = "error in insert operation"
-                            print(msg)
-                            print(err)
-                        finally:
-                            conn.close()
-                            print(msg)
+                        del numberofimages[0]
+                        numberofimages.append(filePath)
+                numberofimages = numberofimages[::-1]
+                imagepath1, imagepath2, imagepath3, imagepath4 = numberofimages
+                try:
+                    conn = sqlite3.connect(DATABASE)
+                    cur = conn.cursor()
+                    print(filePath)
+                    print('connecting')
+                    cur.execute("INSERT INTO Image (imagePath1, imagePath2, imagePath3, imagePath4)\
+                                 VALUES(?,?,?,?)", (imagepath1, imagepath2, imagepath3, imagepath4) )
+                    print('connected')
+                    conn.commit()
+                    print('trying id')
+                    cur.execute("UPDATE Reports SET imageID =(SELECT MAX(imageID) FROM Image) WHERE id=(SELECT MAX(Id) FROM Reports)")
+                    print('id successfull')
+                    conn.commit()
+                    msg = "Record successfully added"
+                except Exception as err:
+                    conn.rollback()
+                    msg = "error in insert operation"
+                    print(msg)
+                    print(err)
+                finally:
+                    conn.close()
+                    print(msg)
     return render_template('ReportForm5.html')
-
-                    # return render_template('ReportForm5.html')
-
 # @app.route("/flyreport4")
 # def open_flyform4_page():
 #     try:
@@ -243,8 +256,8 @@ def open_flyform5_page():
             conn = sqlite3.connect(DATABASE)
             cur = conn.cursor()
             conn.commit()
-            msg = "Record successfully added"
         except:
+            msg = "Record successfully added"
             conn.rollback()
             msg = "error in insert operation"
         finally:
