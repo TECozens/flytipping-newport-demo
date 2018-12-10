@@ -146,27 +146,17 @@ def open_flyform2_page():
             wasteselection.append("false")
     print(wasteselection)
 
-    
-    test1 = request.form.get('wasteSize1')
-    print(test1)
-    test2 = request.form.get('wasteSize2')
-    print(test2)
-    test3 = request.form.get('wasteSize3')
-    print(test3)
-    test4 = request.form.get('wasteSize4')
-    print(test4)
-    test5 = request.form.get('wasteSize5')
-    print(test5)
-    test6 = request.form.get('wasteSize6')
-    print(test6)
-    test7 = request.form.get('wasteSize7')
-    print(test7)
+
+    wasteSize = request.form['wasteSize']
+    print(wasteSize)
+
     try:
         conn = sqlite3.connect(DATABASE)
         cur = conn.cursor()
         print('Connecting')
         cur.execute("INSERT INTO wastetypeID ('blackbags-househould', 'whiteGoods', 'furniture', 'mattress', 'otherUnidentified', 'greenWaste', 'blackBags-commercial', 'otherCommercialWaste', 'vehicleParts', 'asbestos', 'clinical', 'animalCarcass')\
                      VALUES(?,?,?,?,?,?,?,?,?,?,?,?)",(wasteselection[0], wasteselection[1], wasteselection[2], wasteselection[3], wasteselection[4], wasteselection[5], wasteselection[6], wasteselection[7], wasteselection[8], wasteselection[9], wasteselection[10], wasteselection[11]) )
+        cur.execute("UPDATE Reports SET ('wasteSize',) = (?,) WHERE id=(SELECT MAX(Id) FROM Reports)", (wasteSize,))
         conn.commit()
         msg = "Record successfully added"
     except:
