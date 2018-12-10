@@ -42,23 +42,6 @@ function switchFunction() {
   }
 }
 
-function checknumber(){
-  console.log("test")
-  var phone = document.getElementById('phonenum').value;
-  console.log(phone);
-
-  if (phone.length != 12){
-    console.log("invalid")
-    document.getElementById("numerror").innerHTML = "enter valid number";
-    document.getElementById("numerror").style.color = "red";
-  } else{
-    console.log("valid")
-    document.getElementById("numerror").innerHTML = "valid";
-        document.getElementById("numerror").style.color = "green";
-  }
-
-}
-
 function makerequired(){
   console.log("makerequired");
   // document.getElementById("phonenum").required = true;
@@ -73,4 +56,23 @@ function makerequired(){
 function twofunctions(){
   myFunction2();
   makerequired();
+}
+
+function checknumber(){
+  console.log("test")
+  var phone = document.getElementById('phonenum').value;
+  console.log(phone);
+
+  if (phone.length != 11){
+    console.log("invalid")
+    document.getElementById("numerror").innerHTML = "enter valid number";
+    document.getElementById("numerror").style.color = "red";
+    return false;
+  } else{
+    console.log("valid")
+    document.getElementById("numerror").innerHTML = "valid";
+    document.getElementById("numerror").style.color = "green";
+    return true;
+  }
+
 }
