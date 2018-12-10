@@ -76,18 +76,30 @@ function checknumber(){
 }
 function checkemail(){
   console.log("test")
-  var email = document.getElementById('contact-email').value;
-
-  if (email.length == 0) {
+  var emailentr = document.getElementById('emailentr').value;
+  console.log(emailentr);
+  if (emailentr.length == 1){
     document.getElementById("emailerror").innerHTML = "invalid";
-    document.getElementById("emailerror").style.color = "red";;
+    document.getElementById("emailerror").style.color = "red";
     return false;
-
+  } else if(emailentr.length == 5){
+    document.getElementById("emailerror").innerHTML = "test";
+    document.getElementById("emailerror").style.color = "red";
   } else{
     document.getElementById("emailerror").innerHTML = "valid";
     document.getElementById("emailerror").style.color = "green";
-    return true;
   }
+//
+//   if (email.length == 0) {
+//     document.getElementById("emailerror").innerHTML = "invalid";
+//     document.getElementById("emailerror").style.color = "red";;
+//     // return false;
+//
+//   } else{
+//     document.getElementById("emailerror").innerHTML = "valid";
+//     document.getElementById("emailerror").style.color = "green";
+//     // return true;
+//   }
 
   // if (!email.match(/^[A-Za-z\._\-[0-9]*[@][A-Za-z]*[\.][a-z]{2,4}$/)) {
   //
@@ -95,4 +107,4 @@ function checkemail(){
   //   document.getElementById("emailerror").style.color = "red";
   //   return false;
   //
-  // }
+  }
