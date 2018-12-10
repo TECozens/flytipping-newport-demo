@@ -61,7 +61,9 @@ function twofunctions(){
 function checknumber(){
   var phone = document.getElementById('phonenum').value;
 
-  if (phone.length != 11){
+  if (phone.length == 0){
+    return true;
+  } else if(phone.length != 11){
     document.getElementById("numerror").innerHTML = "enter valid number";
     document.getElementById("numerror").style.color = "red";
     return false;
