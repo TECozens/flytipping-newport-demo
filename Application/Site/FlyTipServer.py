@@ -134,10 +134,10 @@ def open_flyform1_page():
         conn.close()
         return render_template('ReportForm2.html')
 
-@app.route("/flyreport2")
+@app.route("/flyreport2", methods=['POST'])
 def open_flyform2_page():
-    test1 = request.args.get('wastedropdown')
-    print(test1)
+    wasteselection = request.form.getlist('blkbag')
+    print(wasteselection)
     try:
         conn = sqlite3.connect(DATABASE)
         cur = conn.cursor()
