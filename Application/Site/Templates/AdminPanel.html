@@ -6,7 +6,7 @@
   </center>
 </div>
 
-<!-- <div id="sidebar">
+<div id="sidebar">
   <ul>
     <li> Report ID </li>
     <li> Tip Location </li>
@@ -15,59 +15,11 @@
     <li> Image Path </li>
     <li> Administator </li>
   </ul>
-</div> -->
+</div>
 
 <div id="data"><br>
   <center> <h3> Admin Panel </h3>
     <p> Here, the admin will be able to view certain information from the database </p>
   </center>
 </div>
-
-<button onclick="button2()"> All Reports </button>
-<article><p> <span id="allReports"></span> <p></article>
-
-<button onclick="button3()"> Locations </button>
-<article><p> <span id="allLocations"></span> <p></article>
-
-<button onclick="button4()"> Waste Type </button>
-<article><p> <span id="wasteType"></span> <p></article>
-
-<button onclick="button5()"> Waste Size </button>
-<article><p> <span id="wasteSize"></span> <p></article>
-
-<button onclick="button6()"> Reporters Email ID </button>
-<article><p> <span id="email"></span> <p></article>
-
-<button onclick="button7()"> Tip Image </button>
-<article><p> <span id="image"></span> <p></article>
-
-  <script src="\static\js\jquery.min.js"></script>
-  <script>
-
-  function button2(){
-    $('#allReports').load('/allReports');
-  }
-
-  function button3(){
-    $('#allLocations').load('/allLocations');
-  }
-
-  function button4(){
-    $('#wasteType').load('/wasteType');
-  }
-
-  function button5(){
-    $('#wasteSize').load('/wasteSize');
-  }
-
-  function button6(){
-    $('#email').load('/email');
-  }
-
-  function button7(){
-    $('#image').load('/image');
-  }
-
-
-  </script>
 {%endblock%}
