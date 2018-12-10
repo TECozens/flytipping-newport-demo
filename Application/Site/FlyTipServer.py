@@ -113,13 +113,14 @@ def open_flyform1_page():
     locationDescription = request.form.get("locationDescription", default ="error")
     tipLocation = request.form.get("tipLocation", default ="error")
     emailaddress = request.form.get("emailaddress", default ="error")
+    Position = request.form.get("position", default = "error")
     print(emailaddress)
     try:
         conn = sqlite3.connect(DATABASE)
         cur = conn.cursor()
         print("connecting")
-        cur.execute("INSERT INTO Reports ('tipLocation', 'locationDescription', 'emailaddress')\
-                     VALUES(?,?,?)",(tipLocation, locationDescription, emailaddress) )
+        cur.execute("INSERT INTO Reports ('tipLocation', 'locationDescription', 'emailaddress', 'Position')\
+                     VALUES(?,?,?,?)",(tipLocation, locationDescription, emailaddress, Position) )
         print('connected')
         conn.commit()
         print("An Error2")
