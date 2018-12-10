@@ -155,15 +155,22 @@ def open_flyform3_page():
     contactnumber = request.form.get("contactnumber", default ="error")
     firstname = request.form.get("firstname", default ="error")
     surname = request.form.get("surname", default ="error")
+    witness = request.form.getlist('witness')
+    print(witness)
+    if witness == ['on']:
+        witness = "yes"
+    else:
+        witness = "no"
     print(contactnumber)
     print(firstname)
     print(surname)
+    print(witness)
     try:
         conn = sqlite3.connect(DATABASE)
         cur = conn.cursor()
         print('connecting')
 
-        cur.execute("UPDATE Reports SET ('contactnumber', 'firstname', 'surname') = (?,?,?) WHERE id=(SELECT MAX(Id) FROM Reports)", (contactnumber,firstname,surname,))
+        cur.execute("UPDATE Reports SET ('contactnumber', 'firstname', 'surname', 'witness') = (?,?,?,?) WHERE id=(SELECT MAX(Id) FROM Reports)", (contactnumber,firstname,surname,witness,))
 
         print('connected')
         conn.commit()
