@@ -42,23 +42,6 @@ function switchFunction() {
   }
 }
 
-function checknumber(){
-  console.log("test")
-  var phone = document.getElementById('phonenum').value;
-  console.log(phone);
-
-  if (phone.length != 12){
-    console.log("invalid")
-    document.getElementById("numerror").innerHTML = "enter valid number";
-    document.getElementById("numerror").style.color = "red";
-  } else{
-    console.log("valid")
-    document.getElementById("numerror").innerHTML = "valid";
-        document.getElementById("numerror").style.color = "green";
-  }
-
-}
-
 function makerequired(){
   console.log("makerequired");
   // document.getElementById("phonenum").required = true;
@@ -74,3 +57,42 @@ function twofunctions(){
   myFunction2();
   makerequired();
 }
+
+function checknumber(){
+  var phone = document.getElementById('phonenum').value;
+  console.log(phone);
+
+  if (phone.length != 11){
+    document.getElementById("numerror").innerHTML = "enter valid number";
+    document.getElementById("numerror").style.color = "red";
+    return false;
+  } else{
+    console.log("valid")
+    document.getElementById("numerror").innerHTML = "valid";
+    document.getElementById("numerror").style.color = "green";
+    return true;
+  }
+
+}
+function checkemail(){
+  console.log("test")
+  var email = document.getElementById('contact-email').value;
+
+  if (email.length == 0) {
+    document.getElementById("emailerror").innerHTML = "invalid";
+    document.getElementById("emailerror").style.color = "red";;
+    return false;
+
+  } else{
+    document.getElementById("emailerror").innerHTML = "valid";
+    document.getElementById("emailerror").style.color = "green";
+    return true;
+  }
+
+  // if (!email.match(/^[A-Za-z\._\-[0-9]*[@][A-Za-z]*[\.][a-z]{2,4}$/)) {
+  //
+  //   document.getElementById("emailerror").innerHTML = "invalid";
+  //   document.getElementById("emailerror").style.color = "red";
+  //   return false;
+  //
+  // }
