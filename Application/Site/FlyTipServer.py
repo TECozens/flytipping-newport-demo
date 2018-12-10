@@ -139,15 +139,19 @@ def open_flyform2_page():
 
     wasteselection = []
     for i in range(1,14):
-        wasteselection.append(request.form.getlist(f'{i}'))
+        waste = request.form.getlist(f'{i}')
+        if waste == ['on']:
+            wasteselection.append("true")
+        else:
+            wasteselection.append("false")
     print(wasteselection)
 
     try:
         conn = sqlite3.connect(DATABASE)
         cur = conn.cursor()
         print('Connecting')
-        cur.execute("INSERT INTO wastetypeID ('wastetypeID')\
-                     VALUES(?)",(wastetypeID) )
+        cur.execute("INSERT INTO wastetypeID ('blackbags-househould','whiteGoods', 'furniture')\
+                     VALUES(?)",(wasteselection[0], wasteselection[1], wasteselection[3]) )
         conn.commit()
         msg = "Record successfully added"
     except:
