@@ -7,9 +7,7 @@
 </div>
 
 <div id="data"><br>
-  <center> <h3> Admin Panel </h3>
-    <p> Here, the admin will be able to view certain information from the database </p>
-  </center>
+  <center> <h3> Admin Panel </h3> </center>
 </div>
 
 <button onclick="button1()"> All Reports </button>
@@ -17,13 +15,19 @@
 
 <button onclick="button2()"> All Locations </button>
 <article><p> <span id="locations"></span> <p></article>
+
+<button onclick="button3()"> Waste </button>
+<article><p> <span id="wastes"></span> <p></article>
+
+<button onclick="button4()"> Email Addresses </button>
+<article><p> <span id="emails"></span> <p></article>
 <!-- <div class="box"> -->
   <center>
-  <table id = "report">
+  <table id = "reports">
   <tr>
-    <th>ID</th>
-    <th>Address</th>
-    <th>Location Description</th>
+    <th>ID</th> 
+    <th>Address</th> 
+    <th>Location Description</th> 
     <th>Pinpoint</th>
     <th>Waste Type ID</th>
     <th>Waste size</th>
@@ -55,9 +59,71 @@
   {{ super() }}
 </table>
 </center>
+
+<center>
+  <table id = "locations">
+  <tr>
+    <th>ID</th>
+    <th>Address</th>
+    <th>Location Description</th>
+    <th>Pinpoint</th>
+  </tr>
+  {%for fur in report%}
+    <tr>
+      <td>{{fur[0]}}</td>
+      <td>{{fur[1]}}</td>
+      <td>{{fur[2]}}</td>
+      <td>{{fur[3]}}</td>
+    </tr>
+  {%endfor%}
+  {{ super() }}
+</table>
+</center>
+
+<center>
+  <table id = "wastes">
+  <tr>
+    <th>ID</th>
+    <th>Waste Type ID</th>
+    <th>Waste size</th>
+    <th>Waste Description</th>
+  </tr>
+  {%for fur in report%}
+    <tr>
+      <td>{{fur[0]}}</td>
+      <td>{{fur[4]}}</td>
+      <td>{{fur[5]}}</td>
+      <td>{{fur[6]}}</td>
+    </tr>
+  {%endfor%}
+  {{ super() }}
+</table>
+</center>
+
+<center>
+  <table id = "emails">
+  <tr>
+    <th>ID</th> 
+    <th>First Name</th>
+    <th>Surname</th>
+    <th>Contact number</th>
+    <th>Email Address</th>
+  </tr>
+  {%for fur in report%}
+    <tr>
+      <td>{{fur[0]}}</td>
+      <td>{{fur[9]}}</td>
+      <td>{{fur[10]}}</td>
+      <td>{{fur[11]}}</td>
+      <td>{{fur[12]}}</td>
+    </tr>
+  {%endfor%}
+  {{ super() }}
+</table>
+</center>
+
 <!-- </div> -->
-<button onclick="button3()"> Waste </button>
-<article><p> <span id="waste"></span> <p></article>
+
 
 <script src="\static\jquery.min.js"></script>
 <script>
@@ -67,14 +133,20 @@ function button1(){
 
 }
 
-function button2(){
-  $('#locations').load('/Locations');
-}
+// function button2(){
+//   $('#locations').load('/Locations');
 
-function button3(){
-  $('#waste').load('/Waste');
-}
+// }
 
+// function button3(){
+//   $('#wastes').load('/Wastes');
+
+// }
+
+// function button4(){
+//   $('#emails').load('/Emails');
+
+// }
   </script>
 
 {%endblock%}

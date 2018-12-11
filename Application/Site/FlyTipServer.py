@@ -303,6 +303,27 @@ def future():
         conn.close()
     return render_template('AdminPanel.html', report=data)
 
+# @app.route("/Locations") 
+# def locations():
+#     print("In Admin")
+#     try:
+#          conn = sqlite3.connect(DATABASE)
+#          cur = conn.cursor()
+#          print("in the try1")
+#          cur.execute("SELECT * FROM Reports WHERE ")
+#          print("in the try2")
+#          # print(data)
+#          data = cur.fetchall()
+#          print("in the try")
+#          print (str(data))
+#         #  return str(data)
+#     except:
+#         conn.rollback()
+#         msg = "error"
+#     finally:
+#         conn.close()
+#     return render_template('AdminPanel.html', report=data)
+
 if __name__ == "__main__":
     # app.run(host='0.0.0.0', port=8080) #/to run this on your phone please uncomment this and type yourinternetipaddress(ipv4):8080/home
     app.run(debug=True)
