@@ -77,30 +77,25 @@ def open_admin_page():
 
 # Cookie sessions
 app.secret_key = 'fj590Rt?h40gg'
-
-@app.route("/AdminLogin", methods = ['GET','POST'])
-def login():
-    if request.method=='POST':
-        reminder =". "
-        uName = request.form.get('username', default="Error")
-        pw = request.form.get('password', default="Error")
-        if checkCredentials(uName, pw):
-            resp = make_response(render_template('AdminPanel.html', msg='hello '+uName+reminder, username = uName))
-            session['username'] = request.form['username']
-            session['Password'] = 'pa55wrd'
-        else:
-            resp = make_response(render_template('AdminPanel.html', msg='Incorrect  login',username='Guest'))
-        return resp
+def home():
+    if not session.get('logged_in'):
+        return render_template('admin.html')
     else:
-        username = 'none'
-        if 'username' in session:
-            username = escape(session['username'])
-        return render_template('admin.html', msg='', username = username)
+        return render_template('AdminPanel.html')
+pw = 'ian'
+uName = 'Ian'
+error = 'Invalid credentials'
 
+@app.route("/AdminLogin", methods = ['POST'])
+def do_admin_login():
+    if request.form['password'] == pw and request.form['username'] == uName:
+        session['logged_in'] = True
+    else:
+        return render_template('admin.html')
+    return home()
 # =======================================================================
 #       methods
-def checkCredentials(uName, pw):
-    return pw == 'ian'
+
 # =======================================================================
 
 @app.route("/home")
