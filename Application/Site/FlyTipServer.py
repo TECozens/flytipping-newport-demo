@@ -138,11 +138,7 @@ def open_flyform1_page():
 def open_flyform2_page():
 
     wasteselection = []
-<<<<<<< HEAD
-    for i in range(1,14):
-=======
     for i in range(1,13):
->>>>>>> 50bbe4182958591b350d1b146416cc551e4c3dd8
         waste = request.form.getlist(f'{i}')
         if waste == ['on']:
             wasteselection.append("true")
