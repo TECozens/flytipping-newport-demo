@@ -277,7 +277,7 @@ def open_flyform5_page():
             conn.close()
             return render_template('home.html')
 
-@app.route("/Reports")
+@app.route("/Reports") #change this to /Reports later
 def future():
     print("In Admin")
     try:
@@ -286,6 +286,7 @@ def future():
          print("in the try1")
          cur.execute("SELECT * FROM Reports")
          print("in the try2")
+         # print(data)
          data = cur.fetchall()
          print("in the try")
          print (str(data))
@@ -295,7 +296,7 @@ def future():
         msg = "error"
     finally:
         conn.close()
-
+    return render_template('AdminPanel.html', report=data)
 
 if __name__ == "__main__":
     # app.run(host='0.0.0.0', port=8080) #/to run this on your phone please uncomment this and type yourinternetipaddress(ipv4):8080/home
