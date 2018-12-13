@@ -12,7 +12,7 @@
       <li>Waste Details</li>
       <li>Witness Details</li>
       <li>Add Photos</li>
-      <li>Report Submission</li>
+
     </ul>
   </div>
 <br>
@@ -50,7 +50,7 @@
 
     <!-- Autocomplete Field -->
     <div id="addressField" style="display:none">
-      <label for="tipLocation">Select Between the use of an Address or Map</label>
+      <label for="tipLocation">Enter address</label>
       <div class="formgroup">
           <input name='tipLocation'  id="autocomplete" placeholder="E.g. 72 Mackworth Street" onfocus="geolocate()"class="form-control" type="text" required=""></input>
       </div>
@@ -70,15 +70,16 @@
     <div class="formgroup">
       <input name="locationDescription" placeholder="E.g. Behind the two big trees" class="form-control" type="text"></input>
     </div>
-      <small id="Description" class="form-text text-muted">Include details such as *Details*</small>
+
 
       <!-- Email-->
     <label for="emailaddress">Please enter your Email address</label>
     <div class="formgroup">
       <input name='emailaddress' id='emailentr' placeholder="E.g. Ben@gmail.com" required="" class="form-control" type="text" onkeyup='checkemail()'></input>
     </div>
-    <small id="emailerror"></small>
-    <small id="emailadd" class="form-text text-muted">Include valid email <br> This will allow us to validate the submission of your report</small>
+    <center>
+      <small id="emailerror"></small>
+    </center>
       <br>
 
 

@@ -78,11 +78,11 @@ function checknumber(){
 function checkemail(){
   var emailentr = document.getElementById('emailentr').value;
   if (/^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/.test(emailentr)){
-    document.getElementById("emailerror").innerHTML = "valid";
+    document.getElementById("emailerror").innerHTML = "Valid email address provided";
     document.getElementById("emailerror").style.color = "green";
     return true;
   } else{
-    document.getElementById("emailerror").innerHTML = "invalid";
+    document.getElementById("emailerror").innerHTML = "Invalid email address";
     document.getElementById("emailerror").style.color = "red";
     return false;
   }

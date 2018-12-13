@@ -20,7 +20,6 @@
       <li>Waste Details</li>
       <li>Witness Details</li>
       <li>Add Photos</li>
-      <li>Report Submission</li>
     </ul>
   </div>
 <br>
@@ -51,21 +50,24 @@
     <label for="waste">Select the waste you found</label>
     <div class="form-group">
 
-      <div id="waste">
-        <div name="selectwaste">
-          <input type="checkbox" name="1"> blackbags/household<br>
-          <input type="checkbox" name="2"> White Goods<br>
-          <input type="checkbox" name="3"> Furniture<br>
-          <input type="checkbox" name="4"> Mattress<br>
-          <input type="checkbox" name="5"> other Unidentified<br>
-          <input type="checkbox" name="6"> Green waste<br>
-          <input type="checkbox" name="7"> black bags-commercial<br>
-          <input type="checkbox" name="8"> other commercial<br>
-          <input type="checkbox" name="9"> vehicle Parts<br>
-          <input type="checkbox" name="10"> asbestos<br>
-          <input type="checkbox" name="11"> clinical <br>
-          <input type="checkbox" name="12"> animal Carcass <br>
-        </div>
+      <select class="test" multiple="multiple">
+        <optgroup label="Type Of Waste">
+            <option value="blackbags-household">Black bages - household</option>
+            <option value="construction">Construction / demolition / excavation</option>
+            <option value="whiteGoods">White Goods</option>
+            <option value="furniture" >Furniture</option>
+            <option value="mattress">Mattress</option>
+            <option value="otherUnidentified">Other unidentified</option>
+            <option value="greenWaste">Green waste</option>
+            <option value="blackBags-commercial">Black Bags - commercial</option>
+            <option value="otherCommercialWaste">Other commercial waste</option>
+            <option value="vehicleParts">Vehicle parts</option>
+            <option value="asbestos">Asbestos</option>
+            <option value="chemicalDrums/oil/fuel">Chemical drums, oil, fuel</option>
+            <option value="clinical">Clinical</option>
+            <option value="animalCarcass">Animal carcass</option>
+        </optgroup>
+       </select>
         <small class="form-text text-muted">Select waste found</small>
         <br>
 

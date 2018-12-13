@@ -298,7 +298,7 @@ def future():
         conn.close()
     return render_template('AdminPanel.html', report=data)
 
-# @app.route("/Locations") 
+# @app.route("/Locations")
 # def locations():
 #     print("In Admin")
 #     try:
@@ -320,6 +320,6 @@ def future():
 #     return render_template('AdminPanel.html', report=data)
 
 if __name__ == "__main__":
-    # app.run(host='0.0.0.0', port=8080) #/to run this on your phone please uncomment this and type yourinternetipaddress(ipv4):8080/home
+    app.run(host='0.0.0.0', port=8080) #/to run this on your phone please uncomment this and type yourinternetipaddress(ipv4):8080/home
     app.run(debug=True)
     main()

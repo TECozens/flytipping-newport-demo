@@ -37,7 +37,8 @@ table {
   font-family: arial, sans-serif;
   border-collapse: collapse;
   width: 80%;
-  margin:auto;
+  /* margin:auto; */
+  margin-right: 300px;
 }
 
 td, th {
