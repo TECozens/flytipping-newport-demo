@@ -9,6 +9,12 @@
           $('.test').fSelect();
       });
   })(jQuery);
+  function myFunction() {
+    var values = $('#wastes').val();
+    alert(values)
+    // $("#result").text(data.result); pass this into database
+  }
+
   </script>
 {%endblock%}
 {%block mainBlock%}
@@ -37,20 +43,20 @@
     <div>
       <h3> Info on Waste:
           <label class="switch">
-              <input id="myCheck" type="checkbox" onclick="myFunction2()">
+              <input id="myCheck" type="checkbox" onclick="myFunction2()"></input>
               <span class="slider round"></span>
           </label>
       </h3>
       <p class="Information" id="text" style="display:none">
-        <lavel>*NOTICE: IT IS IMPORTANT NOT TO TAMPER OR ATTEMPT TO OPEN WASTE BAGS*<br>This is due to the danger of unknown items within the waste which could be HARMFUL to your health and others </lavel>
+        <label>*NOTICE: IT IS IMPORTANT NOT TO TAMPER OR ATTEMPT TO OPEN WASTE BAGS*<br>This is due to the danger of unknown items within the waste which could be HARMFUL to your health and others </label>
       </p>
     </div>
 
     <!-- Waste Field -->
     <label for="waste">Select the waste you found</label>
-    <div class="form-group">
-
-      <select class="test" multiple="multiple">
+    <!-- <div class="form-group"> -->
+      <br>
+      <select class="test" multiple="multiple" id="wastes">
         <optgroup label="Type Of Waste">
             <option value="blackbags-household">Black bages - household</option>
             <option value="construction">Construction / demolition / excavation</option>
@@ -80,7 +86,7 @@
           </li>
           <li class="imgL" > Significant loads <input type="radio" name ="wasteSize" id="cb2" value="Significant_loads" />
             <label for="cb2"><img src="..\static\multiLoad.jpg" /></label>
-          </li class="imgL" >
+
           <li class="imgL" > Single black bag <input type="radio" name ="wasteSize" id="cb3" value="Single_black_bag" />
             <label for="cb3"><img src="..\static\singleblack.jpg" /></label>
           </li>
@@ -100,14 +106,11 @@
         </ul>
         <br>
 
-      </div>
-      </div>
-
 
     <!-- Submit -->
     <div class="formgroup">
         <div class="Next">
-            <button>Continue</button>
+            <button onclick="myFunction()">Continue</button>
         </div>
     </div>
     <br>

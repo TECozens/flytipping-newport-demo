@@ -110,7 +110,7 @@ body{
   margin-top: 10%;
 }
 
-.card, .btn, .form-control { border-radius: 30px; }
+.card, .btn, .form-control { border-radius: 0; }
 #map{
   height: 100%;
 }

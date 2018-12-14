@@ -91,7 +91,7 @@ def do_admin_login():
     if request.form['password'] == pw and request.form['username'] == uName:
         session['logged_in'] = True
     else:
-        return render_template('admin.html')
+        return render_template('admin.html',msg = error)
     return home()
 # =======================================================================
 #       methods
@@ -277,9 +277,9 @@ def open_flyform5_page():
             conn.close()
             return render_template('home.html')
 
-@app.route("/Reports") #change this to /Reports later
+@app.route("/Reports", methods=["GET"]) #change this to /Reports later
 def future():
-    print("In Admin")
+    print("In report")
     try:
          conn = sqlite3.connect(DATABASE)
          cur = conn.cursor()
@@ -296,7 +296,7 @@ def future():
         msg = "error"
     finally:
         conn.close()
-    return render_template('AdminPanel.html', report=data)
+    return render_template('reports.html', report=data)
 
 # @app.route("/Locations")
 # def locations():
